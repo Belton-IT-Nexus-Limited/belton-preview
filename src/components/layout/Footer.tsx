@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { ChevronUpIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
+import { getImagePath } from '@/lib/images'
+import { Image } from '../ui/Image'
 import { Container } from '../ui/Container'
 import { FooterColumn, FooterLink } from './FooterColumn'
 import { Button } from '../ui/Button'
@@ -11,7 +13,6 @@ export function Footer(): JSX.Element {
   const { isAU } = useRegion()
 
   const basePath = isAU ? '/au' : '/'
-  const logoPath = '/assets/images/belton-logo-white-red.png'
 
   const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -23,8 +24,8 @@ export function Footer(): JSX.Element {
         <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-16 mb-12 max-w-[1200px] mx-auto md:grid-cols-2 md:gap-8">
           <div className="flex flex-col">
             <Link to={basePath}>
-              <img
-                src={logoPath}
+              <Image
+                src={getImagePath('logo')}
                 alt="Belton IT Nexus"
                 className="h-9 mb-4 opacity-90"
                 width={1620}
