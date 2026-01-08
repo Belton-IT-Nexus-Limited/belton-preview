@@ -1,0 +1,42 @@
+{
+  "howWeWork": "How We Work",
+  "services": "Services",
+  "clients": "Clients",
+  "about": "About",
+  "resources": "Resources",
+  "megaMenu": {
+    "foundation": "Foundation",
+    "productivity": "Productivity",
+    "protection": "Protection",
+    "strategy": "Strategy"
+  },
+  "servicesItems": {
+    "managedIT": "Managed IT",
+    "managedDevices": "Managed Devices",
+    "securityOperations": "Security Operations",
+    "networkSecurity": "Network Security",
+    "microsoft365": "Microsoft 365",
+    "cloudSolutions": "Cloud Solutions",
+    "connectivity": "Connectivity",
+    "businessVoIP": "Business VoIP",
+    "identityAccess": "Identity & Access",
+    "emailSecurity": "Email Security",
+    "backupRecovery": "Backup & Recovery",
+    "compliance": "Compliance",
+    "itAdvisory": "IT Advisory",
+    "aiCopilot": "AI & Copilot",
+    "projects": "Projects"
+  },
+  "clientsItems": {
+    "whoWeHelp": "Who We Help",
+    "successStories": "Success Stories"
+  },
+  "resourcesItems": {
+    "diyCybersecurity": "DIY Cybersecurity",
+    "essentialEight": "Essential Eight",
+    "m365SecurityChecklist": "M365 Security Checklist",
+    "cyberInsuranceReadiness": "Cyber Insurance Readiness",
+    "securityAssessment": "Security Assessment",
+    "faq": "FAQ"
+  }
+}

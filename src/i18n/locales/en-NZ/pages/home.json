@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "badge": "Microsoft Partner since 2004",
+    "title": "Reliable, secure IT.\nWithout the complexity.",
+    "subtitle": "We help organisations run well-governed technology environments - with clear ownership, predictable costs, and people who actually pick up the phone.",
+    "cta": "Start a Conversation"
+  },
+  "whoWeHelp": {
+    "label": "Who we help",
+    "title": "Organisations that take technology seriously",
+    "intro": "We work with businesses that understand IT is infrastructure, not overhead. Typically 20-200 people, often in professional services, healthcare, or finance - where reliability and security aren't optional.",
+    "types": {
+      "growing": {
+        "title": "Growing businesses",
+        "description": "Outgrown the \"IT guy\" model. Need structure, documentation, and someone accountable for the whole environment."
+      },
+      "compliance": {
+        "title": "Compliance-conscious",
+        "description": "Financial services, healthcare, legal. Where governance and audit trails matter as much as uptime."
+      },
+      "security": {
+        "title": "Security-aware",
+        "description": "Boards asking about cyber risk. Insurance requiring controls. Need a partner who understands the threat landscape."
+      },
+      "microsoft": {
+        "title": "Microsoft-invested",
+        "description": "Already on Microsoft 365 or Azure. Want it configured properly, secured correctly, and actively managed."
+      }
+    }
+  },
+  "whatWeDo": {
+    "label": "What we do",
+    "title": "Run IT. Protect IT. Improve IT.",
+    "intro": "We take responsibility for your technology environment as a whole. One team, one relationship, clear ownership.",
+    "groups": {
+      "run": {
+        "title": "Run",
+        "items": {
+          "managedIT": "Managed IT Services",
+          "deviceManagement": "Device Management",
+          "microsoft365": "Microsoft 365",
+          "cloudInfrastructure": "Cloud Infrastructure"
+        }
+      },
+      "protect": {
+        "title": "Protect",
+        "items": {
+          "securityOperations": "Security Operations",
+          "identityAccess": "Identity & Access",
+          "emailSecurity": "Email Security",
+          "backupRecovery": "Backup & Recovery"
+        }
+      },
+      "improve": {
+        "title": "Improve",
+        "items": {
+          "itAdvisory": "IT Advisory",
+          "complianceGovernance": "Compliance & Governance",
+          "projectsMigrations": "Projects & Migrations",
+          "aiReadiness": "AI Readiness"
+        }
+      }
+    },
+    "viewAll": "View all services"
+  },
+  "howWeWork": {
+    "label": "How we work",
+    "title": "Predictable. Accountable. Human.",
+    "intro1": "We've learned over twenty years that good IT isn't about heroics - it's about consistency. Systems monitored, changes planned, documentation maintained, people trained.",
+    "intro2": "When something needs attention, you talk to someone who already knows your environment. Not a call centre. Not a ticket queue. Real people, in Auckland, who take ownership.",
+    "link": "How we work with clients",
+    "points": {
+      "ownership": {
+        "title": "Clear ownership",
+        "description": "One team responsible for everything"
+      },
+      "response": {
+        "title": "15-minute response",
+        "description": "For critical issues, guaranteed"
+      },
+      "documentation": {
+        "title": "Full documentation",
+        "description": "Your environment, mapped and maintained"
+      },
+      "reviews": {
+        "title": "Quarterly reviews",
+        "description": "Aligned to your business, not just tickets"
+      }
+    }
+  },
+  "trust": {
+    "quote": "\"What stood out was the depth of thinking. They didn't just quote on what we asked for - they helped us understand what we actually needed, and why.\"",
+    "quoteAuthor": "Finance Director, Auckland professional services firm",
+    "facts": {
+      "years": {
+        "value": "20+ years",
+        "label": "Operating in New Zealand"
+      },
+      "organisations": {
+        "value": "350+",
+        "label": "Organisations supported"
+      },
+      "location": {
+        "value": "Auckland",
+        "label": "Based and accountable"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to talk?",
+    "subtitle": "We'll have an honest conversation about what you need. If we're not the right fit, we'll tell you - and point you in the right direction.",
+    "button": "Start a Conversation",
+    "reassurance": "No obligation. No sales pitch. Just a conversation about your situation."
+  }
+}

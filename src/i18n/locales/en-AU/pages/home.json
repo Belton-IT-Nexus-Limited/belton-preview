@@ -1,0 +1,91 @@
+{
+  "hero": {
+    "badge": "Microsoft Partner since 2004",
+    "title": "Secure IT\nfor growing\nAustralian business",
+    "subtitle": "We partner with organisations to build IT foundations that scale.\nSecure systems, reliable support, and a roadmap aligned with your goals.",
+    "cta": "Start a Conversation",
+    "phone": "02 8006 9191"
+  },
+  "stats": {
+    "organisations": {
+      "value": "350+",
+      "label": "Organisations"
+    },
+    "years": {
+      "value": "20+",
+      "label": "Years Experience"
+    },
+    "support": {
+      "value": "24/7",
+      "label": "Support Available"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Uptime SLA"
+    }
+  },
+  "services": {
+    "title": "Your IT department, without the overhead",
+    "intro1": "We take over everything. Devices, users, security, backups, cloud apps, network.\nOne team handles it all. One monthly fee covers it all. No surprise invoices, no finger-pointing between vendors.",
+    "intro2": "Most of our clients came to us after outgrowing their previous provider. They needed someone\nwho could actually pick up the phone. Someone who fixes problems properly instead of applying band-aids.",
+    "items": {
+      "managedIT": {
+        "name": "Managed IT",
+        "description": "Helpdesk, devices, users, and day-to-day support"
+      },
+      "security": {
+        "name": "Security Operations",
+        "description": "24/7 monitoring and threat response"
+      },
+      "microsoft365": {
+        "name": "Microsoft 365",
+        "description": "Configured, secured, and actively managed"
+      },
+      "cloud": {
+        "name": "Cloud & Infrastructure",
+        "description": "Azure, AWS, and hybrid environments"
+      }
+    }
+  },
+  "approach": {
+    "title": "We do things differently",
+    "intro1": "Twenty years in this industry taught us something: most IT providers are reactive.\nThey wait for things to break, then charge you to fix them. That model doesn't work for businesses trying to grow.",
+    "intro2": "We take a proactive approach. We monitor everything, patch systems before vulnerabilities become problems,\nand build roadmaps that align with where your business is headed. When something does go wrong,\nyou talk to someone who knows your environment.",
+    "intro3": "No overseas call centres. No scripts. No ticket queues that go nowhere.",
+    "details": {
+      "title": "What you get",
+      "items": [
+        "Direct line to Sydney-based technicians",
+        "Proactive monitoring and maintenance",
+        "Quarterly business reviews with your account manager",
+        "Clear documentation of your entire environment",
+        "Predictable monthly costs with no surprises"
+      ]
+    }
+  },
+  "testimonial": {
+    "quote": "\"They actually understand our business. When we needed to expand into New Zealand,\nthey had everything sorted within a week. No drama, no unexpected costs.\"",
+    "author": "Operations Manager, Sydney professional services firm",
+    "metrics": {
+      "response": "15 min average response time",
+      "satisfaction": "95.4% customer satisfaction",
+      "rating": "4.8/5 support rating"
+    }
+  },
+  "beyond": {
+    "title": "Beyond the basics",
+    "intro": "IT management is our foundation. But we also help with the strategic stuff.\nCompliance frameworks, security assessments, cloud migrations, AI adoption.\nThe projects that move your business forward.",
+    "links": {
+      "compliance": "Compliance & Frameworks",
+      "advisory": "IT Strategy & Advisory",
+      "projects": "Projects & Migrations",
+      "ai": "AI & Copilot Readiness"
+    }
+  },
+  "cta": {
+    "title": "Let's talk about what you need",
+    "subtitle": "Tell us where your business is headed. We'll show you how IT can help you get there.",
+    "button": "Start a Conversation",
+    "phone": "02 8006 9191"
+  }
+}
