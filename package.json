@@ -9,7 +9,11 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "generate-sitemap": "tsx scripts/generate-sitemap.ts",
-    "analyze": "ANALYZE=true pnpm build && node scripts/analyze-bundle.js"
+    "analyze": "ANALYZE=true pnpm build && node scripts/analyze-bundle.js",
+    "test:seo": "tsx scripts/test-seo.ts",
+    "test:performance": "pnpm build && tsx scripts/test-performance.ts",
+    "test:links": "tsx scripts/validate-links.ts",
+    "test:all": "pnpm lint && pnpm build && pnpm test:seo && pnpm test:performance && pnpm test:links"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.0",
@@ -30,6 +34,7 @@
     "zod": "^3.22.0"
   },
   "devDependencies": {
+    "@types/glob": "^9.0.0",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
@@ -40,6 +45,7 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "glob": "^13.0.0",
     "postcss": "^8.4.0",
     "rollup-plugin-visualizer": "^6.0.5",
     "tailwindcss": "^3.4.0",
