@@ -69,7 +69,8 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps): JSX.Element {
                   key={item.key}
                   to={item.href}
                   onClick={onClose}
-                  className="block py-1.5 text-sm text-text-secondary hover:text-text transition-colors whitespace-nowrap"
+                  className="block py-1.5 text-sm text-text-secondary hover:text-text transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset rounded"
+                  role="menuitem"
                 >
                   {t(`servicesItems.${item.key}`)}
                 </Link>

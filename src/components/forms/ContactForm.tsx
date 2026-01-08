@@ -6,6 +6,7 @@ import { Input } from './Input'
 import { Textarea } from './Textarea'
 import { CheckboxGroup } from './CheckboxGroup'
 import { Button } from '../ui/Button'
+import { LiveRegion } from '../ui/LiveRegion'
 import { cn } from '@/lib/utils'
 
 const WEB3FORMS_ACCESS_KEY = '64c15151-8b61-4a9e-b92d-8ad9cb574933'
@@ -96,7 +97,11 @@ export function ContactForm({ className }: ContactFormProps): JSX.Element {
 
   if (isSuccess) {
     return (
-      <div className={cn('bg-surface border border-border rounded-xl p-10 text-center', className)}>
+      <>
+        <LiveRegion level="assertive">
+          {t('form.successMessage')}
+        </LiveRegion>
+        <div className={cn('bg-surface border border-border rounded-xl p-10 text-center', className)} role="alert">
         <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg
             className="w-6 h-6 text-accent"
@@ -121,12 +126,19 @@ export function ContactForm({ className }: ContactFormProps): JSX.Element {
           </a>
         </p>
       </div>
+      </>
     )
   }
 
   return (
-    <div className={cn('bg-surface border border-border rounded-xl p-10', className)}>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <>
+      {error && (
+        <LiveRegion level="assertive">
+          {error}
+        </LiveRegion>
+      )}
+      <div className={cn('bg-surface border border-border rounded-xl p-10', className)}>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
         <CheckboxGroup
           label={t('form.topics.label')}
           name="topics"
@@ -244,6 +256,7 @@ export function ContactForm({ className }: ContactFormProps): JSX.Element {
           </Button>
         </div>
       </form>
-    </div>
+      </div>
+    </>
   )
 }

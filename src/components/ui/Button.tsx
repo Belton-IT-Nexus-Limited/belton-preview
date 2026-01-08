@@ -40,7 +40,7 @@ const sizeStyles: Record<ButtonSize, string> = {
 export function Button(props: ButtonComponentProps): JSX.Element {
   const { variant = 'primary', size = 'default', children, className, ...rest } = props
 
-  const baseStyles = 'inline-flex items-center gap-2.5 rounded font-semibold transition-all duration-200 cursor-pointer'
+  const baseStyles = 'inline-flex items-center gap-2.5 rounded font-semibold transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg'
 
   const classes = cn(
     baseStyles,

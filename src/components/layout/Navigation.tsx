@@ -61,25 +61,33 @@ export function Navigation(): JSX.Element {
       <div className="relative group">
         <button
           type="button"
-          className="text-sm font-medium tracking-wide text-text-secondary hover:text-text transition-colors py-2 inline-flex items-center gap-1.5"
+          className="text-sm font-medium tracking-wide text-text-secondary hover:text-text transition-colors py-2 inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded"
           onClick={() => setOpenClients(!openClients)}
+          aria-expanded={openClients}
+          aria-haspopup="true"
+          aria-label={`${t('clients')} menu`}
         >
           {t('clients')}
-          <ChevronDownIcon className="w-2.5 h-2.5 opacity-50" />
+          <ChevronDownIcon className="w-2.5 h-2.5 opacity-50" aria-hidden="true" />
         </button>
         {openClients && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 translate-y-2.5 bg-bg-elevated/98 border border-border rounded-lg py-3 min-w-[180px] opacity-0 invisible transition-all duration-200 pointer-events-none backdrop-blur-xl group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto">
+          <div
+            role="menu"
+            className="absolute top-full left-1/2 -translate-x-1/2 translate-y-2.5 bg-bg-elevated/98 border border-border rounded-lg py-3 min-w-[180px] opacity-0 invisible transition-all duration-200 pointer-events-none backdrop-blur-xl group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto"
+          >
             <Link
               to={`${basePath}/who-we-work-with`}
               onClick={() => setOpenClients(false)}
-              className="block px-5 py-2.5 text-sm text-text-secondary hover:text-text hover:bg-surface transition-all whitespace-nowrap"
+              className="block px-5 py-2.5 text-sm text-text-secondary hover:text-text hover:bg-surface transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset"
+              role="menuitem"
             >
               {t('clientsItems.whoWeHelp')}
             </Link>
             <Link
               to={`${basePath}/client-success`}
               onClick={() => setOpenClients(false)}
-              className="block px-5 py-2.5 text-sm text-text-secondary hover:text-text hover:bg-surface transition-all whitespace-nowrap"
+              className="block px-5 py-2.5 text-sm text-text-secondary hover:text-text hover:bg-surface transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset"
+              role="menuitem"
             >
               {t('clientsItems.successStories')}
             </Link>
@@ -100,14 +108,20 @@ export function Navigation(): JSX.Element {
       <div className="relative group">
         <button
           type="button"
-          className="text-sm font-medium tracking-wide text-text-secondary hover:text-text transition-colors py-2 inline-flex items-center gap-1.5"
+          className="text-sm font-medium tracking-wide text-text-secondary hover:text-text transition-colors py-2 inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded"
           onClick={() => setOpenResources(!openResources)}
+          aria-expanded={openResources}
+          aria-haspopup="true"
+          aria-label={`${t('resources')} menu`}
         >
           {t('resources')}
-          <ChevronDownIcon className="w-2.5 h-2.5 opacity-50" />
+          <ChevronDownIcon className="w-2.5 h-2.5 opacity-50" aria-hidden="true" />
         </button>
         {openResources && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 translate-y-2.5 bg-bg-elevated/98 border border-border rounded-lg py-3 min-w-[180px] opacity-0 invisible transition-all duration-200 pointer-events-none backdrop-blur-xl group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto">
+          <div
+            role="menu"
+            className="absolute top-full left-1/2 -translate-x-1/2 translate-y-2.5 bg-bg-elevated/98 border border-border rounded-lg py-3 min-w-[180px] opacity-0 invisible transition-all duration-200 pointer-events-none backdrop-blur-xl group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto"
+          >
             <Link
               to={`${basePath}/diy-cybersecurity`}
               onClick={() => setOpenResources(false)}
