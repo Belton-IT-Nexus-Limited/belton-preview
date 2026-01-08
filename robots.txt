@@ -1,0 +1,9 @@
+# Robots.txt for www.belton.co.nz
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.belton.co.nz/sitemap.xml
+
+# Disallow admin/utility pages
+Disallow: /partials/
