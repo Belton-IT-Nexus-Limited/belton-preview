@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.belton.co.nz/sitemap.xml
+Sitemap: https://belton.com.au/sitemap.xml
+
+Disallow: /partials/
+Disallow: /assets/js/
+Disallow: /node_modules/

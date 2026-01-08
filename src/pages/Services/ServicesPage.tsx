@@ -1,17 +1,35 @@
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
+import { SEO } from '@/components/seo/SEO'
+import { StructuredData } from '@/components/seo/StructuredData'
 import { PageHeader } from '@/components/pages/PageHeader'
 import { OptionBlock } from '@/components/pages/OptionBlock'
 import { ServiceCategorySection } from '@/components/pages/ServiceCategorySection'
 import { CTASection } from '@/components/sections/CTASection'
 import { Container } from '@/components/ui/Container'
 import { ProseBlock } from '@/components/sections/ProseBlock'
+import { getCanonicalUrl } from '@/lib/seo'
+import { useLocation } from 'react-router-dom'
 
 export function ServicesPage(): JSX.Element {
   const { t } = useTranslation('pages/services')
   const { t: tCommon } = useTranslation('common')
   const { isAU } = useRegion()
+  const location = useLocation()
   const basePath = isAU ? '/au' : ''
+
+  const seoData = {
+    title: isAU
+      ? 'IT Services for Australian Business | Belton IT Nexus'
+      : 'IT Services for New Zealand Business | Belton IT Nexus',
+    description: t('intro'),
+    canonical: getCanonicalUrl(location.pathname, isAU)
+  }
+
+  const breadcrumbs = [
+    { name: tCommon('home'), url: getCanonicalUrl('/', isAU) },
+    { name: t('title'), url: getCanonicalUrl(location.pathname, isAU) }
+  ]
 
   const categories = [
     { key: 'foundation', label: t('categories.foundation') },
@@ -22,6 +40,13 @@ export function ServicesPage(): JSX.Element {
 
   return (
     <>
+      <SEO data={seoData} />
+      <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
+      <StructuredData
+        type="service"
+        serviceName={t('title')}
+        serviceDescription={t('intro')}
+      />
       <PageHeader
         breadcrumbs={[
           { label: tCommon('home'), href: '/' },

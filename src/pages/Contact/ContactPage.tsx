@@ -1,17 +1,39 @@
+import { useLocation } from 'react-router-dom'
 import { PageHeader } from '@/components/pages/PageHeader'
 import { ContactInfo } from '@/components/pages/ContactInfo'
 import { ContactForm } from '@/components/forms/ContactForm'
+import { SEO } from '@/components/seo/SEO'
+import { StructuredData } from '@/components/seo/StructuredData'
 import { Container } from '@/components/ui/Container'
 import { useTranslation } from 'react-i18next'
+import { useRegion } from '@/hooks/useRegion'
 import { getImagePath } from '@/lib/images'
+import { getCanonicalUrl } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 
 export function ContactPage(): JSX.Element {
   const { t } = useTranslation('pages/contact')
   const { t: tCommon } = useTranslation('common')
+  const { isAU } = useRegion()
+  const location = useLocation()
+
+  const seoData = {
+    title: isAU
+      ? 'Contact Belton IT Nexus | Get in Touch | Australian IT Support'
+      : 'Contact Belton IT Nexus | Get in Touch | New Zealand IT Support',
+    description: t('subtitle'),
+    canonical: getCanonicalUrl(location.pathname, isAU)
+  }
+
+  const breadcrumbs = [
+    { name: tCommon('home'), url: getCanonicalUrl('/', isAU) },
+    { name: t('title'), url: getCanonicalUrl(location.pathname, isAU) }
+  ]
 
   return (
     <>
+      <SEO data={seoData} />
+      <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
       <PageHeader
         breadcrumbs={[
           { label: tCommon('home'), href: '/' },
