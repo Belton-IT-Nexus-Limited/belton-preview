@@ -2057,3 +2057,34 @@ a { color: inherit; text-decoration: none; }
         font-size: 0.95rem !important;
     }
 }
+
+/* Fix mega-menu off-screen issue */
+@media (max-width: 768px) {
+    .mega-menu,
+    .dropdown-menu {
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .mega-menu-grid {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .mega-menu-column {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .mega-menu-column a,
+    .dropdown-menu a {
+        white-space: normal !important;
+        overflow: visible !important;
+    }
+}
