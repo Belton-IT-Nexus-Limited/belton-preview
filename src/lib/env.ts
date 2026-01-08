@@ -8,7 +8,8 @@ interface EnvConfig {
 }
 
 function getEnvVar(key: string, defaultValue?: string): string {
-  const value = import.meta.env[key as keyof typeof import.meta.env]
+  const env = import.meta.env as Record<string, string | undefined>
+  const value = env[key]
   if (value) {
     return value
   }

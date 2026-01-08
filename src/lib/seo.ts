@@ -18,11 +18,13 @@ export interface SiteConfig {
   twitterHandle?: string
 }
 
+import { env } from './env'
+
 export const siteConfig: SiteConfig = {
   siteName: 'Belton IT Nexus',
   siteUrl: {
-    nz: 'https://www.belton.co.nz',
-    au: 'https://belton.com.au'
+    nz: env.siteUrlNz,
+    au: env.siteUrlAu
   },
   defaultImage: '/images/belton-og-image.png',
   twitterHandle: '@beltonit'
