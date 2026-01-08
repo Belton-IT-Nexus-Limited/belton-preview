@@ -86,6 +86,108 @@
     "title": "Let's talk about what you need",
     "subtitle": "Tell us where your business is headed. We'll show you how IT can help you get there.",
     "button": "Start a Conversation",
-    "phone": "02 8006 9191"
+    "phone": "02 8006 9191",
+    "reassurance": ""
+  },
+  "whoWeHelp": {
+    "label": "",
+    "title": "",
+    "intro": "",
+    "types": {
+      "growing": {
+        "title": "",
+        "description": ""
+      },
+      "compliance": {
+        "title": "",
+        "description": ""
+      },
+      "security": {
+        "title": "",
+        "description": ""
+      },
+      "microsoft": {
+        "title": "",
+        "description": ""
+      }
+    }
+  },
+  "whatWeDo": {
+    "label": "",
+    "title": "",
+    "intro": "",
+    "groups": {
+      "run": {
+        "title": "",
+        "items": {
+          "managedIT": "",
+          "deviceManagement": "",
+          "microsoft365": "",
+          "cloudInfrastructure": ""
+        }
+      },
+      "protect": {
+        "title": "",
+        "items": {
+          "securityOperations": "",
+          "identityAccess": "",
+          "emailSecurity": "",
+          "backupRecovery": ""
+        }
+      },
+      "improve": {
+        "title": "",
+        "items": {
+          "itAdvisory": "",
+          "complianceGovernance": "",
+          "projectsMigrations": "",
+          "aiReadiness": ""
+        }
+      }
+    },
+    "viewAll": ""
+  },
+  "howWeWork": {
+    "label": "",
+    "title": "",
+    "intro1": "",
+    "intro2": "",
+    "link": "",
+    "points": {
+      "ownership": {
+        "title": "",
+        "description": ""
+      },
+      "response": {
+        "title": "",
+        "description": ""
+      },
+      "documentation": {
+        "title": "",
+        "description": ""
+      },
+      "reviews": {
+        "title": "",
+        "description": ""
+      }
+    }
+  },
+  "trust": {
+    "quote": "",
+    "quoteAuthor": "",
+    "facts": {
+      "years": {
+        "value": "",
+        "label": ""
+      },
+      "organisations": {
+        "value": "",
+        "label": ""
+      },
+      "location": {
+        "value": "",
+        "label": ""
+      }
+    }
   }
 }

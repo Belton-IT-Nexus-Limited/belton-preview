@@ -14,7 +14,10 @@
     "test:seo": "tsx scripts/test-seo.ts",
     "test:performance": "pnpm build && tsx scripts/test-performance.ts",
     "test:links": "tsx scripts/validate-links.ts",
-    "test:all": "pnpm lint && pnpm build && pnpm test:seo && pnpm test:performance && pnpm test:links"
+    "test:all": "pnpm lint && pnpm build && pnpm test:seo && pnpm test:performance && pnpm test:links",
+    "content:audit": "tsx scripts/audit-content.ts",
+    "content:extract": "tsx scripts/extract-content.ts",
+    "content:validate": "tsx scripts/validate-translations.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.0",

@@ -110,6 +110,84 @@
     "title": "Ready to talk?",
     "subtitle": "We'll have an honest conversation about what you need. If we're not the right fit, we'll tell you - and point you in the right direction.",
     "button": "Start a Conversation",
-    "reassurance": "No obligation. No sales pitch. Just a conversation about your situation."
+    "reassurance": "No obligation. No sales pitch. Just a conversation about your situation.",
+    "phone": ""
+  },
+  "hero": {
+    "badge": "Microsoft Partner since 2004",
+    "title": "Reliable, secure IT.\nWithout the complexity.",
+    "subtitle": "We help organisations run well-governed technology environments - with clear ownership, predictable costs, and people who actually pick up the phone.",
+    "cta": "Start a Conversation",
+    "phone": ""
+  },
+  "stats": {
+    "organisations": {
+      "value": "",
+      "label": ""
+    },
+    "years": {
+      "value": "",
+      "label": ""
+    },
+    "support": {
+      "value": "",
+      "label": ""
+    },
+    "uptime": {
+      "value": "",
+      "label": ""
+    }
+  },
+  "services": {
+    "title": "",
+    "intro1": "",
+    "intro2": "",
+    "items": {
+      "managedIT": {
+        "name": "",
+        "description": ""
+      },
+      "security": {
+        "name": "",
+        "description": ""
+      },
+      "microsoft365": {
+        "name": "",
+        "description": ""
+      },
+      "cloud": {
+        "name": "",
+        "description": ""
+      }
+    }
+  },
+  "approach": {
+    "title": "",
+    "intro1": "",
+    "intro2": "",
+    "intro3": "",
+    "details": {
+      "title": "",
+      "items": []
+    }
+  },
+  "testimonial": {
+    "quote": "",
+    "author": "",
+    "metrics": {
+      "response": "",
+      "satisfaction": "",
+      "rating": ""
+    }
+  },
+  "beyond": {
+    "title": "",
+    "intro": "",
+    "links": {
+      "compliance": "",
+      "advisory": "",
+      "projects": "",
+      "ai": ""
+    }
   }
 }

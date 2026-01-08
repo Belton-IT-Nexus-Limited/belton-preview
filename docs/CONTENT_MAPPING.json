@@ -1,0 +1,658 @@
+[
+  {
+    "page": "index-orb",
+    "region": "nz",
+    "namespace": "pages/home",
+    "key": "title",
+    "content": "Belton IT Nexus | Managed IT for NZ Business",
+    "extracted": false
+  },
+  {
+    "page": "index-orb",
+    "region": "nz",
+    "namespace": "pages/home",
+    "key": "description",
+    "content": "Managed IT and cybersecurity for NZ businesses. We pick up the phone. We fix problems properly. Microsoft Partner since 2004.",
+    "extracted": false
+  },
+  {
+    "page": "index-orb",
+    "region": "nz",
+    "namespace": "pages/home",
+    "key": "section1.title",
+    "content": "Complete IT Management",
+    "extracted": false
+  },
+  {
+    "page": "index-orb",
+    "region": "nz",
+    "namespace": "pages/home",
+    "key": "section2.title",
+    "content": "Let's build something together",
+    "extracted": false
+  },
+  {
+    "page": "index-orb",
+    "region": "nz",
+    "namespace": "pages/home",
+    "key": "paragraph1",
+    "content": "One team. One monthly fee. No surprises. We handle everything so you can focus on your business.",
+    "extracted": false,
+    "notes": "Class: section-sub"
+  },
+  {
+    "page": "index-orb",
+    "region": "nz",
+    "namespace": "pages/home",
+    "key": "paragraph2",
+    "content": "&copy; 2025 Belton IT Nexus Limited",
+    "extracted": false,
+    "notes": "Class: footer-copy"
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "title",
+    "content": "Services",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "description",
+    "content": "IT services for New Zealand businesses. Security, cloud, Microsoft 365, backup, connectivity, and strategic advisory.",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "title",
+    "content": "Everything your business technology needs",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "section1.title",
+    "content": "Not sure where to start?",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "paragraph1",
+    "content": "Home / Services",
+    "extracted": false,
+    "notes": "Class: page-lead"
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "paragraph2",
+    "content": "Pick what you need. Or let us handle all of it.",
+    "extracted": false,
+    "notes": "Class: page-subtitle"
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "paragraph3",
+    "content": "Most businesses need a mix of technology services working together. We handle everything from the devices your team uses daily to the security that keeps your data safe. Some clients hand us the keys to their entire IT environment. Others bring us in for specific projects. Either way works.",
+    "extracted": false,
+    "notes": "Class: section-intro"
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "paragraph4",
+    "content": "No obligation. No sales pitch. Just a straightforward discussion about your situation.",
+    "extracted": false,
+    "notes": "Class: cta-reassurance"
+  },
+  {
+    "page": "services",
+    "region": "nz",
+    "namespace": "pages/services",
+    "key": "paragraph5",
+    "content": "A professional services firm that happens to do IT.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "title",
+    "content": "Contact",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "description",
+    "content": "Get in touch with Belton IT Nexus. Auckland-based managed IT and cybersecurity partner. We pick up the phone.",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "title",
+    "content": "Get in touch",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "section1.title",
+    "content": "Get in touch",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "paragraph1",
+    "content": "Home / Contact",
+    "extracted": false,
+    "notes": "Class: page-lead"
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "paragraph2",
+    "content": "We'd love to hear from you.",
+    "extracted": false,
+    "notes": "Class: page-subtitle"
+  },
+  {
+    "page": "contact",
+    "region": "nz",
+    "namespace": "pages/contact",
+    "key": "paragraph3",
+    "content": "A professional services firm that happens to do IT.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "title",
+    "content": "About Belton",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "description",
+    "content": "Belton is a professional services firm that happens to do IT. Deep Microsoft expertise, structured processes, and long-term vendor relationships that create real outcomes.",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "title",
+    "content": "A different kind of IT company",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "section1.title",
+    "content": "Technology consulting with accountability",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "section2.title",
+    "content": "How we work",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "section3.title",
+    "content": "Principles that guide us",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "section4.title",
+    "content": "Founded and led by practitioners",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "section5.title",
+    "content": "Experience you can rely on",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "section6.title",
+    "content": "Ready to talk?",
+    "extracted": false
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "paragraph1",
+    "content": "Home / About",
+    "extracted": false,
+    "notes": "Class: page-lead"
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "paragraph2",
+    "content": "We operate like a professional services firm. Structured processes, deep expertise, and long-term relationships that deliver real outcomes.",
+    "extracted": false,
+    "notes": "Class: page-subtitle"
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "paragraph3",
+    "content": "We'll have an honest conversation about your situation. If we're not the right fit, we'll tell you and point you in the right direction.",
+    "extracted": false,
+    "notes": "Class: cta-sub"
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "paragraph4",
+    "content": "No obligation. No sales pitch. Just a straightforward discussion.",
+    "extracted": false,
+    "notes": "Class: cta-reassurance"
+  },
+  {
+    "page": "about",
+    "region": "nz",
+    "namespace": "pages/about",
+    "key": "paragraph5",
+    "content": "A professional services firm that happens to do IT.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "title",
+    "content": "How We Work",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "description",
+    "content": "How Belton works with clients. A predictable process for IT partnerships: conversation, assessment, transition, ongoing support, and continuous improvement.",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "title",
+    "content": "A predictable process. Consistent outcomes.",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section1.title",
+    "content": "Conversation",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section2.title",
+    "content": "Assessment",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section3.title",
+    "content": "Transition",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section4.title",
+    "content": "Ongoing Support",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section5.title",
+    "content": "Continuous Improvement",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section6.title",
+    "content": "Working alongside your team",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section7.title",
+    "content": "What stays constant",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "section8.title",
+    "content": "Ready to start the conversation?",
+    "extracted": false
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph1",
+    "content": "Home / How We Work",
+    "extracted": false,
+    "notes": "Class: page-lead"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph2",
+    "content": "We've learned over twenty years that good IT isn't about heroics - it's about doing the fundamentals well, every time.",
+    "extracted": false,
+    "notes": "Class: page-subtitle"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph3",
+    "content": "Understanding before recommending",
+    "extracted": false,
+    "notes": "Class: process-subtitle"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph4",
+    "content": "Know before we go",
+    "extracted": false,
+    "notes": "Class: process-subtitle"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph5",
+    "content": "Methodical handover",
+    "extracted": false,
+    "notes": "Class: process-subtitle"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph6",
+    "content": "Proactive, not reactive",
+    "extracted": false,
+    "notes": "Class: process-subtitle"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph7",
+    "content": "Technology that evolves with your business",
+    "extracted": false,
+    "notes": "Class: process-subtitle"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph8",
+    "content": "If we're not the right fit, we'll tell you - and point you in the right direction.",
+    "extracted": false,
+    "notes": "Class: cta-reassurance"
+  },
+  {
+    "page": "how-we-work",
+    "region": "nz",
+    "namespace": "pages/how-we-work",
+    "key": "paragraph9",
+    "content": "A professional services firm that happens to do IT.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "title",
+    "content": "Belton IT Nexus | Managed IT for Australian Business",
+    "extracted": false
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "description",
+    "content": "Managed IT and cybersecurity for Australian businesses. We pick up the phone. We fix problems properly. Microsoft Partner since 2004.",
+    "extracted": false
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "section1.title",
+    "content": "Your IT department, without the overhead",
+    "extracted": false
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "section2.title",
+    "content": "We do things differently",
+    "extracted": false
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "section3.title",
+    "content": "Beyond the basics",
+    "extracted": false
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "section4.title",
+    "content": "Let's talk about what you need",
+    "extracted": false
+  },
+  {
+    "page": "index",
+    "region": "au",
+    "namespace": "pages/home",
+    "key": "paragraph1",
+    "content": "Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "title",
+    "content": "Services",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "description",
+    "content": "IT services for Australian businesses. Security, cloud, Microsoft 365, backup, connectivity, and strategic advisory.",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "title",
+    "content": "Everything your business technology needs",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "section1.title",
+    "content": "Not sure what you need?",
+    "extracted": false
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "paragraph1",
+    "content": "Home / Services",
+    "extracted": false,
+    "notes": "Class: page-lead"
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "paragraph2",
+    "content": "Pick what you need. Or let us handle all of it.",
+    "extracted": false,
+    "notes": "Class: page-subtitle"
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "paragraph3",
+    "content": "Most businesses need a mix of technology services working together. We handle everything from the devices your team uses daily to the security that keeps your data safe. Some clients hand us the keys to their entire IT environment. Others bring us in for specific projects. Either way works.",
+    "extracted": false,
+    "notes": "Class: section-intro"
+  },
+  {
+    "page": "services",
+    "region": "au",
+    "namespace": "pages/services",
+    "key": "paragraph4",
+    "content": "Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "title",
+    "content": "Contact",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "description",
+    "content": "Get in touch with Belton IT Nexus. Sydney-based managed IT and cybersecurity partner. We pick up the phone.",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "title",
+    "content": "Get in touch",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "section1.title",
+    "content": "Get in touch",
+    "extracted": false
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "paragraph1",
+    "content": "Home / Contact",
+    "extracted": false,
+    "notes": "Class: page-lead"
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "paragraph2",
+    "content": "We'd love to hear from you.",
+    "extracted": false,
+    "notes": "Class: page-subtitle"
+  },
+  {
+    "page": "contact",
+    "region": "au",
+    "namespace": "pages/contact",
+    "key": "paragraph3",
+    "content": "Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.",
+    "extracted": false,
+    "notes": "Class: footer-tagline"
+  }
+]
