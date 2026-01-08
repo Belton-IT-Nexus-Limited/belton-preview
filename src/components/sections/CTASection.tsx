@@ -41,7 +41,12 @@ export function CTASection({
   return (
     <section className={cn('py-24 px-[5%] text-center relative overflow-hidden', variantStyles[variant], className)}>
       {variant === 'red' && (
-        <div className="absolute top-[20%] -right-[10%] w-[50vmax] h-[50vmax] bg-radial-gradient(circle, rgba(207, 29, 30, 0.08) 0%, transparent 60%) blur-[80px] pointer-events-none" />
+        <div
+          className="absolute top-[20%] -right-[10%] w-[50vmax] h-[50vmax] blur-[80px] pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(207, 29, 30, 0.08) 0%, transparent 60%)'
+          }}
+        />
       )}
       <Container className="relative z-10">
         <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold mb-3">{title}</h2>
