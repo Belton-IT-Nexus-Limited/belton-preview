@@ -367,5 +367,20 @@
             </div>
         </div>
     </footer>
+    <script src="assets/js/main.js"></script>
+    <script>
+    // Mobile menu toggle
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.getElementById("mobileToggle");
+        const nav = document.getElementById("nav");
+        if (toggle && nav) {
+            toggle.addEventListener("click", function() {
+                nav.classList.toggle("nav-open");
+                toggle.classList.toggle("active");
+                document.body.classList.toggle("nav-open");
+            });
+        }
+    });
+    </script>
 </body>
 </html>
