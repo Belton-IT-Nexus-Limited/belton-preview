@@ -210,6 +210,56 @@
             justify-content: center;
         }
 
+        .topic-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .topic-group label.topic-label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .topic-option {
+            position: relative;
+        }
+
+        .topic-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .topic-option span {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .topic-option input:checked + span {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .topic-option span:hover {
+            border-color: var(--text-secondary);
+        }
+
         @media (max-width: 900px) {
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -459,28 +509,61 @@
 
             <div class="contact-form-wrapper">
                 <form class="contact-form" action="#" method="POST">
+                    <div class="topic-group">
+                        <label class="topic-label">What can we help with?</label>
+                        <div class="topic-options">
+                            <label class="topic-option">
+                                <input type="checkbox" name="topic" value="new-client">
+                                <span>New client enquiry</span>
+                            </label>
+                            <label class="topic-option">
+                                <input type="checkbox" name="topic" value="support">
+                                <span>IT support issue</span>
+                            </label>
+                            <label class="topic-option">
+                                <input type="checkbox" name="topic" value="quote">
+                                <span>Quote request</span>
+                            </label>
+                            <label class="topic-option">
+                                <input type="checkbox" name="topic" value="security">
+                                <span>Security concern</span>
+                            </label>
+                            <label class="topic-option">
+                                <input type="checkbox" name="topic" value="microsoft365">
+                                <span>Microsoft 365</span>
+                            </label>
+                            <label class="topic-option">
+                                <input type="checkbox" name="topic" value="general">
+                                <span>General question</span>
+                            </label>
+                        </div>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <label for="first-name">First name</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="First name" required>
                         </div>
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Last name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="you@company.co.nz" required>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone</label>
                             <input type="tel" id="phone" name="phone" placeholder="021 123 4567">
                         </div>
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" placeholder="Your company">
-                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How can we help?</label>
                         <textarea id="message" name="message" placeholder="Tell us about your project or question..." required></textarea>
                     </div>
                     <div class="form-submit">
