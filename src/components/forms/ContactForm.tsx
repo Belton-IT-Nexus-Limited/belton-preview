@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
+import { trackFormSubmission } from '@/lib/analytics'
 import { Input } from './Input'
 import { Textarea } from './Textarea'
 import { CheckboxGroup } from './CheckboxGroup'
@@ -80,8 +81,10 @@ export function ContactForm({ className }: ContactFormProps): JSX.Element {
       const result = await response.json()
 
       if (result.success) {
+        trackFormSubmission('contact', true)
         setIsSuccess(true)
       } else {
+        trackFormSubmission('contact', false)
         throw new Error(result.message || 'Failed to send message')
       }
     } catch (err) {
