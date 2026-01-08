@@ -1888,3 +1888,21 @@ a { color: inherit; text-decoration: none; }
         display: block;
     }
 }
+
+/* iOS Mobile Menu Fix */
+.mobile-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .mobile-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
