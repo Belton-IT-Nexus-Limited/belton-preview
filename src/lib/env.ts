@@ -8,6 +8,13 @@ interface EnvConfig {
 }
 
 function getEnvVar(key: string, defaultValue?: string): string {
+  if (typeof window === 'undefined') {
+    if (defaultValue) {
+      return defaultValue
+    }
+    throw new Error(`Missing required environment variable: ${key}`)
+  }
+  
   const env = import.meta.env as Record<string, string | undefined>
   const value = env[key]
   if (value) {
