@@ -30,7 +30,9 @@ export function Card(props: CardComponentProps): JSX.Element {
   const classes = cn(baseStyles, hoverStyles, className)
 
   if (props.as === 'link') {
-    const { as: _as, ...linkProps } = props
+    const { as, ...linkProps } = props
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _ = as
     return (
       <Link className={classes} {...linkProps}>
         {children}
