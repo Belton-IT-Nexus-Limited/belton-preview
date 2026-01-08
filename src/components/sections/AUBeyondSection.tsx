@@ -1,4 +1,3 @@
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
 import { StyledLink } from '../ui/Link'

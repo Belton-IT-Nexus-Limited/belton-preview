@@ -5,7 +5,6 @@ import { StyledLink } from '../ui/Link'
 import { Container } from '../ui/Container'
 import { SectionTitle } from './SectionTitle'
 import { ProseBlock } from './ProseBlock'
-import { cn } from '@/lib/utils'
 
 const iconMap = {
   ownership: CheckCircleIcon,

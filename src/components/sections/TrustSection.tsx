@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { QuoteBlock } from './QuoteBlock'
+import { useRegion } from '@/hooks/useRegion'
 import { Container } from '../ui/Container'
-import { cn } from '@/lib/utils'
 
 export function TrustSection(): JSX.Element {
   const { t } = useTranslation('pages/home')
