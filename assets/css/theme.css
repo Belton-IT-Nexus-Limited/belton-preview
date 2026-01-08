@@ -2132,3 +2132,19 @@ a { color: inherit; text-decoration: none; }
         transform: none !important;
     }
 }
+
+/* Mobile Menu Close Button */
+@media (max-width: 768px) {
+    .nav::before {
+        content: '✕';
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
+        padding: 10px;
+        line-height: 1;
+    }
+}

@@ -37,6 +37,29 @@
                 link.addEventListener("touchend", toggleDropdown);
             }
         });
+
+        // Close menu when clicking close area (top right)
+        if (nav) {
+            nav.addEventListener("click", function(e) {
+                var rect = nav.getBoundingClientRect();
+                if (e.clientX > rect.right - 60 && e.clientY < rect.top + 70) {
+                    nav.classList.remove("nav-open");
+                    if (toggle) toggle.classList.remove("active");
+                    document.body.classList.remove("nav-open");
+                }
+            });
+        }
+
+        // Close menu when clicking a final link (not dropdown toggles)
+        document.querySelectorAll(".nav a:not(.nav-link)").forEach(function(link) {
+            link.addEventListener("click", function() {
+                if (window.innerWidth <= 768 && nav) {
+                    nav.classList.remove("nav-open");
+                    if (toggle) toggle.classList.remove("active");
+                    document.body.classList.remove("nav-open");
+                }
+            });
+        });
     });
 })();
 
