@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { useRegion } from '@/hooks/useRegion'
 
 interface StatItem {
   value: string
