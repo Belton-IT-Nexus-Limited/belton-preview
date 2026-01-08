@@ -15,13 +15,25 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # Cache images
-/assets/images/*
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache fonts
+/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
 # HTML pages - short cache for quick updates
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 # Root index
 /
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Service worker
+/sw.js
   Cache-Control: public, max-age=0, must-revalidate
+
+# Manifest
+/manifest.json
+  Cache-Control: public, max-age=86400

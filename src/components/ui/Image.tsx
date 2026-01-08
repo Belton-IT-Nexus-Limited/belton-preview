@@ -6,14 +6,24 @@ interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string
   loading?: 'lazy' | 'eager'
   className?: string
+  fetchPriority?: 'high' | 'low' | 'auto'
 }
 
-export function Image({ src, alt, loading = 'lazy', className, ...props }: ImageProps): JSX.Element {
+export function Image({
+  src,
+  alt,
+  loading = 'lazy',
+  fetchPriority = 'auto',
+  className,
+  ...props
+}: ImageProps): JSX.Element {
   return (
     <img
       src={src}
       alt={alt}
       loading={loading}
+      fetchPriority={fetchPriority}
+      decoding="async"
       className={cn('max-w-full h-auto', className)}
       {...props}
     />
