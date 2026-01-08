@@ -8,16 +8,17 @@ type ButtonSize = 'default' | 'sm' | 'lg'
 interface BaseButtonProps {
   variant?: ButtonVariant
   size?: ButtonSize
-  children: ReactNode
   className?: string
 }
 
-interface ButtonProps extends BaseButtonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends BaseButtonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
   as?: 'button'
+  children: ReactNode
 }
 
-interface ButtonLinkProps extends BaseButtonProps, Omit<LinkProps, 'className'> {
+interface ButtonLinkProps extends BaseButtonProps, Omit<LinkProps, 'className' | 'children'> {
   as: 'link'
+  children: ReactNode
   external?: boolean
   href?: string
 }
@@ -49,26 +50,26 @@ export function Button(props: ButtonComponentProps): JSX.Element {
   )
 
   if (props.as === 'link') {
-    const { as, external, href, to, ...linkProps } = props
+    const { as, external, href, to, children: linkChildren, ...linkProps } = props
     const linkHref = href || to
 
-    if (external || (typeof linkHref === 'string' && linkHref.startsWith('http'))) {
+    if (external || (typeof linkHref === 'string' && (linkHref.startsWith('http') || linkHref.startsWith('tel:') || linkHref.startsWith('mailto:')))) {
       return (
         <a
           href={typeof linkHref === 'string' ? linkHref : '#'}
           className={classes}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
           {...(linkProps as Record<string, unknown>)}
         >
-          {children}
+          {linkChildren}
         </a>
       )
     }
 
     return (
       <Link className={classes} to={to || '/'} {...linkProps}>
-        {children}
+        {linkChildren}
       </Link>
     )
   }

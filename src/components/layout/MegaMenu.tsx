@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
-import { cn } from '@/lib/utils'
 
 interface MegaMenuProps {
   isOpen: boolean

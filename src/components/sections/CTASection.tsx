@@ -1,4 +1,3 @@
-import { type ReactNode } from 'react'
 import { ArrowRightIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
@@ -61,7 +60,7 @@ export function CTASection({
           {secondaryAction && (
             <Button
               as="link"
-              href={secondaryAction.href}
+              to={secondaryAction.href}
               variant="outline"
               external={secondaryAction.external}
             >

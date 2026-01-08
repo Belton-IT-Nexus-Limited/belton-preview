@@ -62,7 +62,7 @@ export function Footer(): JSX.Element {
             <span className="text-[0.9375rem] text-text-muted mb-4 block">{t('address')}</span>
             <Button
               as="link"
-              href={t('portalUrl')}
+              to={t('portalUrl')}
               size="sm"
               variant="outline"
               className="mt-4"

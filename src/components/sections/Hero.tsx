@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
 import { OrbBackground } from './OrbBackground'
 import { Button } from '../ui/Button'
-import { cn } from '@/lib/utils'
 
 export function Hero(): JSX.Element {
   const { t } = useTranslation('pages/home')
@@ -64,7 +63,7 @@ export function Hero(): JSX.Element {
           {isAU && (
             <Button
               as="link"
-              href={`tel:${tCommon('phone')}`}
+              to={`tel:${tCommon('phone')}`}
               variant="outline"
               external
             >

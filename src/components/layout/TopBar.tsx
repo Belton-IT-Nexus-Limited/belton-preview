@@ -10,7 +10,6 @@ export function TopBar(): JSX.Element {
 
   const phone = t('phone')
   const phoneFormatted = t('phoneFormatted')
-  const email = t('email')
   const remoteSupportHref = isAU ? '/au/remote-support' : '/remote-support'
   const portalUrl = t('portalUrl')
   const nzHref = '/'
