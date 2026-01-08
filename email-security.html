@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Email security for NZ businesses. Phishing protection, spam filtering, and business email compromise prevention. Your inbox, protected.">
+    <title>Email Security | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose-section {
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prose-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .prose-section strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .protection-layers {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1000px;
+        }
+
+        .protection-prose h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .protection-prose p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .protection-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .protection-sidebar h3 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .protection-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .protection-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .protection-item strong {
+            display: block;
+            font-size: 0.9375rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .protection-item span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .threat-rows {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .threat-row {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .threat-row:first-child {
+            padding-top: 0;
+        }
+
+        .threat-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .threat-name {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .threat-desc {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .protection-layers {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .protection-sidebar {
+                order: -1;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link active">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Email Security</p>
+        <div class="page-title">Your inbox, protected</div>
+        <p class="page-subtitle">Phishing stopped. Scams blocked. Business email secured. Your team can focus on work, not analysing every message that lands in their inbox.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-section">
+            <p>Email is where most attacks start. A convincing fake invoice. An "urgent" message from the CEO. A link that looks completely legitimate. It only takes one click to compromise your entire organisation.</p>
+
+            <p>The problem is your team has work to do. They can't spend all day suspiciously analysing every email, and they shouldn't have to. <strong>Good email security handles the hard work so your people can just get on with their jobs.</strong></p>
+
+            <p>We put multiple layers of protection between threats and your team. Dangerous emails get stopped before they arrive. Suspicious links get checked in real-time. And when something does slip through, we catch it fast.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">The Threat Landscape</div>
+        <h2 class="section-title">What's actually trying to get in</h2>
+        <p class="section-sub">Modern email attacks are sophisticated and targeted. Basic spam filtering isn't enough anymore.</p>
+
+        <div class="threat-rows" style="margin-top: 2.5rem;">
+            <div class="threat-row">
+                <span class="threat-name">Phishing attacks</span>
+                <span class="threat-desc">Fake emails impersonating banks, suppliers, Microsoft, or colleagues. Designed to steal passwords or trick people into harmful actions. The good ones are nearly impossible to spot by eye.</span>
+            </div>
+            <div class="threat-row">
+                <span class="threat-name">Business email compromise</span>
+                <span class="threat-desc">Attackers impersonate your CEO, a supplier, or a trusted partner to authorise fraudulent payments. No malware involved, just convincing social engineering. Responsible for billions in losses globally.</span>
+            </div>
+            <div class="threat-row">
+                <span class="threat-name">Malware and ransomware</span>
+                <span class="threat-desc">Malicious attachments and links that deliver ransomware or give attackers persistent access. One wrong click can encrypt everything or create a backdoor that sits there for months.</span>
+            </div>
+            <div class="threat-row">
+                <span class="threat-name">Credential harvesting</span>
+                <span class="threat-desc">Fake login pages that capture usernames and passwords. With MFA bypass techniques getting more sophisticated, this remains a major threat vector.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="protection-layers">
+            <div class="protection-prose">
+                <h2>Multiple layers working together</h2>
+
+                <p>Each layer catches what the others might miss. Together they stop the vast majority of threats before anyone has to make a decision about whether an email is safe.</p>
+
+                <p>Everything starts with AI-powered analysis that examines sender behaviour, writing style, link destinations, attachment contents, and hundreds of other signals to identify threats never seen before.</p>
+
+                <p>Suspicious attachments get opened in an isolated sandbox first. If the attachment tries to do something malicious, it's caught there and your team never sees it. Links get checked in real-time when clicked.</p>
+
+                <p>We also set up proper email authentication. DMARC, DKIM, and SPF configured correctly means attackers can't easily send emails pretending to be from your domain.</p>
+            </div>
+
+            <div class="protection-sidebar">
+                <h3>Protection layers</h3>
+
+                <div class="protection-item">
+                    <strong>Advanced anti-phishing</strong>
+                    <span>AI-powered detection that catches novel threats</span>
+                </div>
+                <div class="protection-item">
+                    <strong>Safe attachments</strong>
+                    <span>Sandboxing that detonates malware safely</span>
+                </div>
+                <div class="protection-item">
+                    <strong>Safe links</strong>
+                    <span>Real-time URL scanning at click time</span>
+                </div>
+                <div class="protection-item">
+                    <strong>Impersonation protection</strong>
+                    <span>Detects executive and partner spoofing</span>
+                </div>
+                <div class="protection-item">
+                    <strong>Email authentication</strong>
+                    <span>DMARC, DKIM, SPF properly configured</span>
+                </div>
+                <div class="protection-item">
+                    <strong>Continuous monitoring</strong>
+                    <span>We investigate threats, not just block them</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose-section">
+            <div class="section-tag">Human Element</div>
+            <h2 class="section-title">Technology catches most, not all</h2>
+
+            <p style="margin-top: 1.5rem;">Some attacks specifically target the human element, using social engineering that no filter can detect. Your team needs to know what to look for.</p>
+
+            <p>We provide security awareness training that actually works. Not boring compliance videos. Real examples, relevant scenarios, and simulated phishing tests that show how attacks actually look.</p>
+
+            <p>When someone does click something they shouldn't, our training turns it into a learning moment rather than a lecture. The goal is a security-aware culture, not a culture of blame.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>What's getting through right now?</h2>
+            <p>We can review your current email security posture and show you exactly what the gaps are. No obligation, just clarity.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Get Email Protection</a>
+                <a href="tel:+6499742379" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

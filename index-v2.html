@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Managed IT and cybersecurity for NZ businesses. We pick up the phone. We fix problems properly. Microsoft Partner since 2004.">
+    <title>Belton IT Nexus | Managed IT for NZ Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #050506;
+            --bg-elevated: #0a0a0c;
+            --surface: rgba(255,255,255,0.03);
+            --surface-2: rgba(255,255,255,0.06);
+            --text: rgba(255,255,255,0.92);
+            --text-secondary: rgba(255,255,255,0.60);
+            --text-muted: rgba(255,255,255,0.35);
+            --brand-red: #CF1D1E;
+            --accent: #E63946;
+            --accent-glow: rgba(230,57,70,0.5);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0) 100%);
+        }
+
+        .logo img { height: 28px; width: auto; }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .header-nav a:hover { color: var(--text); }
+
+        .header-cta {
+            padding: 0.625rem 1.25rem;
+            background: var(--brand-red);
+            color: white !important;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .header-cta:hover { background: #b81a1a; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-headline {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .accent { color: var(--accent); }
+        .hero-headline .thin { font-weight: 200; color: var(--text-secondary); }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 1rem 1.75rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--brand-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b81a1a;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-secondary);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator .mouse {
+            width: 20px;
+            height: 32px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: scroll-bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(8px); opacity: 0.3; }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 200;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number span { color: var(--accent); }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 5%;
+            background: var(--bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            background: var(--surface-2);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card a {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .service-card a:hover { color: var(--accent); }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(207, 29, 30, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section h2 .accent { color: var(--accent); }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .cta-phone i { color: var(--accent); }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 5% 2rem;
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand img {
+            height: 28px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+
+        .footer-column a {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover { color: var(--text); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-copy {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-legal a:hover { color: var(--text); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 1rem 1.5rem; }
+            .header-nav { display: none; }
+            .hero-content { padding: 0 1.5rem; max-width: 100%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .scroll-indicator { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
+            .cta-actions { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="../index.html" class="logo">
+            <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+        </a>
+        <nav class="header-nav">
+            <a href="../services.html">Services</a>
+            <a href="../how-we-work.html">How We Work</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html" class="header-cta">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="canvas-container"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Microsoft Partner since 2004
+            </div>
+            <h1 class="hero-headline">
+                Secure IT<br>
+                <span class="thin">for growing</span><br>
+                <span class="accent">NZ business</span>
+            </h1>
+            <p class="hero-sub">
+                We partner with organisations to build IT foundations that scale.
+                Secure systems, reliable support, and a roadmap aligned with your goals.
+            </p>
+            <div class="hero-actions">
+                <a href="../contact.html" class="btn btn-primary">
+                    Start a Conversation <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="tel:+6499742379" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">350<span>+</span></div>
+                <div class="stat-label">Organisations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20<span>+</span></div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24<span>/</span>7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9<span>%</span></div>
+                <div class="stat-label">Uptime SLA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Complete IT Management</h2>
+            <p class="section-sub">One team. One monthly fee. No surprises. We handle everything so you can focus on your business.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                <h3>Managed IT</h3>
+                <p>We become your IT department. Devices, users, problems — handled efficiently.</p>
+                <a href="../managed-it.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Security Operations</h3>
+                <p>24/7 monitoring and threat response. Real protection, not just compliance theatre.</p>
+                <a href="../security.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Microsoft 365</h3>
+                <p>Not just licensed — configured, secured, and actively managed for your team.</p>
+                <a href="../microsoft365.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-database"></i></div>
+                <h3>Cloud & Backup</h3>
+                <p>Your data protected, your systems available. Azure, AWS, or hybrid solutions.</p>
+                <a href="../cloud.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's build <span class="accent">something</span> together</h2>
+            <p>Tell us where your business is headed. We'll show you how IT can help you get there.</p>
+            <div class="cta-actions">
+                <a href="../contact.html" class="btn btn-primary">Start a Conversation</a>
+                <a href="tel:+6499742379" class="cta-phone">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p>Technology for NZ business. Managed IT, security, and cloud solutions from an Auckland team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../managed-it.html">Managed IT</a></li>
+                    <li><a href="../security.html">Security</a></li>
+                    <li><a href="../microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="../cloud.html">Cloud</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../how-we-work.html">How We Work</a></li>
+                    <li><a href="../client-success.html">Success Stories</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="../privacy.html">Privacy</a>
+                <a href="../terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flowing Particle Field Animation -->
+    <script>
+    (function() {
+        const container = document.getElementById('canvas-container');
+        const canvas = document.createElement('canvas');
+        container.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        let mouseX = 0, mouseY = 0;
+        let targetMouseX = 0, targetMouseY = 0;
+        const particleCount = 800;
+        const connectionDistance = 120;
+        const mouseRadius = 150;
+
+        // Colors
+        const colors = {
+            red: { r: 207, g: 29, b: 30 },
+            accent: { r: 230, g: 57, b: 70 },
+            white: { r: 255, g: 255, b: 255 }
+        };
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.size = Math.random() * 2 + 1;
+
+                // Color assignment
+                const colorChoice = Math.random();
+                if (colorChoice < 0.4) {
+                    this.color = colors.red;
+                    this.alpha = 0.8;
+                } else if (colorChoice < 0.7) {
+                    this.color = colors.accent;
+                    this.alpha = 0.7;
+                } else {
+                    this.color = colors.white;
+                    this.alpha = 0.3;
+                }
+            }
+
+            update() {
+                // Flow movement with noise-like pattern
+                const time = Date.now() * 0.0005;
+                const noiseX = Math.sin(this.baseY * 0.005 + time) * 30;
+                const noiseY = Math.cos(this.baseX * 0.005 + time) * 30;
+
+                // Mouse repulsion
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                let forceX = 0, forceY = 0;
+                if (dist < mouseRadius && dist > 0) {
+                    const force = (mouseRadius - dist) / mouseRadius;
+                    forceX = -(dx / dist) * force * 50;
+                    forceY = -(dy / dist) * force * 50;
+                }
+
+                // Target position with noise and force
+                const targetX = this.baseX + noiseX + forceX;
+                const targetY = this.baseY + noiseY + forceY;
+
+                // Smooth movement
+                this.x += (targetX - this.x) * 0.05;
+                this.y += (targetY - this.y) * 0.05;
+
+                // Drift base position slowly
+                this.baseX += this.vx;
+                this.baseY += this.vy;
+
+                // Wrap around edges
+                if (this.baseX < -50) this.baseX = width + 50;
+                if (this.baseX > width + 50) this.baseX = -50;
+                if (this.baseY < -50) this.baseY = height + 50;
+                if (this.baseY > height + 50) this.baseY = -50;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        const opacity = (1 - dist / connectionDistance) * 0.15;
+
+                        // Mix colors for connection
+                        const r = (particles[i].color.r + particles[j].color.r) / 2;
+                        const g = (particles[i].color.g + particles[j].color.g) / 2;
+                        const b = (particles[i].color.b + particles[j].color.b) / 2;
+
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            // Smooth mouse following
+            mouseX += (targetMouseX - mouseX) * 0.1;
+            mouseY += (targetMouseY - mouseY) * 0.1;
+
+            // Clear with trail effect
+            ctx.fillStyle = 'rgba(5, 5, 6, 0.1)';
+            ctx.fillRect(0, 0, width, height);
+
+            // Update and draw
+            drawConnections();
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Event listeners
+        window.addEventListener('resize', () => {
+            resize();
+            // Reinit particles on resize
+            particles.forEach(p => {
+                if (p.baseX > width) p.baseX = Math.random() * width;
+                if (p.baseY > height) p.baseY = Math.random() * height;
+            });
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            targetMouseX = e.clientX;
+            targetMouseY = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            targetMouseX = width / 2;
+            targetMouseY = height / 2;
+        });
+
+        // Start
+        init();
+        animate();
+    })();
+    </script>
+</body>
+</html>

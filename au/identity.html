@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Identity and access management for Australian businesses. MFA, SSO, and Conditional Access through Microsoft Entra ID. The right people get access, everyone else stays out.">
+    <title>Identity & Access Management | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/identity.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Identity & Access</p>
+        <div class="page-title">Secure access, zero friction</div>
+        <p class="page-subtitle">The right people get in. The wrong people don't. And your team stops fighting with passwords.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>Most breaches start with a compromised account. A stolen password, a phishing attack, someone's credentials from another breach used against your systems. Identity is the new perimeter. Get it right and you block the most common attack vector. Get it wrong and nothing else matters.</p>
+            <p>We configure Microsoft Entra ID (formerly Azure AD) to actually protect you. Multi-factor authentication so stolen passwords are useless. Single sign-on so your team accesses everything with one secure login. Conditional access that adapts to risk in real time. No more password spreadsheets, no more sticky notes on monitors.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose">
+            <div class="section-tag">Core Capabilities</div>
+            <h2 class="section-title">What identity management actually looks like</h2>
+            <p>Multi-factor authentication means that even if credentials are stolen, attackers can't get in. Push notifications for everyday convenience, security keys for high-risk roles, Windows Hello for laptops. Multiple methods for different situations, all enforced consistently across your organisation.</p>
+            <p>Single sign-on eliminates password fatigue. One login for everything: Microsoft 365, your line-of-business apps, SaaS tools, internal systems. Your team clicks once and they're in. No more password resets every Monday morning, no more "forgot password" tickets clogging your helpdesk.</p>
+            <p>Conditional access makes decisions that adapt to context. Login from the office on a managed device? Seamless. Login from an unknown location at 3am? Blocked or challenged. Risk-based policies that protect without annoying legitimate users.</p>
+            <p>Lifecycle management handles the mundane but critical work. New starter? Access provisioned automatically based on role. Someone leaves? Everything revoked in minutes. Role change? Permissions update to match. No more accumulated access that nobody remembers granting.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <div class="section-tag">Platform</div>
+            <h2 class="section-title">Built on Microsoft Entra ID</h2>
+            <p>Every Microsoft 365 organisation has Entra ID included. Most businesses barely scratch the surface. We configure it properly: enforced MFA, conditional access policies, privileged access management, automated provisioning. Enterprise-grade identity security using tools you already pay for.</p>
+            <p>The platform supports passwordless authentication through biometrics, FIDO2 security keys, and app-based methods. It integrates with over 3,000 applications through pre-built SSO connectors. Whether you're connecting Salesforce, Xero, or a custom internal app, the authentication layer is consistent and secure.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose">
+            <div class="section-tag">The Reality</div>
+            <h2 class="section-title">MFA that people actually use</h2>
+            <p>The technology is straightforward. Getting people to adopt it is the challenge. We've rolled out MFA for hundreds of organisations and learned what works: proper communication before rollout, training that doesn't assume everyone's technical, quick support when someone loses their phone.</p>
+            <p>The right method for each situation makes the difference. Push notifications for everyday use. Hardware keys for executives and finance. Windows Hello for laptops. Backup codes for emergencies. Protection that people forget is there because it just works.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to secure your identities?</h2>
+            <p>We'll review your current setup and show you what's possible with proper configuration.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Get an Assessment</a>
+                <a href="security.html" class="btn btn-outline">
+                    Explore Security Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Managed IT and cybersecurity for NZ businesses. We pick up the phone. We fix problems properly. Microsoft Partner since 2004.">
+    <title>Belton IT Nexus | Managed IT for NZ Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #050506;
+            --bg-elevated: #0a0a0c;
+            --surface: rgba(255,255,255,0.03);
+            --surface-2: rgba(255,255,255,0.06);
+            --text: rgba(255,255,255,0.92);
+            --text-secondary: rgba(255,255,255,0.60);
+            --text-muted: rgba(255,255,255,0.35);
+            --brand-red: #CF1D1E;
+            --accent: #E63946;
+            --accent-glow: rgba(230,57,70,0.5);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0) 100%);
+        }
+
+        .logo img { height: 28px; width: auto; }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .header-nav a:hover { color: var(--text); }
+
+        .header-cta {
+            padding: 0.625rem 1.25rem;
+            background: var(--brand-red);
+            color: white !important;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .header-cta:hover { background: #b81a1a; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-headline {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .accent { color: var(--accent); }
+        .hero-headline .thin { font-weight: 200; color: var(--text-secondary); }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 1rem 1.75rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--brand-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b81a1a;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: rgba(0,0,0,0.5);
+            color: var(--text);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-secondary);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator .mouse {
+            width: 20px;
+            height: 32px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: scroll-bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(8px); opacity: 0.3; }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 200;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number span { color: var(--accent); }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 5%;
+            background: var(--bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            background: var(--surface-2);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card a {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .service-card a:hover { color: var(--accent); }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(207, 29, 30, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section h2 .accent { color: var(--accent); }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .cta-phone i { color: var(--accent); }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 5% 2rem;
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand img {
+            height: 28px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+
+        .footer-column a {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover { color: var(--text); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-copy {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-legal a:hover { color: var(--text); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 1rem 1.5rem; }
+            .header-nav { display: none; }
+            .hero-content { padding: 0 1.5rem; max-width: 100%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .scroll-indicator { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
+            .cta-actions { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="../index.html" class="logo">
+            <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+        </a>
+        <nav class="header-nav">
+            <a href="../services.html">Services</a>
+            <a href="../how-we-work.html">How We Work</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html" class="header-cta">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Microsoft Partner since 2004
+            </div>
+            <h1 class="hero-headline">
+                Secure IT<br>
+                <span class="thin">for growing</span><br>
+                <span class="accent">NZ business</span>
+            </h1>
+            <p class="hero-sub">
+                We partner with organisations to build IT foundations that scale.
+                Secure systems, reliable support, and a roadmap aligned with your goals.
+            </p>
+            <div class="hero-actions">
+                <a href="../contact.html" class="btn btn-primary">
+                    Start a Conversation <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="tel:+6499742379" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">350<span>+</span></div>
+                <div class="stat-label">Organisations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20<span>+</span></div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24<span>/</span>7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9<span>%</span></div>
+                <div class="stat-label">Uptime SLA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Complete IT Management</h2>
+            <p class="section-sub">One team. One monthly fee. No surprises. We handle everything so you can focus on your business.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                <h3>Managed IT</h3>
+                <p>We become your IT department. Devices, users, problems — handled efficiently.</p>
+                <a href="../managed-it.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Security Operations</h3>
+                <p>24/7 monitoring and threat response. Real protection, not just compliance theatre.</p>
+                <a href="../security.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Microsoft 365</h3>
+                <p>Not just licensed — configured, secured, and actively managed for your team.</p>
+                <a href="../microsoft365.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-database"></i></div>
+                <h3>Cloud & Backup</h3>
+                <p>Your data protected, your systems available. Azure, AWS, or hybrid solutions.</p>
+                <a href="../cloud.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's build <span class="accent">something</span> together</h2>
+            <p>Tell us where your business is headed. We'll show you how IT can help you get there.</p>
+            <div class="cta-actions">
+                <a href="../contact.html" class="btn btn-primary">Start a Conversation</a>
+                <a href="tel:+6499742379" class="cta-phone">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p>Technology for NZ business. Managed IT, security, and cloud solutions from an Auckland team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../managed-it.html">Managed IT</a></li>
+                    <li><a href="../security.html">Security</a></li>
+                    <li><a href="../microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="../cloud.html">Cloud</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../how-we-work.html">How We Work</a></li>
+                    <li><a href="../client-success.html">Success Stories</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="../privacy.html">Privacy</a>
+                <a href="../terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Solar Orb Animation with Three.js -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('hero-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Colors
+        const colorCore = new THREE.Color('#CF1D1E');
+        const colorGlow = new THREE.Color('#E63946');
+        const colorWhite = new THREE.Color('#ffffff');
+
+        // Central glowing orb
+        const orbGeometry = new THREE.SphereGeometry(1.2, 64, 64);
+        const orbMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                uTime: { value: 0 },
+                uColor1: { value: colorCore },
+                uColor2: { value: colorGlow }
+            },
+            vertexShader: `
+                varying vec3 vNormal;
+                varying vec3 vPosition;
+                uniform float uTime;
+
+                // Simplex noise function
+                vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+                vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+                float snoise(vec3 v) {
+                    const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+                    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+                    vec3 i = floor(v + dot(v, C.yyy));
+                    vec3 x0 = v - i + dot(i, C.xxx);
+                    vec3 g = step(x0.yzx, x0.xyz);
+                    vec3 l = 1.0 - g;
+                    vec3 i1 = min(g.xyz, l.zxy);
+                    vec3 i2 = max(g.xyz, l.zxy);
+                    vec3 x1 = x0 - i1 + C.xxx;
+                    vec3 x2 = x0 - i2 + C.yyy;
+                    vec3 x3 = x0 - D.yyy;
+                    i = mod289(i);
+                    vec4 p = permute(permute(permute(i.z + vec4(0.0, i1.z, i2.z, 1.0)) + i.y + vec4(0.0, i1.y, i2.y, 1.0)) + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+                    float n_ = 0.142857142857;
+                    vec3 ns = n_ * D.wyz - D.xzx;
+                    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                    vec4 x_ = floor(j * ns.z);
+                    vec4 y_ = floor(j - 7.0 * x_);
+                    vec4 x = x_ *ns.x + ns.yyyy;
+                    vec4 y = y_ *ns.x + ns.yyyy;
+                    vec4 h = 1.0 - abs(x) - abs(y);
+                    vec4 b0 = vec4(x.xy, y.xy);
+                    vec4 b1 = vec4(x.zw, y.zw);
+                    vec4 s0 = floor(b0)*2.0 + 1.0;
+                    vec4 s1 = floor(b1)*2.0 + 1.0;
+                    vec4 sh = -step(h, vec4(0.0));
+                    vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy;
+                    vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww;
+                    vec3 p0 = vec3(a0.xy, h.x);
+                    vec3 p1 = vec3(a0.zw, h.y);
+                    vec3 p2 = vec3(a1.xy, h.z);
+                    vec3 p3 = vec3(a1.zw, h.w);
+                    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+                    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+                    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+                    m = m * m;
+                    return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+                }
+
+                void main() {
+                    vNormal = normal;
+                    vPosition = position;
+
+                    // Displace surface like sun
+                    float noise = snoise(position * 2.0 + uTime * 0.3) * 0.15;
+                    float noise2 = snoise(position * 4.0 - uTime * 0.5) * 0.08;
+                    vec3 newPosition = position + normal * (noise + noise2);
+
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float uTime;
+                uniform vec3 uColor1;
+                uniform vec3 uColor2;
+                varying vec3 vNormal;
+                varying vec3 vPosition;
+
+                void main() {
+                    // Fresnel effect for glow
+                    float fresnel = pow(1.0 - abs(dot(vNormal, vec3(0.0, 0.0, 1.0))), 2.0);
+
+                    // Animate color
+                    float colorMix = sin(vPosition.y * 3.0 + uTime) * 0.5 + 0.5;
+                    vec3 color = mix(uColor1, uColor2, colorMix);
+
+                    // Add bright spots
+                    float brightness = 0.8 + fresnel * 0.5;
+
+                    gl_FragColor = vec4(color * brightness, 1.0);
+                }
+            `
+        });
+
+        const orb = new THREE.Mesh(orbGeometry, orbMaterial);
+        scene.add(orb);
+
+        // Outer glow layers
+        for (let i = 1; i <= 3; i++) {
+            const glowGeometry = new THREE.SphereGeometry(1.2 + i * 0.15, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: i === 1 ? colorGlow : colorCore,
+                transparent: true,
+                opacity: 0.15 / i,
+                side: THREE.BackSide
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            scene.add(glow);
+        }
+
+        // Corona particles - orbiting the sun
+        const coronaCount = 2000;
+        const coronaGeometry = new THREE.BufferGeometry();
+        const coronaPositions = new Float32Array(coronaCount * 3);
+        const coronaColors = new Float32Array(coronaCount * 3);
+        const coronaSizes = new Float32Array(coronaCount);
+        const coronaAngles = new Float32Array(coronaCount);
+        const coronaSpeeds = new Float32Array(coronaCount);
+        const coronaRadii = new Float32Array(coronaCount);
+        const coronaOffsets = new Float32Array(coronaCount);
+
+        for (let i = 0; i < coronaCount; i++) {
+            // Particles orbit at various distances
+            const radius = 1.5 + Math.random() * 2.5;
+            const angle = Math.random() * Math.PI * 2;
+            const height = (Math.random() - 0.5) * 1.5;
+
+            coronaPositions[i * 3] = Math.cos(angle) * radius;
+            coronaPositions[i * 3 + 1] = height;
+            coronaPositions[i * 3 + 2] = Math.sin(angle) * radius;
+
+            // Store orbital data
+            coronaAngles[i] = angle;
+            coronaSpeeds[i] = 0.1 + Math.random() * 0.3;
+            coronaRadii[i] = radius;
+            coronaOffsets[i] = Math.random() * Math.PI * 2;
+
+            // Color - red to white gradient based on distance
+            const distRatio = (radius - 1.5) / 2.5;
+            const color = Math.random() < 0.3 ? colorWhite : (Math.random() < 0.6 ? colorGlow : colorCore);
+            coronaColors[i * 3] = color.r;
+            coronaColors[i * 3 + 1] = color.g;
+            coronaColors[i * 3 + 2] = color.b;
+
+            coronaSizes[i] = Math.random() * 4 + 1;
+        }
+
+        coronaGeometry.setAttribute('position', new THREE.BufferAttribute(coronaPositions, 3));
+        coronaGeometry.setAttribute('color', new THREE.BufferAttribute(coronaColors, 3));
+        coronaGeometry.setAttribute('size', new THREE.BufferAttribute(coronaSizes, 1));
+
+        const coronaMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                uTime: { value: 0 }
+            },
+            vertexShader: `
+                attribute float size;
+                varying vec3 vColor;
+
+                void main() {
+                    vColor = color;
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    gl_PointSize = size * (300.0 / -mvPosition.z);
+                    gl_Position = projectionMatrix * mvPosition;
+                }
+            `,
+            fragmentShader: `
+                varying vec3 vColor;
+
+                void main() {
+                    float dist = length(gl_PointCoord - vec2(0.5));
+                    if (dist > 0.5) discard;
+
+                    float alpha = 1.0 - smoothstep(0.0, 0.5, dist);
+                    alpha *= 0.7;
+
+                    gl_FragColor = vec4(vColor, alpha);
+                }
+            `,
+            transparent: true,
+            vertexColors: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        const corona = new THREE.Points(coronaGeometry, coronaMaterial);
+        scene.add(corona);
+
+        // Solar flare particles - shooting outward
+        const flareCount = 300;
+        const flareGeometry = new THREE.BufferGeometry();
+        const flarePositions = new Float32Array(flareCount * 3);
+        const flareVelocities = [];
+        const flareSizes = new Float32Array(flareCount);
+
+        for (let i = 0; i < flareCount; i++) {
+            // Start at orb surface
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            const radius = 1.3;
+
+            flarePositions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+            flarePositions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+            flarePositions[i * 3 + 2] = radius * Math.cos(phi);
+
+            // Velocity pointing outward
+            const speed = 0.02 + Math.random() * 0.04;
+            flareVelocities.push({
+                x: flarePositions[i * 3] * speed,
+                y: flarePositions[i * 3 + 1] * speed,
+                z: flarePositions[i * 3 + 2] * speed,
+                life: Math.random()
+            });
+
+            flareSizes[i] = Math.random() * 3 + 2;
+        }
+
+        flareGeometry.setAttribute('position', new THREE.BufferAttribute(flarePositions, 3));
+        flareGeometry.setAttribute('size', new THREE.BufferAttribute(flareSizes, 1));
+
+        const flareMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                uColor: { value: colorGlow }
+            },
+            vertexShader: `
+                attribute float size;
+                varying float vAlpha;
+
+                void main() {
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    float dist = length(position);
+                    vAlpha = 1.0 - smoothstep(1.3, 4.0, dist);
+                    gl_PointSize = size * (200.0 / -mvPosition.z) * vAlpha;
+                    gl_Position = projectionMatrix * mvPosition;
+                }
+            `,
+            fragmentShader: `
+                uniform vec3 uColor;
+                varying float vAlpha;
+
+                void main() {
+                    float dist = length(gl_PointCoord - vec2(0.5));
+                    if (dist > 0.5) discard;
+
+                    float alpha = (1.0 - dist * 2.0) * vAlpha * 0.6;
+                    gl_FragColor = vec4(uColor, alpha);
+                }
+            `,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        const flares = new THREE.Points(flareGeometry, flareMaterial);
+        scene.add(flares);
+
+        // Position
+        camera.position.z = 5;
+        const group = new THREE.Group();
+        group.add(orb);
+        group.add(corona);
+        group.add(flares);
+        scene.add(group);
+        group.position.x = 2.5;
+        group.position.y = 0;
+
+        // Mouse interaction
+        let mouseX = 0, mouseY = 0;
+        let targetX = 0, targetY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Animation
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const time = clock.getElapsedTime();
+
+            // Update orb shader
+            orbMaterial.uniforms.uTime.value = time;
+            coronaMaterial.uniforms.uTime.value = time;
+
+            // Rotate corona particles around orb
+            const positions = coronaGeometry.attributes.position.array;
+            for (let i = 0; i < coronaCount; i++) {
+                const angle = coronaAngles[i] + time * coronaSpeeds[i] * 0.5;
+                const radius = coronaRadii[i] + Math.sin(time + coronaOffsets[i]) * 0.2;
+                const height = Math.sin(time * 0.5 + coronaOffsets[i]) * 0.5;
+
+                positions[i * 3] = Math.cos(angle) * radius;
+                positions[i * 3 + 1] = height + Math.sin(angle * 2 + time) * 0.3;
+                positions[i * 3 + 2] = Math.sin(angle) * radius;
+            }
+            coronaGeometry.attributes.position.needsUpdate = true;
+
+            // Animate flares outward
+            const flarePos = flareGeometry.attributes.position.array;
+            for (let i = 0; i < flareCount; i++) {
+                flareVelocities[i].life += 0.01;
+
+                if (flareVelocities[i].life > 1) {
+                    // Reset flare
+                    const theta = Math.random() * Math.PI * 2;
+                    const phi = Math.acos(2 * Math.random() - 1);
+                    const radius = 1.3;
+
+                    flarePos[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+                    flarePos[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                    flarePos[i * 3 + 2] = radius * Math.cos(phi);
+
+                    const speed = 0.02 + Math.random() * 0.04;
+                    flareVelocities[i].x = flarePos[i * 3] * speed;
+                    flareVelocities[i].y = flarePos[i * 3 + 1] * speed;
+                    flareVelocities[i].z = flarePos[i * 3 + 2] * speed;
+                    flareVelocities[i].life = 0;
+                } else {
+                    flarePos[i * 3] += flareVelocities[i].x;
+                    flarePos[i * 3 + 1] += flareVelocities[i].y;
+                    flarePos[i * 3 + 2] += flareVelocities[i].z;
+                }
+            }
+            flareGeometry.attributes.position.needsUpdate = true;
+
+            // Mouse follow
+            targetX += (mouseX * 0.15 - targetX) * 0.05;
+            targetY += (mouseY * 0.15 - targetY) * 0.05;
+
+            group.rotation.y = time * 0.1 + targetX * 0.5;
+            group.rotation.x = targetY * 0.3;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    })();
+    </script>
+</body>
+</html>

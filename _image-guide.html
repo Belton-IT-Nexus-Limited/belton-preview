@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Guide | Belton Design Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <style>
+        /* Base resets */
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .test-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .test-section .approach-desc {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        /* Notes box styling */
+        .usage-notes {
+            background: rgba(230, 57, 70, 0.08);
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+        }
+
+        .usage-notes h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin: 0 0 0.75rem 0;
+        }
+
+        .usage-notes ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .usage-notes li {
+            margin-bottom: 0.25rem;
+        }
+
+        .usage-notes code {
+            background: rgba(255,255,255,0.1);
+            padding: 0.125rem 0.375rem;
+            border-radius: 3px;
+            font-size: 0.8125rem;
+        }
+
+        /* Code snippet box */
+        .code-snippet {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+            overflow-x: auto;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===================
+           APPROACH 1: Atmospheric Background
+           Very dark, desaturated, subtle texture behind content
+           =================== */
+        .atmosphere-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .atmosphere-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/soc-monitors.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.07;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        .atmosphere-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===================
+           APPROACH 2: Contained Image with Glow
+           Image in a container with subtle red glow/border
+           =================== */
+        .contained-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 600px;
+        }
+
+        .contained-image img {
+            width: 100%;
+            display: block;
+            filter: brightness(0.8) saturate(0.9);
+        }
+
+        .contained-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            border-radius: 12px;
+            box-shadow:
+                0 0 40px rgba(230, 57, 70, 0.15),
+                inset 0 0 60px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        /* ===================
+           APPROACH 3: Split Content
+           Text on one side, image on other with gradient fade
+           =================== */
+        .split-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: stretch;
+            min-height: 400px;
+        }
+
+        .split-text {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-text h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .split-text p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .split-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7) saturate(0.8);
+        }
+
+        .split-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+            z-index: 1;
+        }
+
+        /* ===================
+           APPROACH 3b: Split Content with Hover Reveal
+           Image faded by default, reveals on hover
+           =================== */
+        .split-hover {
+            cursor: pointer;
+        }
+
+        .split-hover .split-image img {
+            filter: brightness(0.4) saturate(0.5) grayscale(40%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .split-hover .split-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 8, 9, 0.4);
+            transition: background 0.5s ease;
+            z-index: 2;
+        }
+
+        .split-hover:hover .split-image img {
+            filter: brightness(0.85) saturate(0.95) grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .split-hover:hover .split-image::after {
+            background: rgba(7, 8, 9, 0);
+        }
+
+        .split-hover .split-text {
+            transition: transform 0.3s ease;
+        }
+
+        .split-hover:hover .split-text {
+            transform: translateX(-8px);
+        }
+
+        /* ===================
+           APPROACH 4: Team Portraits
+           Small, rounded photos with subtle treatment
+           =================== */
+        .team-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+            border: 2px solid var(--border);
+            position: relative;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+
+        .team-member:hover .team-photo img {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .team-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* ===================
+           APPROACH 5: Accent Strip
+           Thin image band as section divider
+           =================== */
+        .accent-strip {
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .accent-strip img {
+            width: 100%;
+            height: 200%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.4) saturate(0.7);
+        }
+
+        .accent-strip::before,
+        .accent-strip::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 40px;
+            z-index: 1;
+        }
+
+        .accent-strip::before {
+            top: 0;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+        }
+
+        .accent-strip::after {
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg), transparent);
+        }
+
+        /* ===================
+           APPROACH 6: Duotone/Brand Tinted
+           Monochrome with red accent tint
+           =================== */
+        .duotone-image {
+            position: relative;
+            max-width: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .duotone-image img {
+            width: 100%;
+            display: block;
+            filter: grayscale(100%) contrast(1.1) brightness(0.8);
+        }
+
+        .duotone-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.2) 0%, transparent 60%);
+            mix-blend-mode: overlay;
+        }
+
+        /* ===================
+           APPROACH 7: Floating Card with Image
+           Image as part of a content card
+           =================== */
+        .image-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 600px;
+        }
+
+        .image-card-img {
+            height: 100%;
+            min-height: 180px;
+        }
+
+        .image-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+        }
+
+        .image-card-content {
+            padding: 1.5rem;
+        }
+
+        .image-card-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-card-content p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .split-content {
+                grid-template-columns: 1fr;
+            }
+            .split-image {
+                min-height: 250px;
+            }
+            .split-image::before {
+                background: linear-gradient(180deg, var(--bg) 0%, transparent 30%);
+            }
+            .image-card {
+                grid-template-columns: 1fr;
+            }
+            .image-card-img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="home.html" class="nav-link">Back to Home</a>
+        </nav>
+    </header>
+
+    <section class="page-opening" style="padding-top: 140px;">
+        <p class="page-lead">Design Kit</p>
+        <h1 class="page-title">Image Treatment Guide</h1>
+        <p class="page-subtitle">Seven approaches that preserve the dark aesthetic. Copy these patterns when adding images to the site.</p>
+    </section>
+
+    <!-- APPROACH 1: Atmospheric Background -->
+    <section class="test-section atmosphere-section">
+        <div class="atmosphere-bg"></div>
+        <div class="atmosphere-content">
+            <h2>1. Atmospheric Background</h2>
+            <p class="approach-desc">Very dark, desaturated image as subtle texture. Barely visible but adds depth and visual interest without competing with content.</p>
+            <div class="prose-block">
+                <p>The image sits at 7% opacity with full grayscale, creating atmosphere without competing with content. Works best with busy images that become abstract patterns when darkened.</p>
+            </div>
+            <div class="usage-notes">
+                <h4>When to use</h4>
+                <ul>
+                    <li>Hero sections that need subtle depth</li>
+                    <li>Feature highlight areas</li>
+                    <li>CTA sections where you want atmosphere</li>
+                    <li>Best with: tech imagery, office shots, abstract patterns</li>
+                </ul>
+            </div>
+            <div class="code-snippet">
+                <pre>.atmosphere-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('image.webp');
+    background-size: cover;
+    opacity: 0.07;
+    filter: grayscale(100%) contrast(1.2);
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 2: Contained with Glow -->
+    <section class="test-section">
+        <h2>2. Contained Image with Glow</h2>
+        <p class="approach-desc">Image in a container with subtle red glow border. Slightly desaturated and darkened to fit the theme. Feels premium and on-brand.</p>
+        <div class="contained-image">
+            <img src="assets/images/control-room.webp" alt="Security operations center">
+        </div>
+        <div class="usage-notes">
+            <h4>When to use</h4>
+            <ul>
+                <li>Standalone feature images</li>
+                <li>Service page hero images</li>
+                <li>Case study imagery</li>
+                <li>Key values: <code>brightness(0.8)</code>, <code>saturate(0.9)</code></li>
+                <li>Glow: <code>rgba(230, 57, 70, 0.15)</code> for subtle brand accent</li>
+            </ul>
+        </div>
+        <div class="code-snippet">
+            <pre>.contained-image::after {
+    border: 1px solid rgba(230, 57, 70, 0.3);
+    box-shadow:
+        0 0 40px rgba(230, 57, 70, 0.15),
+        inset 0 0 60px rgba(0, 0, 0, 0.4);
+}</pre>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 3: Split Content -->
+    <section class="test-section" style="padding: 0; max-width: none;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5%;">
+            <h2>3. Split Content Layout</h2>
+            <p class="approach-desc">Text on one side, image on other with gradient fade into the background. Creates visual interest while keeping content readable.</p>
+        </div>
+        <div class="split-content">
+            <div class="split-text">
+                <h3>Security operations that never sleep</h3>
+                <p>Our team monitors your environment around the clock. When threats emerge, we respond in minutes, not hours. Real people, real expertise, real protection.</p>
+            </div>
+            <div class="split-image">
+                <img src="assets/images/soc-team.webp" alt="Security team at work">
+            </div>
+        </div>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5%;">
+            <div class="usage-notes">
+                <h4>When to use</h4>
+                <ul>
+                    <li>Feature highlights on service pages</li>
+                    <li>About page sections</li>
+                    <li>Breaking up long prose content</li>
+                    <li>Gradient fades image into <code>var(--bg)</code></li>
+                    <li>Image filter: <code>brightness(0.7) saturate(0.8)</code></li>
+                    <li>Can flip layout (image left, text right) for variety</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 3b: Split Content with Hover Reveal -->
+    <section class="test-section" style="padding: 0; max-width: none;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5%;">
+            <h2>3b. Split Content with Hover Reveal</h2>
+            <p class="approach-desc">Image heavily faded by default, reveals to full visibility on hover. Creates intrigue and rewards interaction. Hover over the section below.</p>
+        </div>
+        <div class="split-content split-hover">
+            <div class="split-text">
+                <h3>Real people. Real expertise.</h3>
+                <p>Not a call centre overseas. Not a chatbot. When you need help, you get our Auckland team on the line. People who know your systems and can actually fix things.</p>
+            </div>
+            <div class="split-image">
+                <img src="assets/images/team-office.webp" alt="Belton team in office">
+            </div>
+        </div>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5%;">
+            <div class="usage-notes">
+                <h4>When to use</h4>
+                <ul>
+                    <li>Interactive feature sections</li>
+                    <li>When you want the image to feel like a reward</li>
+                    <li>Sections that link to more detail (case studies, about)</li>
+                    <li>Default: <code>brightness(0.4) saturate(0.5) grayscale(40%)</code></li>
+                    <li>Hover: <code>brightness(0.85) saturate(0.95) grayscale(0%)</code></li>
+                    <li>Subtle scale on hover: <code>transform: scale(1.02)</code></li>
+                    <li>Text shifts slightly on hover for polish</li>
+                </ul>
+            </div>
+            <div class="code-snippet">
+                <pre>.split-hover .split-image img {
+    filter: brightness(0.4) saturate(0.5) grayscale(40%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.split-hover:hover .split-image img {
+    filter: brightness(0.85) saturate(0.95) grayscale(0%);
+    transform: scale(1.02);
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 4: Team Portraits -->
+    <section class="test-section">
+        <h2>4. Team Portraits</h2>
+        <p class="approach-desc">Small circular photos, slightly desaturated at rest, full color on hover. Personal and approachable without being overwhelming.</p>
+        <div class="team-row">
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="assets/images/jason-agnew.webp" alt="Jason Agnew">
+                </div>
+                <div class="team-name">Jason Agnew</div>
+                <div class="team-role">Managing Director</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="assets/images/amy-agnew.webp" alt="Amy Agnew">
+                </div>
+                <div class="team-name">Amy Agnew</div>
+                <div class="team-role">Operations</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="assets/images/shaun.webp" alt="Shaun">
+                </div>
+                <div class="team-name">Shaun</div>
+                <div class="team-role">Senior Engineer</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="assets/images/ruth.webp" alt="Ruth">
+                </div>
+                <div class="team-name">Ruth</div>
+                <div class="team-role">Service Desk</div>
+            </div>
+        </div>
+        <div class="usage-notes">
+            <h4>When to use</h4>
+            <ul>
+                <li>About page team section</li>
+                <li>Contact page</li>
+                <li>Testimonials with attribution</li>
+                <li>Rest state: <code>grayscale(30%) brightness(0.9)</code></li>
+                <li>Hover: <code>grayscale(0%) brightness(1)</code></li>
+                <li>Size: 120px works well, can scale to 100px or 150px</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 5: Accent Strip -->
+    <section class="test-section">
+        <h2>5. Accent Strip</h2>
+        <p class="approach-desc">Thin image band as section divider. Heavily darkened with gradient fades top and bottom so it blends seamlessly.</p>
+    </section>
+    <div class="accent-strip">
+        <img src="assets/images/data-center.webp" alt="Data center">
+    </div>
+    <section class="test-section">
+        <div class="usage-notes">
+            <h4>When to use</h4>
+            <ul>
+                <li>Between major page sections</li>
+                <li>Before CTA sections</li>
+                <li>To add visual rhythm on long pages</li>
+                <li>Height: 120px works well (80px-150px range)</li>
+                <li>Image filter: <code>brightness(0.4) saturate(0.7)</code></li>
+                <li>Gradient fades prevent hard edges</li>
+                <li>Best with: wide landscape images, tech/office imagery</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 6: Duotone -->
+    <section class="test-section">
+        <h2>6. Duotone / Brand Tinted</h2>
+        <p class="approach-desc">Fully grayscale image with subtle red tint overlay. Creates brand cohesion and artistic feel.</p>
+        <div class="duotone-image">
+            <img src="assets/images/cybersecurity-team.webp" alt="Cybersecurity team">
+        </div>
+        <div class="usage-notes">
+            <h4>When to use</h4>
+            <ul>
+                <li>Hero backgrounds</li>
+                <li>Feature imagery where brand cohesion matters</li>
+                <li>When full-color would be too distracting</li>
+                <li>Base: <code>grayscale(100%) contrast(1.1) brightness(0.8)</code></li>
+                <li>Overlay: <code>rgba(230, 57, 70, 0.2)</code> with <code>mix-blend-mode: overlay</code></li>
+                <li>Adjust red intensity (0.1-0.3) based on image</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- APPROACH 7: Image Card -->
+    <section class="test-section">
+        <h2>7. Image Card</h2>
+        <p class="approach-desc">Image as part of a content card. Compact, contained, pairs image with related text content.</p>
+        <div class="image-card">
+            <div class="image-card-img">
+                <img src="assets/images/meeting-room-team.webp" alt="Team meeting">
+            </div>
+            <div class="image-card-content">
+                <h4>Auckland-based support</h4>
+                <p>Real people in a real office. When you call, someone answers. When you need help, we're there.</p>
+            </div>
+        </div>
+        <div class="usage-notes">
+            <h4>When to use</h4>
+            <ul>
+                <li>Case studies and success stories</li>
+                <li>Team member highlights</li>
+                <li>Location/office information</li>
+                <li>News or announcement cards</li>
+                <li>Image width: 200px (adjust 150px-250px as needed)</li>
+                <li>Image filter: <code>brightness(0.85)</code></li>
+                <li>Stacks vertically on mobile</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="test-section" style="padding-bottom: 6rem;">
+        <h2>General Guidelines</h2>
+        <div class="usage-notes" style="max-width: 800px;">
+            <h4>Image treatment principles</h4>
+            <ul>
+                <li><strong>Always darken</strong> - Use <code>brightness(0.7-0.9)</code> on all images</li>
+                <li><strong>Desaturate slightly</strong> - <code>saturate(0.7-0.9)</code> keeps colors muted</li>
+                <li><strong>Use gradients</strong> - Fade images into <code>var(--bg)</code> for seamless blending</li>
+                <li><strong>Brand accent sparingly</strong> - Red glow/tint at low opacity (0.1-0.2)</li>
+                <li><strong>Prefer WebP</strong> - Smaller file sizes, same quality</li>
+                <li><strong>Responsive images</strong> - Provide 800w and 1200w versions for srcset</li>
+                <li><strong>Object-fit: cover</strong> - Ensures images fill containers without distortion</li>
+            </ul>
+        </div>
+        <div class="usage-notes" style="max-width: 800px; margin-top: 1.5rem;">
+            <h4>What to avoid</h4>
+            <ul>
+                <li>Full-brightness, fully-saturated images</li>
+                <li>Hard edges where image meets background</li>
+                <li>Stock photo cliches (handshakes, pointing at screens)</li>
+                <li>Images that compete with text for attention</li>
+                <li>Decorative images that add no meaning</li>
+                <li>Hero images without treatment (too bright/distracting)</li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>

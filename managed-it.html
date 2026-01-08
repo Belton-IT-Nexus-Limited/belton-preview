@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fully managed IT support for New Zealand businesses. Your IT department without the overhead. One team, one monthly fee, no surprises.">
+    <title>Managed IT | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .included-section { max-width: 800px; }
+
+        .included-list {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .included-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .included-item summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.2s ease;
+        }
+
+        .included-item summary::-webkit-details-marker { display: none; }
+
+        .included-item summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .included-item[open] summary::after {
+            content: '−';
+            color: var(--accent);
+        }
+
+        .included-item summary:hover {
+            color: var(--accent);
+        }
+
+        .included-content {
+            padding: 0 0 1.5rem 0;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .included-content ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 2rem;
+        }
+
+        .included-content li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .included-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .approach-prose { max-width: 500px; }
+        .approach-prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+
+        .approach-list { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 32px; }
+        .approach-list h3 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); margin-bottom: 20px; }
+        .approach-item { padding: 14px 0; border-bottom: 1px solid var(--border); }
+        .approach-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .approach-item strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 4px; }
+        .approach-item span { font-size: 0.9375rem; color: var(--text-secondary); }
+
+        .why-section { max-width: 800px; }
+        .why-points { display: flex; flex-wrap: wrap; gap: 32px 48px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .why-point { flex: 1 1 200px; }
+        .why-point strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 4px; }
+        .why-point span { font-size: 0.9375rem; color: var(--text-secondary); }
+
+        @media (max-width: 768px) {
+            .included-content ul { grid-template-columns: 1fr; }
+            .approach-grid { grid-template-columns: 1fr; gap: 32px; }
+            .why-points { flex-direction: column; gap: 20px; }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Managed IT</p>
+        <h1 class="page-title">Your IT department, without the overhead</h1>
+        <p class="page-subtitle">Focus on running your business. We handle the technology that keeps it moving.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>Most businesses don't need a full-time IT person. What they need is someone who picks up the phone when things break, keeps systems secure and updated, and makes sure problems get solved before they become outages.</p>
+
+            <p>That's what we do. We become your IT department - monitoring your systems around the clock, handling the day-to-day requests from your team, and planning ahead so technology helps your business instead of holding it back.</p>
+
+            <p>One monthly fee. No hourly billing. No surprise invoices. No guilt for calling with questions. Your staff call us directly when they need help, and we actually answer.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="included-section">
+            <div class="section-tag">What's Included</div>
+            <h2 class="section-title">Everything your business needs</h2>
+            <p class="section-sub">All the day-to-day IT operations, handled by our team so you don't have to think about it.</p>
+
+            <div class="included-list">
+                <details class="included-item" open>
+                    <summary>Support & Helpdesk</summary>
+                    <div class="included-content">
+                        <ul>
+                            <li>Unlimited phone and remote support</li>
+                            <li>Password resets and account unlocks</li>
+                            <li>Software troubleshooting</li>
+                            <li>Hardware diagnostics</li>
+                            <li>New starter setup and offboarding</li>
+                            <li>User training and guidance</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="included-item">
+                    <summary>Monitoring & Maintenance</summary>
+                    <div class="included-content">
+                        <ul>
+                            <li>24/7 system monitoring</li>
+                            <li>Windows updates and patching</li>
+                            <li>Antivirus and security management</li>
+                            <li>Backup verification</li>
+                            <li>Performance optimisation</li>
+                            <li>Proactive issue detection</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="included-item">
+                    <summary>Microsoft 365</summary>
+                    <div class="included-content">
+                        <ul>
+                            <li>User and license management</li>
+                            <li>Shared mailboxes and groups</li>
+                            <li>Teams configuration</li>
+                            <li>SharePoint and OneDrive support</li>
+                            <li>Security policy enforcement</li>
+                            <li>Email and calendar troubleshooting</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="included-item">
+                    <summary>Network & Infrastructure</summary>
+                    <div class="included-content">
+                        <ul>
+                            <li>Firewall monitoring</li>
+                            <li>WiFi troubleshooting</li>
+                            <li>VPN access management</li>
+                            <li>Printer and peripheral support</li>
+                            <li>Connectivity issue resolution</li>
+                            <li>Network documentation</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="approach-grid">
+            <div class="approach-prose">
+                <div class="section-tag">How We Work</div>
+                <h2 class="section-title">IT support that actually works</h2>
+                <p>We've heard the horror stories. Providers who take days to respond. Hourly billing that discourages asking for help. Lock-in contracts that trap you with poor service.</p>
+
+                <p>We do things differently. When you call, we pick up the phone. When something breaks, we fix it properly - not just quickly. When you have questions, there's no billing timer running in the background.</p>
+
+                <p>Your team gets to know our team by name. No call centres, no ticket queues, no starting from scratch every time something goes wrong.</p>
+            </div>
+
+            <div class="approach-list">
+                <h3>Our Approach</h3>
+                <div class="approach-item">
+                    <strong>Unlimited support</strong>
+                    <span>Call as often as you need. No per-ticket fees.</span>
+                </div>
+                <div class="approach-item">
+                    <strong>Fast response</strong>
+                    <span>We actually answer the phone and respond quickly.</span>
+                </div>
+                <div class="approach-item">
+                    <strong>Proactive monitoring</strong>
+                    <span>We often know about issues before you do.</span>
+                </div>
+                <div class="approach-item">
+                    <strong>Plain English</strong>
+                    <span>No jargon. We explain what's happening.</span>
+                </div>
+                <div class="approach-item">
+                    <strong>Fair pricing</strong>
+                    <span>Fixed margins on procurement. Transparent agreements.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="why-section">
+            <div class="section-tag">Why Clients Choose Us</div>
+            <h2 class="section-title">IT that grows with you</h2>
+            <div class="prose">
+                <p>Our clients aren't just buying IT support. They're getting a team that understands their business, plans ahead, and helps them make smarter technology decisions.</p>
+
+                <p>Some of our first clients from 2004 are still with us today. That kind of relationship doesn't happen by accident. It comes from doing good work, being honest about what you need, and always picking up the phone.</p>
+            </div>
+
+            <div class="why-points">
+                <div class="why-point">
+                    <strong>Predictable costs</strong>
+                    <span>One monthly fee covers everything</span>
+                </div>
+                <div class="why-point">
+                    <strong>Real expertise</strong>
+                    <span>Microsoft certified engineers</span>
+                </div>
+                <div class="why-point">
+                    <strong>Local team</strong>
+                    <span>Auckland-based, NZ owned</span>
+                </div>
+                <div class="why-point">
+                    <strong>Long-term partnership</strong>
+                    <span>We plan for your future, not just today</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to talk?</h2>
+            <p>We'll have an honest conversation about your current situation and whether managed IT makes sense for you.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
+                <a href="how-we-work.html" class="btn btn-outline">See How We Work</a>
+            </div>
+            <p class="cta-reassurance">No obligation. No sales pitch. If we're not the right fit, we'll tell you.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

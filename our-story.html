@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The story of Belton IT Nexus - from humble beginnings to trusted technology partner. Founded by Jason and Amy Agnew with a vision to do IT differently.">
+    <title>Our Story | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .story-section {
+            max-width: 800px;
+        }
+
+        .story-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 1.75rem;
+        }
+
+        .story-section p.lead {
+            font-size: 1.25rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .story-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 3rem 0 1.25rem 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem 0;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--border));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        .timeline-year {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Founders section */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .founder-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .founder-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--surface-2);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-image i {
+            font-size: 3rem;
+            color: var(--text-muted);
+        }
+
+        .founder-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .founder-role {
+            font-size: 0.9375rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .founder-bio {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            max-width: 800px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .value-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .value-card h4 i {
+            color: var(--accent);
+        }
+
+        .value-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Quote */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(207, 29, 30, 0.08), rgba(207, 29, 30, 0.03));
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            max-width: 800px;
+        }
+
+        .quote-box blockquote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0 0 1rem 0;
+        }
+
+        .quote-box cite {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-style: normal;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(207, 29, 30, 0.1), rgba(207, 29, 30, 0.05));
+            border: 1px solid rgba(207, 29, 30, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 800px;
+            margin: 3rem 0;
+        }
+
+        .cta-box h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0 0 1rem 0;
+        }
+
+        .cta-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="https://portal.belton.co.nz" class="header-top-link" target="_blank">
+                <i class="fas fa-user-circle"></i> Client Portal
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="about.html">About</a> / Our Story</p>
+        <h1 class="page-title">Our Story</h1>
+        <p class="page-subtitle">From a spare room to a trusted technology partner. Two decades of doing IT differently.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="story-section">
+            <p class="lead">Belton IT Nexus didn't start with venture capital or a grand business plan. It started with two people, a spare room, and a belief that IT could be done better.</p>
+
+            <p>In the early 2000s, Jason and Amy Agnew were pursuing different paths. Jason had trained as a pilot, but the industry downturn following 2001 forced a change of direction. Amy had a background in finance and administration. What they shared was a pragmatic approach to problem-solving and a willingness to work.</p>
+
+            <p>They started taking IT support jobs—any jobs—advertising in local newspapers and building a reputation one client at a time. There was no playbook. They learned by doing: solving problems, making mistakes, and figuring out what businesses actually needed from their technology.</p>
+        </div>
+
+        <div class="quote-box">
+            <blockquote>"We took every job we could to learn, grow, and improve. The early years weren't about profit—they were about understanding what good IT support actually looked like."</blockquote>
+            <cite>— Jason Agnew, Co-Founder</cite>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <h2 class="section-title">The Journey</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">Early 2000s</div>
+                <div class="timeline-title">Starting Out</div>
+                <div class="timeline-content">Jason and Amy begin offering IT support services from home, advertising in local newspapers and building clients through word of mouth. Every job is an opportunity to learn.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2004</div>
+                <div class="timeline-title">Taking a Risk</div>
+                <div class="timeline-content">Two years in, an opportunity emerges to acquire a small IT company. Without the capital to fund it outright, they take a calculated risk—and it pays off. The acquisition accelerates growth and expands their client base.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2008</div>
+                <div class="timeline-title">Belton IT Nexus is Born</div>
+                <div class="timeline-content">Following additional acquisitions and steady growth, the business formally becomes Belton IT Nexus. The spare room gives way to proper offices, and a small team starts to form around the founding vision.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2010s</div>
+                <div class="timeline-title">Building Partnerships</div>
+                <div class="timeline-content">Belton establishes partnerships with major technology vendors including Microsoft, becoming a trusted advisor for cloud transformation and modern workplace solutions.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2020s</div>
+                <div class="timeline-title">Security-First Evolution</div>
+                <div class="timeline-content">As cyber threats escalate, Belton builds comprehensive security operations capabilities, partnering with global SOC providers to deliver 24/7 protection for clients. The business expands into Australia.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Today</div>
+                <div class="timeline-title">A Professional Services Firm</div>
+                <div class="timeline-content">Twenty years on, Belton has delivered over $125 million in IT services. But the core remains unchanged: trusted relationships, practical solutions, and a genuine commitment to client success.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <h2 class="section-title">By the Numbers</h2>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years in Business</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$125M+</div>
+                <div class="stat-label">Services Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2004</div>
+                <div class="stat-label">Microsoft Partner Since</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <h2 class="section-title">The Founders</h2>
+
+        <div class="founders-grid">
+            <div class="founder-card">
+                <div class="founder-image">
+                    <img src="assets/images/jason-agnew.webp" alt="Jason Agnew">
+                </div>
+                <div class="founder-name">Jason Agnew</div>
+                <div class="founder-role">Co-Founder & Director</div>
+                <p class="founder-bio">Jason brings deep technical expertise and a pragmatic approach to technology strategy. His background includes pilot training, which instilled a discipline around processes, checklists, and getting things right. He leads Belton's technical direction and client relationships.</p>
+            </div>
+
+            <div class="founder-card">
+                <div class="founder-image">
+                    <img src="assets/images/amy-agnew.webp" alt="Amy Agnew">
+                </div>
+                <div class="founder-name">Amy Agnew</div>
+                <div class="founder-role">Co-Founder & Director</div>
+                <p class="founder-bio">Amy's financial and administrative background provides the operational foundation that allows Belton to deliver consistently. She oversees business operations, ensuring that the company maintains the standards and processes clients depend on.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <h2 class="section-title">What We Believe</h2>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <h4><i class="fas fa-handshake"></i> Relationships First</h4>
+                <p>Technology is the tool, but relationships are the foundation. We invest in understanding our clients' businesses because good advice requires context. Quick transactions might be efficient, but trusted partnerships deliver lasting value.</p>
+            </div>
+
+            <div class="value-card">
+                <h4><i class="fas fa-shield-alt"></i> Risk Awareness</h4>
+                <p>Every technology decision carries risk. We help clients see the full picture—not just the features and benefits, but the security implications, the dependencies, and the potential failure points. Informed decisions are better decisions.</p>
+            </div>
+
+            <div class="value-card">
+                <h4><i class="fas fa-check-double"></i> Do It Properly</h4>
+                <p>There's always pressure to cut corners or find quick fixes. We resist it. Proper documentation, tested processes, and thorough implementation take longer upfront but prevent problems down the line. We'd rather do it right than do it again.</p>
+            </div>
+
+            <div class="value-card">
+                <h4><i class="fas fa-sync-alt"></i> Continuous Improvement</h4>
+                <p>Twenty years in, we're still learning. Technology changes constantly, and so do the threats facing businesses. We invest in our capabilities, refine our processes, and adapt our approach based on what we learn from every engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="story-section">
+            <h3>Why "Nexus"?</h3>
+            <p>The word nexus means a connection or series of connections linking multiple things. It's how we see our role: connecting businesses to the right technology, connecting teams to productivity tools, connecting organisations to security capabilities they couldn't build alone.</p>
+            <p>We're not trying to be everything to everyone. We're trying to be the trusted connection point between businesses and the technology they need to succeed.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Want to work with us?</h3>
+            <p>We're always interested in talking to businesses who value partnership over transactions. If you're looking for an IT partner who'll take the time to understand your business, we should talk.</p>
+            <div class="cta-buttons">
+                <a href="get-started.html" class="btn btn-primary">Get Started</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

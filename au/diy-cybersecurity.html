@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practical cybersecurity tips for Australian businesses. Simple steps to improve your security posture without enterprise budgets.">
+    <title>DIY Cybersecurity Guide | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/diy-cybersecurity.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .prose-block {
+            max-width: 700px;
+        }
+
+        .prose-block p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip-list {
+            max-width: 700px;
+            margin-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tip-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tip-item summary {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .tip-item summary::-webkit-details-marker { display: none; }
+
+        .tip-number {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 1.5rem;
+        }
+
+        .tip-title {
+            flex: 1;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.2s ease;
+        }
+
+        .tip-item summary:hover .tip-title {
+            color: var(--accent);
+        }
+
+        .tip-item summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .tip-item[open] summary::after {
+            content: '−';
+            color: var(--accent);
+        }
+
+        .tip-content {
+            padding: 0 0 1.5rem 2.5rem;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 700px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box strong {
+            color: var(--text);
+        }
+
+        .warning-box {
+            background: rgba(230, 57, 70, 0.05);
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 700px;
+            margin-top: 2.5rem;
+        }
+
+        .warning-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> +61 2 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link active">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="#">Resources</a> / DIY Cybersecurity</p>
+        <h1 class="page-title">Security basics you can do yourself</h1>
+        <p class="page-subtitle">Practical steps to improve your security posture. No enterprise budget required.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-block">
+            <p>Not every business can afford a full security team. But that does not mean you have to be an easy target. Most breaches exploit simple weaknesses. Reused passwords. Unpatched systems. Staff clicking links they should not. Fix these basics and you eliminate the majority of threats.</p>
+            <p>This guide covers the fundamentals. Things you can implement yourself, today, with minimal cost. They will not stop a nation-state attack. But they will stop the opportunistic criminals who target businesses without basic protections.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">The Basics</div>
+        <h2 class="section-title">Start with these eight fundamentals</h2>
+        <p class="section-sub">Each one addresses a common attack vector. Do them all and you are ahead of most businesses.</p>
+
+        <div class="tip-list">
+            <details class="tip-item" open>
+                <summary>
+                    <span class="tip-number">01</span>
+                    <span class="tip-title">Enable multi-factor authentication everywhere</span>
+                </summary>
+                <div class="tip-content">Passwords get stolen. MFA means stolen passwords alone cannot grant access. Enable it on email, banking, cloud services, VPNs. Every login that matters. Use authenticator apps, not SMS where possible.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">02</span>
+                    <span class="tip-title">Use a password manager</span>
+                </summary>
+                <div class="tip-content">People reuse passwords because remembering unique ones is hard. Password managers solve this. They generate strong, unique passwords and remember them for you. Most have business plans that let you share credentials safely with staff.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">03</span>
+                    <span class="tip-title">Keep everything updated</span>
+                </summary>
+                <div class="tip-content">Most attacks exploit known vulnerabilities with available patches. Enable automatic updates on Windows, macOS, phones, browsers. Update your router firmware. Patch your web applications. Updates are free security fixes.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">04</span>
+                    <span class="tip-title">Back up your data properly</span>
+                </summary>
+                <div class="tip-content">Ransomware encrypts your files and demands payment. Good backups let you restore without paying. Follow the 3-2-1 rule: three copies, two different media types, one offsite. Test your restores. A backup that cannot be restored is not a backup.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">05</span>
+                    <span class="tip-title">Train your people</span>
+                </summary>
+                <div class="tip-content">Phishing works because people click without thinking. Regular, brief training keeps security awareness fresh. Teach staff to verify unexpected requests, hover over links before clicking, report suspicious emails rather than ignoring them.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">06</span>
+                    <span class="tip-title">Limit admin access</span>
+                </summary>
+                <div class="tip-content">Not everyone needs administrative privileges. Daily work should use standard accounts. Admin access only for tasks that require it. This limits damage when an account gets compromised.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">07</span>
+                    <span class="tip-title">Secure your email settings</span>
+                </summary>
+                <div class="tip-content">Configure SPF, DKIM, and DMARC records for your domain. These prevent attackers from sending emails that appear to come from your business. Most email providers offer guides. It takes an hour and costs nothing.</div>
+            </details>
+            <details class="tip-item">
+                <summary>
+                    <span class="tip-number">08</span>
+                    <span class="tip-title">Know what you have</span>
+                </summary>
+                <div class="tip-content">You cannot protect what you do not know exists. Maintain a list of your devices, software, and cloud services. When vulnerabilities emerge, you will know what needs attention.</div>
+            </details>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-block">
+            <p>These fundamentals address the most common attack paths. Password attacks, unpatched vulnerabilities, phishing, and ransomware. Master them before worrying about advanced threats.</p>
+            <p>Security is a process, not a destination. Review these practices quarterly. Technology changes. New threats emerge. What protected you last year may not be enough next year.</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>When DIY is not enough</h4>
+            <p>These basics protect against opportunistic attacks. They may not be sufficient if you handle sensitive data, face regulatory requirements, or operate in a high-risk industry. If you are unsure about your risk level, a professional assessment can identify gaps you might miss.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose-block">
+            <p>We built this guide because good security information should not be locked behind consulting fees. These recommendations apply to businesses of any size. They require effort, not budget.</p>
+            <p>If you find yourself needing more than basics, we can help. From security assessments to full managed protection. But start with these fundamentals. They matter more than any tool you can buy.</p>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 2.5rem;">
+            <p><strong>Want to go further?</strong> Our security assessment identifies vulnerabilities specific to your environment. We review your current setup, test your defences, and provide actionable recommendations prioritised by risk.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready for professional security support?</h2>
+            <p>We can help you move from basic protection to comprehensive security.</p>
+            <div class="cta-actions">
+                <a href="security-assessment.html" class="btn btn-primary">Request a Security Assessment</a>
+                <a href="tel:+61280069191" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 02 8006 9191
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

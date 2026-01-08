@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compliance services for Australian businesses. Essential Eight, CIS Controls, NIST, ISO 27001 alignment. Framework guidance and audit support from experienced practitioners.">
+    <title>Compliance | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/compliance.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .framework-prose { max-width: 800px; }
+        .framework-prose h3 { font-size: 1.125rem; font-weight: 600; color: var(--text); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .framework-prose h3:first-child { margin-top: 0; }
+        .framework-prose .framework-org { font-size: 0.75rem; color: var(--accent); font-weight: 500; margin-bottom: 0.75rem; }
+
+        .approach-block { max-width: 750px; margin-top: 2rem; }
+        .approach-block p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.25rem; }
+        .approach-block strong { color: var(--text); }
+
+        .callout-box {
+            background: var(--surface);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin-top: 2.5rem;
+            max-width: 750px;
+        }
+        .callout-box p { font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+        .callout-box strong { color: var(--text); }
+
+        .e8-section { max-width: 750px; }
+        .e8-controls { margin-top: 1.5rem; font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.8; }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Compliance</p>
+        <h1 class="page-title">Frameworks that actually matter</h1>
+        <p class="page-subtitle">Compliance without the confusion. We help you align with recognised security frameworks and prepare for audits.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>The compliance landscape has changed. Cyber insurance applications now ask detailed security questions. Government tenders require framework alignment. Enterprise clients expect evidence of mature security practices. And regulators are paying closer attention than ever.</p>
+
+            <p>We help you navigate this without getting lost in jargon or drowning in documentation. Our approach is practical: understand what you actually need, implement controls that make sense for your business, and build the evidence base that satisfies auditors and stakeholders.</p>
+
+            <p>This isn't about ticking boxes. Frameworks exist because they work. Following Essential Eight or CIS Controls doesn't just satisfy external requirements, it genuinely reduces your risk. We help you get both benefits: better security posture and audit-ready documentation.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">Frameworks</div>
+        <h2 class="section-title">The frameworks we work with</h2>
+
+        <div class="framework-prose">
+            <p>Different frameworks serve different purposes, and the right choice depends on your industry, your clients, and what you're trying to achieve. Here's what we work with most often:</p>
+
+            <h3>Essential Eight</h3>
+            <div class="framework-org">Australian Cyber Security Centre</div>
+            <p>Eight practical controls that prevent the majority of cyber attacks. Developed by the ACSC, it's the baseline for cyber insurance applications and increasingly required for government contracts. We've helped dozens of organisations reach various maturity levels.</p>
+
+            <h3>CIS Controls</h3>
+            <div class="framework-org">Center for Internet Security</div>
+            <p>A prioritised set of security controls based on real-world attack data. Practical and actionable, the CIS Controls are respected globally and provide a solid foundation regardless of your current maturity level. Particularly useful if you're starting from scratch and need a clear path forward.</p>
+
+            <h3>NIST Cybersecurity Framework</h3>
+            <div class="framework-org">US National Institute of Standards and Technology</div>
+            <p>Built around five functions: Identify, Protect, Detect, Respond, and Recover. NIST CSF helps organisations understand and manage cyber risk systematically. Often requested by US-based clients or organisations with American operations.</p>
+
+            <h3>ISO 27001</h3>
+            <div class="framework-org">International Standard</div>
+            <p>The gold standard for information security management systems. Certification opens doors with enterprise clients and demonstrates mature, auditable security practices. The most comprehensive option, but also the most involved to achieve. Worth it for organisations where certification is a competitive advantage.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-tag">Our Approach</div>
+        <h2 class="section-title">How we make compliance achievable</h2>
+
+        <div class="approach-block">
+            <p>Compliance projects fail when they become checkbox exercises disconnected from reality. We take a different approach: start with your business context, prioritise based on actual risk, and implement controls that serve both compliance and security goals.</p>
+
+            <p>We begin with a <strong>gap assessment</strong> that maps your current state against your target framework. Clear findings, prioritised by risk, with no jargon. From there, we build a <strong>practical roadmap</strong> that works with your budget and resources, putting quick wins first and then working toward systematic improvement.</p>
+
+            <p>Implementation isn't just advice. We help put the technical controls, policies, and procedures in place. We build the <strong>evidence collection</strong> systems that prove your controls are working, ready for when auditors come knocking. And when audit time arrives, we provide <strong>pre-audit assessments</strong> to catch issues early and can liaise with auditors directly on your behalf.</p>
+
+            <div class="callout-box">
+                <p><strong>The difference between compliance and security.</strong> Real compliance improves your security posture. Fake compliance produces documentation that describes controls you haven't implemented. We only do the former.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt">
+        <div class="section-tag">Essential Eight</div>
+        <h2 class="section-title">The framework everyone is asking about</h2>
+
+        <div class="e8-section">
+            <p>From the Australian Cyber Security Centre, the Essential Eight has become the de facto standard for cyber insurance and government contracts across Australia. Eight controls that address how most attacks actually happen: application control, patching applications and operating systems, configuring Microsoft Office macros, user application hardening, restricting administrative privileges, multi-factor authentication, and regular backups.</p>
+
+            <p>We've helped dozens of organisations achieve Essential Eight alignment at various maturity levels. The framework is practical by design: you don't need to be perfect to demonstrate commitment. Start at Maturity Level 1 and progress as your capabilities mature.</p>
+
+            <p>Higher maturity often means lower cyber insurance premiums. More importantly, it means genuinely reduced risk. These controls exist because they work. We can assess where you stand today, identify the gaps, and build a realistic plan to reach your target maturity level.</p>
+
+            <p class="e8-controls">For a detailed breakdown of the eight controls and maturity levels, see our <a href="essential-eight.html" style="color: var(--accent);">Essential Eight guide</a>.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to get your compliance sorted?</h2>
+            <p>Start with a gap assessment. We'll show you exactly where you stand.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Book a Compliance Assessment</a>
+                <a href="tel:+61280069191" class="btn btn-outline">02 8006 9191</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

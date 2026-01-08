@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Strategic IT guidance for Australian businesses. Technology roadmaps, budget planning, and board reporting without the full-time CIO salary.">
+    <title>IT Advisory & vCIO | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/it-advisory.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose {
+            max-width: 720px;
+        }
+
+        .prose p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .prose strong {
+            color: var(--text);
+        }
+
+        .services-prose {
+            max-width: 720px;
+            margin-top: 2.5rem;
+        }
+
+        .services-prose h3 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .services-prose h3:first-child {
+            margin-top: 0;
+        }
+
+        .services-prose p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .content-with-aside {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1000px;
+        }
+
+        .aside-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .aside-box h3 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .aside-box p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .aside-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .aside-box strong {
+            color: var(--text);
+        }
+
+        .content-block h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .content-block p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .scenarios-prose {
+            max-width: 720px;
+        }
+
+        .scenarios-prose p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .scenarios-prose strong {
+            color: var(--text);
+        }
+
+        .callout {
+            max-width: 720px;
+            background: var(--surface);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 2rem;
+        }
+
+        .callout p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .callout strong {
+            color: var(--text);
+        }
+
+        .callout a {
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .content-with-aside {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .aside-box {
+                max-width: 400px;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / IT Advisory</p>
+        <div class="page-title">IT Advisory</div>
+        <p class="page-subtitle">Strategic guidance that connects technology to business outcomes. No jargon, no product pushing.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>Most businesses don't need a full-time CIO. But they do need someone who can see the big picture, connect technology decisions to business goals, and help them invest wisely.</p>
+            <p>That's what we do. We bring executive-level IT thinking to businesses that want to lead with technology, not just keep up with it. Think of it as having an experienced strategist on call, someone who understands your business and can help you navigate the decisions that matter.</p>
+            <p><strong>We start with your objectives and work backwards.</strong> What are you trying to achieve? Where is technology helping, and where is it getting in the way? What investments will actually move the needle?</p>
+        </div>
+
+        <div class="services-prose">
+            <h3>Technology roadmaps</h3>
+            <p>We build 1-3 year plans that show what to do now, what can wait, and what you can skip entirely. Priorities aligned with your budget and goals, reviewed quarterly as things change.</p>
+
+            <h3>Budget planning and forecasting</h3>
+            <p>Know what's coming up for renewal, replacement, or upgrade. No more emergency capex requests or budget surprises. We help you see the full picture and plan accordingly.</p>
+
+            <h3>Board and executive reporting</h3>
+            <p>Communication in business terms your leadership team will actually read. Risk summaries, investment cases, and progress updates that translate technical reality into strategic insight.</p>
+
+            <h3>Vendor and solution evaluation</h3>
+            <p>When vendors pitch solutions, we provide independent assessment. We'll tell you what they didn't mention, whether it actually fits your needs, and what alternatives exist.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="content-with-aside">
+            <div class="content-block">
+                <h2>Strategy that evolves with your business</h2>
+                <p>We don't hand you a 50-page document that sits in a drawer. We build a practical plan and keep it current through quarterly reviews.</p>
+                <p>Business priorities shift. New opportunities emerge. Technology changes. Your roadmap should evolve with them. We'll help you stay ahead of what's coming, not just react to what's broken.</p>
+                <p>Whether you're planning for growth, navigating compliance requirements, or making sense of AI, you'll have experienced thinking on your side.</p>
+            </div>
+            <div class="aside-box">
+                <h3>Ongoing advisory</h3>
+                <p><strong>Quarterly reviews</strong> keep priorities current and track progress against your roadmap.</p>
+                <p><strong>Risk and compliance guidance</strong> helps you navigate frameworks like Essential 8, CIS Controls, and NIST.</p>
+                <p><strong>Growth planning</strong> ensures your technology scales to match your ambitions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-tag">Real situations</div>
+        <h2 class="section-title" style="max-width: 720px; margin-bottom: 2rem;">How advisory actually helps</h2>
+
+        <div class="scenarios-prose">
+            <p><strong>The vendor pitch.</strong> A software vendor presents a compelling demo to your leadership team. Before you sign, your advisor reviews the proposal, identifies the gaps they didn't mention, and gives you an honest assessment of whether it's right for you. Maybe it is. Maybe there's something better. Either way, you decide with full information.</p>
+
+            <p><strong>Budget season.</strong> The board wants to know what IT will cost next year. Instead of guessing, you present a clear breakdown: current spend, upcoming renewals, strategic investments, and what happens if you delay them. The conversation shifts from "why is IT so expensive" to "which investments deliver the most value."</p>
+
+            <p><strong>Growth planning.</strong> You're opening a second office and hiring 20 people. What infrastructure do you need? Can your current systems handle it? Your advisor maps out what scales and what doesn't, then prioritises the investments that support your growth without over-building.</p>
+
+            <p><strong>Compliance requirements.</strong> A major client requires you to demonstrate security controls before they'll do business with you. Your advisor helps you understand what's actually required, where your gaps are, and builds a realistic plan to get compliant without over-engineering or panic spending.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt">
+        <div class="callout">
+            <p><strong>Works alongside your managed services.</strong> If we're already managing your IT, advisory gives you the strategic layer. If you have another provider, we can work independently as your technology advisor. Either way, you get experienced thinking without the full-time salary.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready for strategic IT guidance?</h2>
+            <p>Start with a conversation about where you are and where you want to go.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Schedule a Strategy Session</a>
+                <a href="tel:+61280069191" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 02 8006 9191
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

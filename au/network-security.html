@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Network security for Australian businesses. Firewalls, network segmentation, WiFi security, and VPN access. Your perimeter protected around the clock.">
+    <title>Network Security | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/network-security.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose {
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prose p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .prose strong {
+            color: var(--text);
+        }
+
+        .layers-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1000px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .layers-prose h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .layers-prose p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .layers-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .layers-sidebar h3 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .layer-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .layer-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .layer-item strong {
+            display: block;
+            font-size: 0.9375rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .layer-item span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .layers-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .layers-sidebar {
+                max-width: 400px;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Network Security</p>
+        <div class="page-title">Your perimeter protected</div>
+        <p class="page-subtitle">Threats blocked at the edge. Safe connectivity for your team. Visibility for you.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>Your network is the front door to your business. Every connection in, every connection out passes through it. When it works well, you never think about it. When it fails, everything stops.</p>
+            <p>The threat landscape has changed. Attackers scan thousands of IP addresses looking for vulnerable devices. They probe exposed services, attempt credential stuffing, and hunt for misconfigurations. Most businesses have no idea how often they're being tested.</p>
+            <p><strong>A properly configured firewall is your first line of defence.</strong> Not just blocking ports, but inspecting traffic, identifying threats, and stopping attacks before they reach your internal network. We deploy, monitor, and manage this protection so you don't have to think about it.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="layers-grid">
+            <div class="layers-prose">
+                <h2>Defence in depth</h2>
+                <p>A single security control isn't enough. Modern network security requires multiple layers working together, each catching what the others might miss.</p>
+                <p>At the perimeter, next-generation firewalls inspect all traffic in and out of your network. They block known threats, detect suspicious patterns, and prevent data exfiltration. Behind them, network segmentation limits the blast radius if something does get through.</p>
+                <p>Inside your network, we monitor for lateral movement and anomalous behaviour. Properly configured switches enforce access policies. Wireless networks are isolated from critical systems. Every layer adds protection.</p>
+                <p>We integrate all of this with your endpoint protection and identity management, creating a cohesive security posture rather than a collection of disconnected tools.</p>
+            </div>
+            <div class="layers-sidebar">
+                <h3>Security Layers</h3>
+                <div class="layer-item">
+                    <strong>Perimeter firewall</strong>
+                    <span>Traffic inspection, threat blocking, and intrusion prevention</span>
+                </div>
+                <div class="layer-item">
+                    <strong>Network segmentation</strong>
+                    <span>Isolate critical systems and limit breach impact</span>
+                </div>
+                <div class="layer-item">
+                    <strong>Access control</strong>
+                    <span>Policy-based network access for users and devices</span>
+                </div>
+                <div class="layer-item">
+                    <strong>Traffic monitoring</strong>
+                    <span>Detect anomalies and suspicious behaviour</span>
+                </div>
+                <div class="layer-item">
+                    <strong>Threat intelligence</strong>
+                    <span>Global feeds for proactive blocking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text); margin-bottom: 1.5rem;">Secure wireless</h2>
+            <p>Home WiFi works for home. But when you have dozens of people in an office, visitors needing internet, meeting rooms with video calls, and maybe a warehouse with scanning devices, you need something designed for the job.</p>
+            <p>Enterprise wireless handles density without dropping connections. Multiple access points work together so devices roam seamlessly. We deploy WPA3 enterprise encryption with individual user credentials, eliminating the shared passwords that create security gaps.</p>
+            <p>Network isolation keeps your business systems protected while guests get internet access. IoT devices go on their own segment. Central management gives us visibility across all access points, with policy changes pushed instantly and rogue device detection running continuously. No more dropped video calls, no more dead spots, no more wondering who's on your network.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose">
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text); margin-bottom: 1.5rem;">Remote access that works</h2>
+            <p>Your team works from everywhere. Home offices, client sites, airports, hotels. They need to access business systems safely from any location, on any network.</p>
+            <p>Traditional VPN creates encrypted tunnels between remote users and your network. It's proven, reliable, and works with virtually any device. For most businesses, it's still the right answer. Site-to-site VPN connects your offices and data centres. Remote user VPN with MFA keeps your team secure from anywhere. Always-on VPN means laptops are protected the moment they connect to the internet.</p>
+            <p>Modern zero trust goes further. Every access request is verified. Device compliance is checked before connections are allowed. Permissions are granted at the application level rather than the network level. Even authenticated users only access what they specifically need.</p>
+            <p>We help you choose the right approach for your situation. Sometimes that's straightforward VPN. Sometimes it's a hybrid. We configure it properly either way.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to secure your network?</h2>
+            <p>Start with a free network assessment. We'll show you where you are and where you could be.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Get a Network Assessment</a>
+                <a href="tel:+61280069191" class="btn btn-outline">
+                    02 8006 9191
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

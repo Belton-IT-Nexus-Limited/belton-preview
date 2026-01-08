@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ready to get started with Belton IT? Here's how the process works. No pressure, just a conversation about what you need.">
+    <title>Get Started | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/get-started.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+        .prose h3 { font-size: 1.125rem; font-weight: 600; color: var(--text); margin: 2.5rem 0 1rem 0; }
+        .prose h3:first-child { margin-top: 0; }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-option {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .contact-option:hover {
+            border-color: var(--border-hover);
+            background: var(--surface-2);
+        }
+
+        .contact-option h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-option p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-option a {
+            font-size: 0.9375rem;
+            color: var(--accent);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-option a:hover {
+            color: var(--text);
+        }
+
+        .expectation-list {
+            margin-top: 2rem;
+        }
+
+        .expectation-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .expectation-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .expectation-item i {
+            color: var(--accent);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .expectation-item span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / Get Started</p>
+        <h1 class="page-title">Ready to talk?</h1>
+        <p class="page-subtitle">No complicated process. Just a conversation about what you need.</p>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="prose">
+            <div class="section-tag">Reach Out</div>
+            <h2 class="section-title">Two ways to start</h2>
+            <p>Whether you prefer to pick up the phone or send an email, we'll respond quickly. Most initial conversations take about 30 minutes and help us understand your situation without any commitment on your part.</p>
+
+            <div class="contact-options">
+                <div class="contact-option">
+                    <h3>Call us directly</h3>
+                    <p>Talk to a real person in Sydney who can answer your questions immediately.</p>
+                    <a href="tel:+61280069191">
+                        <i class="fas fa-phone"></i> 02 8006 9191
+                    </a>
+                </div>
+                <div class="contact-option">
+                    <h3>Send us a message</h3>
+                    <p>Tell us about your situation and we'll get back to you within a few hours.</p>
+                    <a href="contact.html">
+                        Contact form <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt grid-texture">
+        <div class="prose">
+            <div class="section-tag">The Process</div>
+            <h2 class="section-title">What happens next</h2>
+            <p>We don't believe in complicated sales processes. When you reach out, we'll start with a conversation about your current setup, what's working, what isn't, and where you want to be. This helps us understand if we're a good fit for each other. No pressure, no hard sell.</p>
+
+            <p>If it makes sense to continue, we'll review your environment in more detail. This might be a quick chat with your current IT person, a look at your systems, or a security assessment. We'll tell you exactly what we need and why.</p>
+
+            <p>From there, we put together a clear proposal with exactly what we recommend, why, and what it costs. No hidden fees, no surprises. If something doesn't make sense, ask. We'd rather have an honest conversation than a confused client.</p>
+
+            <p>Once you're ready to proceed, we'll schedule onboarding. Most clients are fully transitioned within two to four weeks, depending on complexity. We handle the heavy lifting while you keep running your business.</p>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="prose">
+            <div class="section-tag">What to Expect</div>
+            <h2 class="section-title">Working with us</h2>
+            <p>We're straightforward about how we operate. Here's what you can expect once you're a Belton client.</p>
+
+            <div class="expectation-list">
+                <div class="expectation-item">
+                    <i class="fas fa-check"></i>
+                    <span>Direct access to real engineers. No ticket queues, no call centres, no waiting on hold.</span>
+                </div>
+                <div class="expectation-item">
+                    <i class="fas fa-check"></i>
+                    <span>Proactive communication. We'll tell you about problems before they affect you, and we'll recommend improvements when we see opportunities.</span>
+                </div>
+                <div class="expectation-item">
+                    <i class="fas fa-check"></i>
+                    <span>Fixed monthly pricing. Your bill is predictable. Support calls don't cost extra.</span>
+                </div>
+                <div class="expectation-item">
+                    <i class="fas fa-check"></i>
+                    <span>Honest advice. We'll tell you what you need to hear, not what you want to hear. Sometimes that means recommending against spending money.</span>
+                </div>
+                <div class="expectation-item">
+                    <i class="fas fa-check"></i>
+                    <span>Regular reviews. We'll meet with you periodically to discuss what's working, what could be better, and what's coming next.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt grid-texture">
+        <div class="prose">
+            <div class="section-tag">Good Fit</div>
+            <h2 class="section-title">Who we work best with</h2>
+            <p>We're not the right fit for everyone, and that's okay. We work best with organisations that value long-term relationships, want a partner rather than just a vendor, and understand that good IT is an investment, not just an expense.</p>
+
+            <p>Our sweet spot is businesses between 20 and 500 people. Big enough to need proper IT infrastructure, small enough that you want a team who knows your name. Professional services firms, manufacturers, not-for-profits, and growing companies tend to be our best fit.</p>
+
+            <p>If you're looking for the absolute cheapest option, we're probably not it. If you want IT that actually works, handled by people who care, that's what we do.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to have a conversation?</h2>
+            <p>No commitment. Just a chat about what you need.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <a href="tel:+61280069191" class="btn btn-outline">02 8006 9191</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

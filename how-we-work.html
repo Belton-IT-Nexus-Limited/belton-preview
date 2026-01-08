@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Belton works with clients. A predictable process for IT partnerships: conversation, assessment, transition, ongoing support, and continuous improvement.">
+    <title>How We Work | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover { color: #fff; }
+        .header-top-link i { color: var(--accent); }
+        .header-top-phone { font-weight: 600; color: #fff; font-size: 0.9375rem; }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        .header { top: 37px !important; }
+        @media (max-width: 768px) {
+            .header-top { display: none; }
+            .header { top: 0 !important; }
+        }
+
+        /* Page intro */
+        .page-intro {
+            max-width: 750px;
+            padding: 0 5% 4rem;
+        }
+        .page-intro p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Process stages */
+        .process-section {
+            padding: 5rem 5%;
+            border-top: 1px solid var(--border);
+        }
+        .process-section--alt {
+            background: var(--surface);
+        }
+        .process-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .process-header {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        .process-number {
+            width: 48px;
+            height: 48px;
+            background: var(--bg);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .process-section--alt .process-number {
+            background: var(--surface);
+        }
+        .process-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .process-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        .process-content {
+            margin-left: calc(48px + 2rem);
+        }
+        .process-content p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            max-width: 700px;
+        }
+        .process-outcomes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .outcome-box {
+            padding: 1.25rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .process-section--alt .outcome-box {
+            background: var(--bg-elevated);
+        }
+        .outcome-box h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .outcome-box p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .process-header { flex-direction: column; gap: 1rem; }
+            .process-content { margin-left: 0; }
+            .process-outcomes { grid-template-columns: 1fr; }
+        }
+
+        /* Principles section */
+        .principles {
+            padding: 5rem 5%;
+            border-top: 1px solid var(--border);
+        }
+        .principles-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .principles-header {
+            margin-bottom: 3rem;
+        }
+        .principles-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .principles-header p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .principle {
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .principle h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .principle p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .principles-grid { grid-template-columns: 1fr; }
+        }
+
+        /* CTA */
+        .cta-how {
+            text-align: center;
+            padding: 5rem 5%;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+        .cta-how h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .cta-how p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        .cta-reassurance {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link active">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / How We Work</p>
+        <h1 class="page-title">A predictable process. Consistent outcomes.</h1>
+        <p class="page-subtitle">We've learned over twenty years that good IT isn't about heroics — it's about doing the fundamentals well, every time.</p>
+    </section>
+
+    <div class="page-intro">
+        <p>Every client engagement follows the same structured process. Not because we lack flexibility, but because consistency is what delivers reliable outcomes. We've refined this approach through hundreds of transitions and thousands of support hours. It works.</p>
+    </div>
+
+    <!-- Stage 1: Conversation -->
+    <section class="process-section">
+        <div class="process-inner">
+            <div class="process-header">
+                <div class="process-number">1</div>
+                <div>
+                    <h2 class="process-title">Conversation</h2>
+                    <p class="process-subtitle">Understanding before recommending</p>
+                </div>
+            </div>
+            <div class="process-content">
+                <p>We start by listening. What's working? What's not? What keeps you up at night? What does your business need to achieve in the next two years? This isn't a sales pitch — it's a genuine conversation about whether we're the right fit for each other.</p>
+                <p>We ask about your current setup, your team's pain points, your compliance requirements, your growth plans. We're looking to understand context, not just gather technical specifications.</p>
+
+                <div class="process-outcomes">
+                    <div class="outcome-box">
+                        <h4>What you experience</h4>
+                        <p>An honest discussion with someone who asks good questions and doesn't pressure you. Usually 30-45 minutes. No slides, no scripts.</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>What this avoids</h4>
+                        <p>Cookie-cutter proposals that don't fit your situation. Recommendations based on assumptions rather than understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 2: Assessment -->
+    <section class="process-section process-section--alt">
+        <div class="process-inner">
+            <div class="process-header">
+                <div class="process-number">2</div>
+                <div>
+                    <h2 class="process-title">Assessment</h2>
+                    <p class="process-subtitle">Know before we go</p>
+                </div>
+            </div>
+            <div class="process-content">
+                <p>If the conversation suggests we're a good fit, we conduct a thorough assessment of your environment. Network, devices, cloud services, security posture, backup strategy, licensing. We document what we find and identify gaps.</p>
+                <p>This gives us — and you — a clear picture of where you actually stand. No surprises later. The assessment forms the basis of our proposal and roadmap.</p>
+
+                <div class="process-outcomes">
+                    <div class="outcome-box">
+                        <h4>What you experience</h4>
+                        <p>A structured review that you keep, regardless of whether you proceed. Clear findings, prioritised recommendations, transparent pricing.</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>What this avoids</h4>
+                        <p>Discovering critical gaps after we've started. Unexpected costs. Proposals that don't reflect your actual environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 3: Transition -->
+    <section class="process-section">
+        <div class="process-inner">
+            <div class="process-header">
+                <div class="process-number">3</div>
+                <div>
+                    <h2 class="process-title">Transition</h2>
+                    <p class="process-subtitle">Methodical handover</p>
+                </div>
+            </div>
+            <div class="process-content">
+                <p>Switching IT providers can feel daunting. We've done it hundreds of times. We gather access and documentation, deploy our monitoring tools, and gradually assume responsibility. Your team barely notices the change — except that things start working better.</p>
+                <p>The first 90 days are intensive. We're learning your environment, fixing accumulated issues, implementing proper monitoring, and building the documentation that ensures continuity.</p>
+
+                <div class="process-outcomes">
+                    <div class="outcome-box">
+                        <h4>What you experience</h4>
+                        <p>A managed transition with clear milestones. Regular communication. Issues addressed systematically, not reactively.</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>What this avoids</h4>
+                        <p>Chaotic handovers. Lost passwords and documentation. The "we'll figure it out as we go" approach that creates ongoing problems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 4: Ongoing -->
+    <section class="process-section process-section--alt">
+        <div class="process-inner">
+            <div class="process-header">
+                <div class="process-number">4</div>
+                <div>
+                    <h2 class="process-title">Ongoing Support</h2>
+                    <p class="process-subtitle">Proactive, not reactive</p>
+                </div>
+            </div>
+            <div class="process-content">
+                <p>After transition, we shift into ongoing partnership mode. Your team has direct access to our engineers — people who know your name and your setup. We monitor your systems continuously, apply patches promptly, and catch problems before they affect your work.</p>
+                <p>This isn't break-fix support. We're actively managing your environment: reviewing security, maintaining documentation, planning for what's next.</p>
+
+                <div class="process-outcomes">
+                    <div class="outcome-box">
+                        <h4>What you experience</h4>
+                        <p>IT that works. When something does need attention, you reach people who already understand your environment and take ownership.</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>What this avoids</h4>
+                        <p>Reactive firefighting. Re-explaining your setup every time you call. The gradual drift that happens when no one is actively watching.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 5: Review -->
+    <section class="process-section">
+        <div class="process-inner">
+            <div class="process-header">
+                <div class="process-number">5</div>
+                <div>
+                    <h2 class="process-title">Continuous Improvement</h2>
+                    <p class="process-subtitle">Technology that evolves with your business</p>
+                </div>
+            </div>
+            <div class="process-content">
+                <p>Quarterly business reviews keep us aligned with your goals. What's changed in your business? What's coming in the technology landscape? Where should we be investing? These aren't checkbox meetings — they're strategic conversations about your technology roadmap.</p>
+                <p>We track what's working and what isn't. We surface opportunities and risks. We ensure your IT capability grows alongside your business.</p>
+
+                <div class="process-outcomes">
+                    <div class="outcome-box">
+                        <h4>What you experience</h4>
+                        <p>Regular check-ins that focus on outcomes, not tickets. Forward-looking recommendations. Clear budget visibility for what's ahead.</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>What this avoids</h4>
+                        <p>Technology that falls behind. Surprise capital expenses. The slow accumulation of technical debt that eventually causes real problems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Models -->
+    <section class="page-section page-section--alt">
+        <div class="prose" style="max-width: 900px; margin: 0 auto;">
+            <div class="section-tag">Flexible Partnerships</div>
+            <h2 class="section-title">Working alongside your team</h2>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem;">Not every organisation wants to outsource everything. Some have capable internal IT staff who just need specialist support. We work both ways.</p>
+
+            <div style="display: grid; gap: 2rem; margin-top: 2rem;">
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem;">
+                    <h3 style="color: var(--text); margin-bottom: 1rem;">Augment Your IT Team</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Your internal IT handles day-to-day operations. We provide specialist expertise when you need it — security assessments, cloud migrations, complex projects, or escalation support for issues beyond the usual scope.</p>
+                    <p style="color: var(--text-secondary);">This works well for organisations with competent IT staff who lack bandwidth or specific skills for larger initiatives.</p>
+                </div>
+
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem;">
+                    <h3 style="color: var(--text); margin-bottom: 1rem;">White-Label Services</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">For IT providers and MSPs who need to extend their capabilities, we offer white-label security operations, project delivery, and specialist consulting. Your clients see your brand. We provide the expertise behind the scenes.</p>
+                    <p style="color: var(--text-secondary);">Includes 24/7 SOC monitoring through our global partner network, security assessments, and project support.</p>
+                </div>
+
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem;">
+                    <h3 style="color: var(--text); margin-bottom: 1rem;">Co-Managed IT</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Split responsibilities based on what makes sense. Your team might handle user support while we manage infrastructure. Or you run endpoints while we handle security and monitoring. We define clear boundaries and work as genuine partners.</p>
+                    <p style="color: var(--text-secondary);">Regular coordination ensures nothing falls through the cracks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="principles">
+        <div class="principles-inner">
+            <div class="principles-header">
+                <h2>What stays constant</h2>
+                <p>Regardless of engagement type or complexity, these principles guide how we work.</p>
+            </div>
+
+            <div class="principles-grid">
+                <div class="principle">
+                    <h3>Clear ownership</h3>
+                    <p>One team responsible for your environment. No finger-pointing between vendors. When something needs fixing, we fix it.</p>
+                </div>
+                <div class="principle">
+                    <h3>Transparent communication</h3>
+                    <p>You know what we're doing and why. No surprises on invoices. No changes without discussion. Status updates that actually inform.</p>
+                </div>
+                <div class="principle">
+                    <h3>Documentation as standard</h3>
+                    <p>Your environment is documented and kept current. If something happened to us tomorrow, you'd have everything you need.</p>
+                </div>
+                <div class="principle">
+                    <h3>Honest advice</h3>
+                    <p>We recommend what's right for your situation, not what generates the most revenue. If we're not the right fit, we'll tell you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-how">
+        <h2>Ready to start the conversation?</h2>
+        <p>No obligation. No sales pressure. Just an honest discussion about your situation and whether we can help.</p>
+        <a href="contact.html" class="btn btn-primary">Start a Conversation <i class="fas fa-arrow-right"></i></a>
+        <p class="cta-reassurance">If we're not the right fit, we'll tell you — and point you in the right direction.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

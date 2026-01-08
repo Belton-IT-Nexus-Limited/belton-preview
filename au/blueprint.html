@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Belton Blueprint - Our recommended technology stack for Australian businesses. Trusted vendors, proven solutions.">
+    <title>The Belton Blueprint | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/blueprint.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text); }
+
+        .split-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .split-content .prose { max-width: none; }
+
+        .detail-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+        .detail-box h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.25rem; }
+        .detail-item { padding: 0.875rem 0; border-bottom: 1px solid var(--border); }
+        .detail-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .detail-item strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 4px; font-size: 0.9375rem; }
+        .detail-item span { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+
+        .texture-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .texture-dots {
+            background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .quote { border-left: 3px solid var(--accent); padding-left: 28px; margin: 48px 0; }
+        .quote p { font-size: 1.25rem; font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 0; }
+
+        .vendor-inline { color: var(--text); font-weight: 500; }
+
+        .links-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+        .links-row a { font-size: 0.9375rem; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
+        .links-row a:hover { color: var(--accent); }
+        .links-row a i { font-size: 0.75rem; }
+
+        @media (max-width: 992px) {
+            .split-content { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .links-row { flex-direction: column; gap: 1rem; }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / The Belton Blueprint</p>
+        <h1 class="page-title">The Belton Blueprint</h1>
+        <p class="page-subtitle">Twenty years of deploying technology for Australian businesses, distilled into a stack we trust.</p>
+    </section>
+
+    <section class="page-section texture-dots">
+        <div class="prose">
+            <p>After deploying and supporting technology for hundreds of Australian businesses, we've refined our recommendations to vendors and products that consistently deliver. This isn't a list of products we sell because of margins or kickbacks. It's what we actually use, what we'd recommend to our own family, and what we can support properly when things go wrong.</p>
+
+            <p>You don't have to use everything listed here. Many clients come to us with existing systems, and we're happy to support what works. But when you ask us what we recommend for a business starting fresh or ready for a refresh, this is what we recommend.</p>
+
+            <div class="quote">
+                <p>"The best technology stack is one that works together seamlessly, scales with your business, and can be properly supported when something breaks at 2am."</p>
+            </div>
+
+            <p>What follows is our thinking on each layer of a modern business technology environment. Not just what we recommend, but why.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt texture-grid">
+        <div class="prose">
+            <div class="section-tag">Foundation</div>
+            <h2 class="section-title">Where your business runs</h2>
+
+            <p>The infrastructure question used to be simple: buy servers, put them in a closet, hope nothing catches fire. Today it's more nuanced. Most businesses we work with end up with a hybrid approach, and that's usually the right answer.</p>
+
+            <p>For cloud infrastructure, we're a <span class="vendor-inline">Microsoft Azure</span> shop. Not because Microsoft pays us to say that, but because it integrates naturally with the Microsoft 365 environment most businesses already use. Azure Active Directory, conditional access policies, seamless authentication. When you need a virtual machine or a cloud-hosted application, keeping it in the Microsoft ecosystem just makes sense.</p>
+
+            <p>For businesses that need on-premise servers, whether for compliance reasons, latency requirements, or simply because cloud costs don't make sense for their workload, we spec <span class="vendor-inline">Lenovo ThinkSystem</span> hardware. Reliable, well-supported, excellent value. We've deployed hundreds of them over the years and they rarely give us trouble.</p>
+
+            <h3>Devices your team uses</h3>
+
+            <p>Endpoint selection matters more than people think. Cheap consumer laptops cost more in the long run: shorter lifespans, worse keyboards, flimsy hinges, and support headaches. We recommend business-grade hardware from the start.</p>
+
+            <p>For most users, <span class="vendor-inline">Lenovo ThinkPad</span> or <span class="vendor-inline">HP EliteBook</span> laptops hit the sweet spot. Durable, repairable, excellent keyboards, and proper business support channels. For executives and mobile workers who want something premium, <span class="vendor-inline">Microsoft Surface</span> devices work beautifully with the Windows ecosystem. For creative teams or anyone who simply prefers macOS, we fully support <span class="vendor-inline">Apple MacBook</span> deployments, including integration with your Microsoft environment via proper MDM.</p>
+
+            <p>The goal isn't to push a particular brand. It's to match the right hardware to the right user, ensure it's properly configured and secured, and make sure we can support it when something goes wrong.</p>
+        </div>
+    </section>
+
+    <section class="page-section texture-dots">
+        <div class="split-content">
+            <div class="prose">
+                <div class="section-tag">Productivity</div>
+                <h2 class="section-title">How your team communicates</h2>
+
+                <p>This is the easiest recommendation we make: <span class="vendor-inline">Microsoft 365</span>. Not because we're Microsoft partners, but because nothing else comes close for business productivity. Email, calendar, file storage, collaboration, video meetings, real-time document editing. It all works together, it's constantly improving, and it's what most of your clients and partners are already using.</p>
+
+                <p>The key isn't just having Microsoft 365. It's having it properly configured. Security settings tuned appropriately. Conditional access policies protecting your data. SharePoint structured sensibly instead of becoming a dumping ground. Teams deployed in a way that actually helps collaboration rather than creating notification chaos.</p>
+
+                <h3>Phone systems</h3>
+
+                <p>Business phone systems have changed dramatically. The traditional PBX in the server room is increasingly rare. Most of our clients either use our <span class="vendor-inline">Belton VoIP</span> service, which starts at $28/month per user with all the features you'd expect, or <span class="vendor-inline">Microsoft Teams Phone</span> for organisations that want everything in one app.</p>
+
+                <p>For businesses with complex call routing needs, call centre requirements, or those who just prefer a dedicated phone system, we deploy <span class="vendor-inline">3CX</span>. It's feature-rich, flexible, and works well whether hosted or on-premise.</p>
+            </div>
+
+            <div class="detail-box">
+                <h4>What we deploy</h4>
+                <div class="detail-item">
+                    <strong>Microsoft 365 Business Premium</strong>
+                    <span>Our baseline for most clients. Includes security features many overlook.</span>
+                </div>
+                <div class="detail-item">
+                    <strong>SharePoint Online</strong>
+                    <span>File storage and collaboration. Properly structured, not chaos.</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Microsoft Teams</strong>
+                    <span>Chat, meetings, and increasingly phone calls. The hub of modern work.</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Belton VoIP or Teams Phone</strong>
+                    <span>Business phone systems that grow with you. AU numbers, mobile apps.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt texture-grid">
+        <div class="prose">
+            <div class="section-tag">Security</div>
+            <h2 class="section-title">How we keep you protected</h2>
+
+            <p>Security isn't a product you buy. It's layers of protection, each catching what the others miss. We approach security holistically: identity protection, endpoint security, network security, email security, backup, and monitoring. No single tool does everything, and anyone who tells you otherwise is selling something.</p>
+
+            <p>For endpoint protection, we've moved our entire client base to <span class="vendor-inline">SentinelOne</span>. It's AI-powered, which sounds like marketing buzzword nonsense but actually matters. Traditional antivirus looks for known bad signatures. SentinelOne watches behaviour and stops threats it's never seen before. It also gives us rollback capabilities when ransomware gets through other defences.</p>
+
+            <p>Network security means <span class="vendor-inline">Fortinet FortiGate</span> firewalls for any business with an office. Next-generation firewalls that inspect traffic properly, block threats at the perimeter, and provide secure VPN access for remote workers. We've standardised on Fortinet because their security fabric ties everything together and gives us visibility we can't get from consumer-grade gear.</p>
+
+            <h3>Identity is the new perimeter</h3>
+
+            <p>The old model of security was a castle with a moat: protect the network perimeter and everything inside is trusted. That model died with remote work and cloud applications. Today, identity is the perimeter. Every login is a potential attack surface.</p>
+
+            <p><span class="vendor-inline">Microsoft Entra ID</span> (formerly Azure AD) handles identity and access management for our clients. Multi-factor authentication on everything. Conditional access policies that check device compliance before allowing access. Single sign-on that reduces password fatigue while improving security. When configured properly, it's genuinely difficult for attackers to compromise accounts even with stolen passwords.</p>
+
+            <p>We also run security awareness training, because your team is always the first line of defence. Phishing simulations that catch people in the moment and teach better habits. Regular training on current threats. It's not glamorous, but it works.</p>
+        </div>
+    </section>
+
+    <section class="page-section texture-dots">
+        <div class="split-content">
+            <div class="prose">
+                <div class="section-tag">Recovery</div>
+                <h2 class="section-title">When things go wrong</h2>
+
+                <p>Backup isn't exciting until you need it. Then it's the only thing that matters. We've recovered businesses from ransomware attacks, from deleted data disasters, from failed hardware, from employees who accidentally wiped critical files. Every single time, the difference between a minor inconvenience and a business-ending catastrophe was whether backups existed and whether they worked.</p>
+
+                <p>Microsoft 365 deserves special attention here because most people assume Microsoft backs up their data. They don't. Not in any useful way. Deleted emails, corrupted SharePoint sites, malicious destruction by a disgruntled employee: Microsoft's retention policies won't save you from most of these scenarios. We deploy third-party backup for every Microsoft 365 tenant we manage.</p>
+
+                <p>For on-premise servers and critical workloads, we typically deploy <span class="vendor-inline">Datto BCDR</span> or <span class="vendor-inline">Veeam Backup</span>, depending on the requirements. Datto's business continuity solution can spin up a failed server as a virtual machine within minutes, not hours or days. Veeam gives us flexibility for complex environments and is battle-tested in enterprises worldwide.</p>
+
+                <p>Everything replicates offsite. Everything is encrypted. Ransomware can't touch properly air-gapped backups. We test restores regularly because a backup you've never tested isn't a backup, it's a hope.</p>
+            </div>
+
+            <div class="detail-box">
+                <h4>Our backup philosophy</h4>
+                <div class="detail-item">
+                    <strong>Local + Offsite + Cloud</strong>
+                    <span>Multiple copies in multiple locations. No single point of failure.</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Immutable storage</strong>
+                    <span>Ransomware can't encrypt or delete what it can't modify.</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Tested regularly</strong>
+                    <span>We verify restores work. Untested backups aren't backups.</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Rapid recovery options</strong>
+                    <span>Server down? We can have you running in minutes, not days.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt texture-grid">
+        <div class="prose">
+            <h2 class="section-title">Why we standardise</h2>
+
+            <p>Some IT providers will deploy whatever the client asks for, whatever's cheapest, whatever they can find. That approach creates technical debt, support nightmares, and environments where nothing works together properly.</p>
+
+            <p>We standardise on specific vendors because it lets us support you better. Our engineers know these products deeply. When something breaks at 2am, they're not learning on the job. When a vulnerability is announced, we know exactly which clients are affected. When vendors release updates, we've already tested them in our lab.</p>
+
+            <p>Standardisation also means your systems work together seamlessly. Microsoft 365 talking to Azure talking to Intune talking to Entra ID. FortiGate firewalls integrated with our monitoring. SentinelOne feeding threat data to our security operations centre. Everything connected, nothing siloed.</p>
+
+            <p>That said, we're not rigid. If you have a specific business requirement that our standard stack doesn't meet, we'll find the right solution. If you have existing systems that work well, we're not going to rip them out just to match our preferred vendors. The blueprint is a starting point, not a straitjacket.</p>
+        </div>
+
+        <div class="links-row">
+            <a href="services.html">Explore our services <i class="fas fa-arrow-right"></i></a>
+            <a href="managed-it.html">Managed IT support <i class="fas fa-arrow-right"></i></a>
+            <a href="security.html">Security operations <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="cta-section glow-red">
+        <div class="cta-content">
+            <h2>Ready to build your technology stack?</h2>
+            <p>Let's design a solution tailored to your business needs and budget.</p>
+            <div class="cta-actions">
+                <a href="get-started.html" class="btn btn-primary">Get Started</a>
+                <a href="contact.html" class="btn btn-outline">Talk to Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

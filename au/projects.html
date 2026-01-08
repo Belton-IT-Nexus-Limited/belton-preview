@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IT projects and consulting for Australian businesses. Migrations, integrations, upgrades, and implementations. Fixed scope, quoted work from experienced engineers.">
+    <title>Projects & Consulting | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/projects.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .quote { border-left: 3px solid var(--accent); padding-left: 28px; margin: 40px 0; }
+        .quote p { font-size: 1.125rem; font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 0; }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+        .content-with-details { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: start; max-width: 900px; }
+        .content-prose h3 { font-size: 1.125rem; font-weight: 600; color: var(--text); margin-bottom: 16px; }
+        .content-prose p { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1rem; }
+        .content-details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+        .content-details h4 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); margin-bottom: 16px; }
+        .content-details ul { list-style: none; padding: 0; margin: 0; }
+        .content-details li { font-size: 0.9375rem; color: var(--text-secondary); padding: 8px 0; border-bottom: 1px solid var(--border); }
+        .content-details li:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .engagement-row { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+        .engagement-row:first-child { border-top: 1px solid var(--border); }
+        .engagement-type { font-weight: 600; color: var(--text); }
+        .engagement-desc { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; gap: 32px; }
+            .content-with-details { grid-template-columns: 1fr; }
+            .engagement-row { grid-template-columns: 1fr; gap: 8px; }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Projects & Consulting</p>
+        <h1 class="page-title">One-off projects, done properly</h1>
+        <p class="page-subtitle">Migrations, upgrades, integrations, and implementations. Fixed scope, quoted work from engineers who've done it before.</p>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="prose">
+            <p>Not everyone needs a managed IT provider. Sometimes you have capable internal IT and just need specialist help for specific projects. A cloud migration. A security upgrade. An integration between systems that don't talk to each other. That's what we do.</p>
+
+            <p>We've completed hundreds of projects over twenty years. Everything from moving a small business to Microsoft 365 to architecting hybrid cloud infrastructure for large enterprises. We know what can go wrong and how to prevent it. We know how to plan properly, communicate clearly, and deliver on schedule.</p>
+
+            <p>Our project work is fixed scope and quoted upfront. You know what you're getting and what it costs before we start. No scope creep, no surprise invoices, no dragging things out.</p>
+
+            <div class="quote">
+                <p>"We brought Belton in to migrate our email systems. They handled everything, finished ahead of schedule, and we haven't had a single issue since. That was four years ago."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt grid-texture">
+        <div class="content-with-details">
+            <div class="content-prose">
+                <div class="section-tag">What we do</div>
+                <h2 class="section-title">Projects we handle</h2>
+                <p>We specialise in Microsoft technologies and cloud infrastructure, but our experience spans a wide range of business IT challenges. If it involves getting systems to work properly, we can probably help.</p>
+
+                <p>Every project starts with scoping. We figure out exactly what needs to happen, identify potential risks, and build a realistic timeline. Then we quote it. Our quotes are comprehensive, not lowball estimates that balloon later.</p>
+
+                <p>During the project, you get a dedicated project manager and direct access to the engineers doing the work. We communicate proactively. You'll always know where things stand.</p>
+            </div>
+
+            <div class="content-details">
+                <h4>Common projects</h4>
+                <ul>
+                    <li>Cloud migrations (on-premise to M365, Azure, or hybrid)</li>
+                    <li>Email migrations including archive handling</li>
+                    <li>MFA rollout and security hardening</li>
+                    <li>Server deployments and virtualisation</li>
+                    <li>System integrations and data sync</li>
+                    <li>Security assessments and compliance reviews</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="prose">
+            <div class="section-tag">How we work</div>
+            <h2 class="section-title">Our project approach</h2>
+            <p>We've refined our project methodology over two decades of delivery. It's not complicated, but it's thorough. We front-load the planning so execution goes smoothly. We test before we deploy. We document everything.</p>
+
+            <p>Most project failures happen because of poor scoping or inadequate testing. We're obsessive about both. The discovery phase isn't something we rush through to get to the "real work". It is the real work. Getting it right means the rest flows.</p>
+
+            <p>Projects begin with discovery and scoping, where we assess your current environment, understand requirements, identify risks, and define exactly what success looks like. This produces the scope document and quote. From there we move into design and planning, building out technical architecture, project timelines, resource allocation, and change management planning. We identify dependencies and build contingencies.</p>
+
+            <p>Before anything touches your production systems, we build and test in our lab or a staging environment. Pilots with small user groups where appropriate. Only when everything checks out do we proceed to deployment, with scheduled cutover windows, clear rollback procedures, communications, user training, and hypercare support immediately post-deployment. The project isn't done until handover is complete: full documentation, knowledge transfer to your team, and warranty period support until you're comfortable running things yourself.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt grid-texture">
+        <div class="prose">
+            <div class="section-tag">Why us</div>
+            <h2 class="section-title">Experience that shows</h2>
+            <p>Twenty years of project delivery means we've seen most things before. We know which migrations are straightforward and which have hidden complexity. We know what vendors promise versus what their products actually do. We know the shortcuts that seem clever but cause problems later.</p>
+
+            <p>Our engineers hold current Microsoft certifications across the full stack. We're not learning on your project. We're applying expertise we've built over hundreds of similar engagements. After more than 500 completed projects, we've developed a track record of delivering on time and on budget over 95% of the time.</p>
+
+            <p>We also understand that technical success isn't the same as project success. A migration that finishes on time but leaves users confused isn't a win. We think about adoption, training, and change management as part of every project.</p>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="prose">
+            <div class="section-tag">Flexibility</div>
+            <h2 class="section-title">Project work or ongoing relationship</h2>
+            <p>Some clients come to us for a single project and that's exactly right for them. They have strong internal IT and just needed specialist help for something specific. We're happy with that.</p>
+
+            <p>Other clients start with a project and realise they'd rather have us handle more. Many of our managed IT relationships began with a migration or security project. There's no pressure either way. We'll be equally happy to hand you back to your internal team or to discuss an ongoing arrangement.</p>
+
+            <p>We also work alongside other IT providers when needed. If you have a partner for some things but need additional expertise for a specific project, we can collaborate without stepping on toes.</p>
+
+            <div style="margin-top: 32px;">
+                <div class="engagement-row">
+                    <span class="engagement-type">Fixed price</span>
+                    <span class="engagement-desc">Most projects are quoted fixed price based on defined scope. You know the cost upfront. We take the risk on accurate estimation.</span>
+                </div>
+                <div class="engagement-row">
+                    <span class="engagement-type">Time & materials</span>
+                    <span class="engagement-desc">For projects where scope is genuinely uncertain, we can work on a time and materials basis with agreed rate cards and regular reporting.</span>
+                </div>
+                <div class="engagement-row">
+                    <span class="engagement-type">Consulting</span>
+                    <span class="engagement-desc">Advisory work, assessments, and strategic planning often work better as consulting engagements rather than fixed deliverable projects.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section dot-texture">
+        <div class="cta-content">
+            <h2>Have a project in mind?</h2>
+            <p>Tell us what you're trying to achieve. We'll give you an honest assessment of scope and approach.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Discuss Your Project</a>
+                <a href="tel:+61280069191" class="btn btn-outline">02 8006 9191</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

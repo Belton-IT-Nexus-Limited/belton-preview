@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Microsoft 365 Security Checklist - Essential security controls for M365 tenants. Download our comprehensive checklist to identify and fix security gaps.">
+    <title>M365 Security Checklist | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/m365-security-checklist.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .checklist-content {
+            min-width: 0;
+        }
+
+        .intro-text {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 650px;
+        }
+
+        /* Prose Section Styling */
+        .prose-section {
+            margin-bottom: 3rem;
+        }
+
+        .prose-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+        }
+
+        .prose-section p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .prose-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Simple bullet list for quick reference */
+        .quick-checks {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .quick-checks h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .quick-checks ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .quick-checks li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quick-checks li:last-child {
+            border-bottom: none;
+        }
+
+        /* Accordion/Details pattern for Data Protection */
+        .details-list {
+            margin-top: 1.5rem;
+        }
+
+        .details-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .details-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .details-item summary {
+            padding: 1rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .details-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .details-item summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            transition: transform 0.2s ease;
+        }
+
+        .details-item[open] summary::after {
+            content: '-';
+        }
+
+        .details-item .details-content {
+            padding: 0 0 1.25rem 0;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Sticky Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 6rem;
+        }
+
+        .download-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .download-card-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .download-card-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 12px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .download-card-header h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .download-card-header p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .download-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+
+        .form-group label {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-group input {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9375rem;
+            color: var(--text);
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(207, 29, 30, 0.15);
+        }
+
+        .download-form .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        /* Success State */
+        .download-success {
+            display: none;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .download-success.show {
+            display: block;
+        }
+
+        .download-form.hidden {
+            display: none;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            color: #22c55e;
+            font-size: 1.75rem;
+        }
+
+        .download-success h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .download-success p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            background: var(--brand-red);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .download-link:hover {
+            background: #b81a1a;
+        }
+
+        /* CTA Links */
+        .cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .cta-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s ease;
+        }
+
+        .cta-link:last-child {
+            border-bottom: none;
+        }
+
+        .cta-link-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cta-link-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .cta-link-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .cta-link i {
+            color: var(--text-muted);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .cta-link:hover .cta-link-title {
+            color: var(--accent);
+        }
+
+        .cta-link:hover i {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 1024px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .sidebar {
+                position: static;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .download-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link active">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="#">Resources</a> / M365 Security Checklist</p>
+        <h1 class="page-title">Microsoft 365 Security Checklist</h1>
+        <p class="page-subtitle">Essential security controls every M365 tenant should have configured. Download our checklist to identify gaps.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="two-column-layout">
+            <div class="checklist-content">
+                <p class="intro-text">Most Microsoft 365 tenants have security gaps. Default configurations prioritise ease of use over security. Features that should be enabled are off. Settings that should be restricted are wide open. This guide covers what to check and why it matters.</p>
+
+                <!-- Identity & Access - Prose with supporting panel -->
+                <div class="prose-section">
+                    <h2>Identity is your perimeter</h2>
+                    <p>The old security model protected the network edge. Firewalls, intrusion detection, perimeter defences. That model assumed your data lived inside your building and attackers came from outside.</p>
+                    <p>With M365, your data lives in the cloud. Your users sign in from home, from client sites, from airports. The perimeter is now the login screen. If an attacker gets valid credentials, they walk straight into your environment like a legitimate user.</p>
+                    <p>Multi-factor authentication stops 99.9% of account compromise attacks. It should be mandatory for every user, no exceptions. Use the Microsoft Authenticator app or hardware security keys. SMS codes are better than nothing but weaker against sophisticated attacks.</p>
+                    <p>Legacy authentication protocols like IMAP, POP3, and basic SMTP authentication cannot use MFA at all. Attackers know this and specifically target these protocols. Block them completely unless you have a documented business requirement and compensating controls.</p>
+                    <p>Admin accounts need extra protection. Use separate accounts for administrative tasks, never your daily email account. Require phishing-resistant MFA. Consider privileged access workstations for Global Admin activities. If an attacker compromises a Global Admin, they own your entire tenant.</p>
+
+                    <div class="quick-checks">
+                        <h4>Quick checks</h4>
+                        <ul>
+                            <li>MFA enabled for all users including external guests</li>
+                            <li>Legacy authentication blocked via Conditional Access</li>
+                            <li>Separate admin accounts (not daily-use accounts)</li>
+                            <li>Conditional Access policies for risky sign-ins and locations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Email Security - Narrative paragraphs -->
+                <div class="prose-section">
+                    <h2>Email remains the primary attack vector</h2>
+                    <p>Despite decades of security investment, email is still how most attacks start. Phishing, business email compromise, malware attachments. Your M365 email configuration determines how much protection stands between your users and these threats.</p>
+                    <p>Start with email authentication. SPF records tell the world which servers can send mail from your domain. DKIM adds cryptographic signatures proving emails genuinely came from you. DMARC tells receiving servers what to do when emails fail these checks. Together, they prevent attackers from spoofing your domain to attack your clients, partners, and your own staff. If you haven't configured these, attackers can send emails that appear to come from your CEO.</p>
+                    <p>Auto-forwarding rules are a favourite persistence mechanism for attackers. They compromise an account, set up a forwarding rule to an external address, then quietly collect emails for weeks or months. The user never notices because mail still arrives normally. Block external auto-forwarding at the tenant level and regularly audit inbox rules.</p>
+                    <p>Microsoft Defender for Office 365 adds Safe Links and Safe Attachments. Safe Links rewrites URLs and checks them at time of click, catching phishing links that were clean when delivered but weaponised later. Safe Attachments detonates suspicious files in a sandbox before delivery, catching malware that signature-based scanning misses. Anti-phishing policies protect against impersonation of executives and trusted partners. Configure all of these.</p>
+                </div>
+
+                <!-- Data Protection - Accordion/Details pattern -->
+                <div class="prose-section">
+                    <h2>Protecting your data</h2>
+                    <p>M365 makes sharing easy. Sometimes too easy. Default settings often allow users to share documents with anyone, create anonymous links, invite external guests without approval. This flexibility is great for collaboration but creates data exposure risks if not properly controlled.</p>
+                    <p>Audit your OneDrive and SharePoint sharing settings. Can users share with anyone on the internet? Can they create links that work without signing in? Can external guests access your Teams channels? The answers should align with your business requirements and risk tolerance, not Microsoft's out-of-box defaults.</p>
+                    <p>Unified Audit Log captures all user and admin activity across your M365 tenant. Essential for incident investigation and compliance evidence. Make sure it's enabled and retention is set appropriately for your industry requirements.</p>
+
+                    <div class="details-list">
+                        <details class="details-item">
+                            <summary>Sharing and external access</summary>
+                            <div class="details-content">
+                                Review OneDrive and SharePoint sharing policies. Restrict external sharing to approved domains where possible. Disable anonymous "Anyone with the link" sharing or at minimum set short expiration dates. Require guests to authenticate. Regularly review and remove stale external sharing.
+                            </div>
+                        </details>
+                        <details class="details-item">
+                            <summary>Device compliance</summary>
+                            <div class="details-content">
+                                Use Intune to define what a compliant device looks like: encrypted storage, screen lock PIN, up-to-date operating system, approved security software. Then use Conditional Access to block access from non-compliant or unmanaged devices. Your data shouldn't be accessible from an unpatched personal laptop with no security controls.
+                            </div>
+                        </details>
+                        <details class="details-item">
+                            <summary>Data Loss Prevention</summary>
+                            <div class="details-content">
+                                DLP policies scan content for sensitive information like credit card numbers, tax file numbers, health records, or your own custom patterns. Configure policies to warn users, require justification, or block sharing of sensitive content outside your organisation. Start with detection mode to understand your data flows before enabling blocking.
+                            </div>
+                        </details>
+                        <details class="details-item">
+                            <summary>Audit logging and retention</summary>
+                            <div class="details-content">
+                                Unified Audit Log is your forensic record of everything that happens in your tenant. Enable it, extend retention beyond the default 90 days, and know how to search it before you need to. When an incident occurs, these logs are how you understand what happened.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- CTA Links -->
+                <div class="cta-links">
+                    <a href="microsoft365.html" class="cta-link">
+                        <div class="cta-link-text">
+                            <span class="cta-link-title">Microsoft 365 Services</span>
+                            <span class="cta-link-desc">Licensing, configuration, and ongoing management for Australian businesses</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="security-assessment.html" class="cta-link">
+                        <div class="cta-link-text">
+                            <span class="cta-link-title">Security Assessment</span>
+                            <span class="cta-link-desc">Professional review of your M365 tenant with actionable recommendations</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sticky Sidebar -->
+            <aside class="sidebar">
+                <div class="download-card">
+                    <div class="download-card-header">
+                        <div class="download-card-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Download the Checklist</h3>
+                        <p>Get the complete M365 security checklist as a PDF.</p>
+                    </div>
+                    <form class="download-form" id="downloadForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="64c15151-8b61-4a9e-b92d-8ad9cb574933">
+                        <input type="hidden" name="subject" value="M365 Security Checklist Download">
+                        <input type="hidden" name="from_name" value="Belton Website">
+                        <input type="hidden" name="redirect" value="">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com.au" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your company">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                    </form>
+                    <div class="download-success" id="downloadSuccess">
+                        <div class="success-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h4>Thank you!</h4>
+                        <p>Click below to download your M365 Security Checklist.</p>
+                        <a href="downloads/m365-security-checklist.pdf" class="download-link" download>
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Need help securing your M365 tenant?</h2>
+            <p>We configure and manage Microsoft 365 security for Australian businesses every day.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                <a href="tel:+61280069191" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 02 8006 9191
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('downloadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    form.classList.add('hidden');
+                    document.getElementById('downloadSuccess').classList.add('show');
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Belton story. Founded by Jason and Amy Agnew in 2004. From a home-based startup to a trusted Microsoft Partner serving 350+ organisations across Australia and NZ.">
+    <title>Our Story | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/about.html">
+    <link rel="alternate" hreflang="en-nz" href="https://belton.co.nz/about.html">
+    <link rel="alternate" hreflang="en-au" href="https://belton.com.au/about.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        /* Texture patterns */
+        .grid-texture {
+            position: relative;
+        }
+        .grid-texture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .dot-texture {
+            position: relative;
+        }
+        .dot-texture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .prose { max-width: 750px; position: relative; z-index: 1; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .quote { border-left: 3px solid var(--accent); padding-left: 28px; margin: 48px 0; }
+        .quote p { font-size: 1.25rem; font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 0.75rem; }
+        .quote cite { font-size: 0.9375rem; color: var(--text-secondary); font-style: normal; }
+
+        /* Simplified team - inline names */
+        .team-inline {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .team-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        .team-names {
+            font-size: 1.125rem;
+            color: var(--text);
+            line-height: 2;
+        }
+        .team-names span {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .team-names .role {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .team-names .separator {
+            color: var(--text-muted);
+            margin: 0 1rem;
+        }
+
+        /* Organic timeline - flowing text */
+        .timeline-prose {
+            margin-top: 2.5rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .timeline-prose p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 2;
+            margin: 0;
+        }
+        .timeline-prose .year {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .timeline-prose .event {
+            color: var(--text);
+        }
+
+        .beliefs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; position: relative; z-index: 1; }
+        .beliefs-list { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 32px; }
+        .beliefs-list h3 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); margin-bottom: 20px; }
+        .belief-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .belief-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .belief-item strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 4px; }
+        .belief-item span { font-size: 0.9375rem; color: var(--text-secondary); }
+
+        .team-numbers { display: flex; gap: 48px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+        .team-number-value { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .team-number-label { font-size: 0.875rem; color: var(--text-secondary); margin-top: 2px; }
+
+        @media (max-width: 768px) {
+            .beliefs-grid { grid-template-columns: 1fr; gap: 32px; }
+            .team-numbers { flex-direction: column; gap: 24px; }
+            .team-names .separator { display: block; margin: 0; height: 0; overflow: hidden; }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> +61 2 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link active">About</a>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / Our Story</p>
+        <h1 class="page-title">Twenty years of doing IT right</h1>
+        <p class="page-subtitle">Started in 2004 by Jason and Amy Agnew. Still family-owned. Still answering the phone.</p>
+    </section>
+
+    <section class="page-section grid-texture section-fade-out">
+        <div class="prose">
+            <div class="section-tag">The founders</div>
+            <h2 class="section-title">Family business, built to last</h2>
+            <p>We started Belton in 2004 with deep technical expertise and a straightforward belief: IT should work for people, not against them. Jason brought years of hands-on engineering experience. Amy brought financial discipline and operational rigor. Together, they built something different.</p>
+
+            <p>Twenty years later, we're a Microsoft Partner with certified engineers across security, cloud infrastructure, and modern workplace technologies. We've guided organisations through cloud migrations, security transformations, and complex IT challenges. From 10-person companies to 500-seat enterprises, we bring the same level of expertise and attention.</p>
+
+            <div class="team-inline">
+                <div class="team-label">Leadership team</div>
+                <div class="team-portraits">
+                    <div class="portrait portrait-lg">
+                        <img src="assets/images/jason-agnew.webp" alt="Jason Agnew" class="portrait-image">
+                        <span class="portrait-name">Jason Agnew</span>
+                        <span class="portrait-role">CEO & Founder</span>
+                    </div>
+                    <div class="portrait portrait-lg">
+                        <img src="assets/images/amy-agnew.webp" alt="Amy Agnew" class="portrait-image">
+                        <span class="portrait-name">Amy Agnew</span>
+                        <span class="portrait-role">Founder & Director</span>
+                    </div>
+                    <div class="portrait portrait-lg">
+                        <img src="assets/images/ruth.webp" alt="Ruth" class="portrait-image">
+                        <span class="portrait-name">Ruth</span>
+                        <span class="portrait-role">Operations</span>
+                    </div>
+                    <div class="portrait portrait-lg">
+                        <img src="assets/images/warrick.webp" alt="Warrick" class="portrait-image">
+                        <span class="portrait-name">Warrick</span>
+                        <span class="portrait-role">Sales</span>
+                    </div>
+                    <div class="portrait portrait-lg">
+                        <img src="assets/images/shaun.webp" alt="Shaun" class="portrait-image">
+                        <span class="portrait-name">Shaun</span>
+                        <span class="portrait-role">Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt section-fade-in section-fade-out section-divider">
+        <div class="prose">
+            <p>What sets us apart is the depth of our experience. We've seen what works and what doesn't across hundreds of environments. We understand compliance requirements, security frameworks, and the real-world challenges of keeping businesses running.</p>
+
+            <div class="quote">
+                <p>"We've worked with businesses at every stage. Startups finding their feet, established companies scaling up, enterprises managing complexity. The technology challenges differ, but our approach doesn't: understand the business first, then apply the right solution."</p>
+                <cite>Jason Agnew, CEO</cite>
+            </div>
+
+            <p>We're not just keeping systems running. We're helping organisations make smarter technology decisions, reduce risk, and build infrastructure that supports growth. That's why clients stay with us for years, some for over two decades.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture section-fade-in section-fade-out section-divider">
+        <div class="prose">
+            <div class="section-tag">Our journey</div>
+            <h2 class="section-title">How we got here</h2>
+            <p>We didn't set out to build a big company. We set out to be useful. Growth came from doing good work and earning trust. Every acquisition, every expansion, every new capability came from clients asking "can you help us with this too?"</p>
+
+            <p>In the early years, we were ahead of the curve, pioneering hosted VoIP and Linux solutions when most providers were still thinking on-premise. By 2006, a strategic acquisition accelerated our growth and brought new expertise into the team.</p>
+
+            <p>The 2010s brought Microsoft cloud and a complete shift in how businesses operated. We invested heavily in certifications and built deep expertise in Microsoft 365, Azure, and security. More recently, we've expanded across the Tasman and built a dedicated security operations practice.</p>
+
+            <div class="timeline-prose">
+                <p>
+                    <span class="year">2004</span> <span class="event">Founded in Auckland</span> ...
+                    <span class="year">2005</span> <span class="event">First hosted VoIP in NZ</span> ...
+                    <span class="year">2006</span> <span class="event">First acquisition</span> ...
+                    <span class="year">2008</span> <span class="event">$1M revenue</span> ...
+                    <span class="year">2015</span> <span class="event">Pulse IT acquisition</span> ...
+                    <span class="year">2020s</span> <span class="event">Australia expansion</span> ...
+                    <span class="year">Today</span> <span class="event">350+ organisations</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture section-fade-in section-fade-out section-divider">
+        <div class="beliefs-grid">
+            <div class="prose">
+                <div class="section-tag">What we believe</div>
+                <h2 class="section-title">Our principles</h2>
+                <p>We've been doing this long enough to know what works. Good IT isn't about fancy tools or buzzwords. It's about being reliable, responsive, and honest about what you actually need.</p>
+
+                <p>Our clients stay because we do what we say we'll do. We pick up the phone. We fix problems properly, not just quickly. We don't oversell. When something isn't right for you, we'll tell you.</p>
+
+                <p>We'd rather have clients who trust us completely than clients who tolerate us. That's why we don't do long-term lock-in contracts. If we're not delivering value, you should be free to leave.</p>
+            </div>
+
+            <div class="beliefs-list">
+                <h3>Our principles</h3>
+                <div class="belief-item">
+                    <strong>Relationships over transactions</strong>
+                    <span>Long-term partnerships, not quick wins</span>
+                </div>
+                <div class="belief-item">
+                    <strong>Honest advice</strong>
+                    <span>What you need to hear, not what you want to hear</span>
+                </div>
+                <div class="belief-item">
+                    <strong>Outcomes that matter</strong>
+                    <span>Results over activity, value over busywork</span>
+                </div>
+                <div class="belief-item">
+                    <strong>Security as standard</strong>
+                    <span>Protection built into everything we do</span>
+                </div>
+                <div class="belief-item">
+                    <strong>People first</strong>
+                    <span>Good people doing work they're proud of</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section atmosphere atmosphere-team section-fade-in section-divider">
+        <div class="prose">
+            <div class="section-tag">The people behind it</div>
+            <h2 class="section-title">Real people, real support</h2>
+            <p>When you call Belton, you get real people who know your systems and understand your business. Not a call centre. Not a ticket queue. People who've seen your environment before and remember what happened last time.</p>
+
+            <p>Many of our engineers have been with us for over a decade. That kind of continuity is rare in IT, and it shows. You don't have to re-explain your setup every time something goes wrong.</p>
+
+            <p>We're based in Sydney with our headquarters in Auckland. Local team, Australian support. When something goes wrong at 2am, the person responding is in the same timezone and speaks the same language.</p>
+
+            <div class="team-numbers">
+                <div class="team-number">
+                    <div class="team-number-value">95.4%</div>
+                    <div class="team-number-label">Customer satisfaction</div>
+                </div>
+                <div class="team-number">
+                    <div class="team-number-value">15 min</div>
+                    <div class="team-number-label">Urgent response target</div>
+                </div>
+                <div class="team-number">
+                    <div class="team-number-value">10+ years</div>
+                    <div class="team-number-label">Average tenure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section glow-red">
+        <div class="cta-content">
+            <h2>Want to work with a team that cares?</h2>
+            <p>No pressure. Just a conversation about what you need.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                <a href="tel:+61280069191" class="btn btn-outline">02 8006 9191</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

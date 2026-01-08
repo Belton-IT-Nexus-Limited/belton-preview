@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A practical guide to choosing the right Microsoft 365 plan for your business. Compare Business Basic, Standard, Premium, and E3/E5 options.">
+    <title>Microsoft 365 Selection Guide | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .prose-block {
+            max-width: 750px;
+        }
+
+        .prose-block p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-block h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .prose-block h3:first-child {
+            margin-top: 0;
+        }
+
+        /* Plan comparison cards */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .plan-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: border-color 0.2s ease;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .plan-card.recommended {
+            border-color: var(--accent);
+        }
+
+        .plan-card.recommended::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -10px;
+            left: 1.5rem;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-header {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .plan-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .plan-price span {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .plan-description {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .plan-features li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .plan-features li i {
+            color: #4ade80;
+            margin-top: 2px;
+        }
+
+        .plan-features li.not-included {
+            color: var(--text-muted);
+        }
+
+        .plan-features li.not-included i {
+            color: var(--text-muted);
+        }
+
+        /* Use case cards */
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .usecase-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .usecase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .usecase-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(207, 29, 30, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .usecase-icon i {
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+
+        .usecase-card h4 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .usecase-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .usecase-recommendation {
+            display: inline-block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            background: rgba(207, 29, 30, 0.1);
+            color: var(--accent);
+            border-radius: 6px;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9375rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        .comparison-table td {
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--surface);
+        }
+
+        .comparison-table .feature-name {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .comparison-table .check {
+            color: #4ade80;
+        }
+
+        .comparison-table .cross {
+            color: var(--text-muted);
+        }
+
+        /* Addon cards */
+        .addon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .addon-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .addon-card h5 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .addon-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .addon-price {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 750px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box.warning {
+            background: rgba(255, 149, 0, 0.08);
+            border-color: rgba(255, 149, 0, 0.2);
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box strong {
+            color: var(--text);
+        }
+
+        /* CTA section */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(207, 29, 30, 0.1), rgba(207, 29, 30, 0.05));
+            border: 1px solid rgba(207, 29, 30, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 750px;
+            margin: 3rem 0;
+        }
+
+        .cta-box h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+            .plan-grid {
+                grid-template-columns: 1fr;
+            }
+            .usecase-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.8125rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="https://portal.belton.co.nz" class="header-top-link" target="_blank">
+                <i class="fas fa-user-circle"></i> Client Portal
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="#">Resources</a> / M365 Selection Guide</p>
+        <h1 class="page-title">Microsoft 365 Selection Guide</h1>
+        <p class="page-subtitle">Choose the right Microsoft 365 plan for your business needs and budget.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-block">
+            <p>Microsoft 365 offers powerful productivity and security tools, but with multiple plans and add-ons, choosing the right combination can be confusing. This guide helps you understand what each plan includes, what your business actually needs, and where to invest for the best return.</p>
+            <p>We'll cut through Microsoft's marketing to give you practical recommendations based on business size, security requirements, and budget.</p>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <p><strong>The short answer for most SMBs:</strong> Microsoft 365 Business Premium. It includes the desktop apps, advanced security features, and device management that businesses need. The price difference from Business Standard is worth it for the security alone.</p>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <h2 class="section-title">The Plans at a Glance</h2>
+        <p class="section-lead">Here's what each Microsoft 365 business plan includes and costs.</p>
+
+        <div class="plan-grid">
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-name">Business Basic</div>
+                    <div class="plan-price">~$9 <span>/user/month</span></div>
+                </div>
+                <p class="plan-description">Web and mobile apps only. Good for users who just need email and basic collaboration.</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Exchange email (50GB)</li>
+                    <li><i class="fas fa-check"></i> Web versions of Office apps</li>
+                    <li><i class="fas fa-check"></i> Teams</li>
+                    <li><i class="fas fa-check"></i> SharePoint & OneDrive (1TB)</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Desktop Office apps</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Advanced security</li>
+                </ul>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-name">Business Standard</div>
+                    <div class="plan-price">~$18 <span>/user/month</span></div>
+                </div>
+                <p class="plan-description">Adds desktop apps. The traditional Office experience for knowledge workers.</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Everything in Basic</li>
+                    <li><i class="fas fa-check"></i> Desktop Office apps</li>
+                    <li><i class="fas fa-check"></i> Webinar hosting</li>
+                    <li><i class="fas fa-check"></i> Bookings</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Advanced security</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Device management</li>
+                </ul>
+            </div>
+
+            <div class="plan-card recommended">
+                <div class="plan-header">
+                    <div class="plan-name">Business Premium</div>
+                    <div class="plan-price">~$33 <span>/user/month</span></div>
+                </div>
+                <p class="plan-description">The complete package with advanced security. What most businesses actually need.</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Everything in Standard</li>
+                    <li><i class="fas fa-check"></i> Defender for Business</li>
+                    <li><i class="fas fa-check"></i> Intune device management</li>
+                    <li><i class="fas fa-check"></i> Azure AD Premium P1</li>
+                    <li><i class="fas fa-check"></i> Conditional Access</li>
+                    <li><i class="fas fa-check"></i> Information protection</li>
+                </ul>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-name">Enterprise E3</div>
+                    <div class="plan-price">~$54 <span>/user/month</span></div>
+                </div>
+                <p class="plan-description">For larger organisations needing unlimited archive and advanced compliance.</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Unlimited email archive</li>
+                    <li><i class="fas fa-check"></i> eDiscovery Standard</li>
+                    <li><i class="fas fa-check"></i> Data Loss Prevention</li>
+                    <li><i class="fas fa-check"></i> Windows 11 Enterprise</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Defender for Endpoint P2</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Advanced threat hunting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <h2 class="section-title">Which Plan is Right for You?</h2>
+        <p class="section-lead">Match your business profile to the right Microsoft 365 configuration.</p>
+
+        <div class="usecase-grid">
+            <div class="usecase-card">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-store"></i></div>
+                    <h4>Small Business (1-10 staff)</h4>
+                </div>
+                <p>Small team, straightforward needs. You want email, file sharing, and basic collaboration without complexity.</p>
+                <p>If most staff work from a single location and don't handle sensitive data, Business Standard works. If you have remote workers or handle any client data, go Premium.</p>
+                <span class="usecase-recommendation">Business Premium</span>
+            </div>
+
+            <div class="usecase-card">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-building"></i></div>
+                    <h4>Growing Business (10-50 staff)</h4>
+                </div>
+                <p>Multiple departments, mix of roles. You need consistent security across the organisation and ability to manage devices remotely.</p>
+                <p>Business Premium gives you the security baseline and device management you need at this scale. The Intune integration alone is worth the premium.</p>
+                <span class="usecase-recommendation">Business Premium</span>
+            </div>
+
+            <div class="usecase-card">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-gavel"></i></div>
+                    <h4>Professional Services</h4>
+                </div>
+                <p>Law firms, accountants, consultants handling confidential client information. You have professional obligations around data protection.</p>
+                <p>Business Premium provides the encryption, access controls, and audit capabilities you need. Consider E3 if you need unlimited email archive for compliance.</p>
+                <span class="usecase-recommendation">Business Premium or E3</span>
+            </div>
+
+            <div class="usecase-card">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h4>Healthcare</h4>
+                </div>
+                <p>Medical practices handling patient data. You need strong privacy controls and audit capabilities.</p>
+                <p>Business Premium minimum, but E3 may be required for full compliance depending on your specific requirements and audit needs.</p>
+                <span class="usecase-recommendation">E3 with compliance add-ons</span>
+            </div>
+
+            <div class="usecase-card">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-laptop-house"></i></div>
+                    <h4>Remote/Hybrid Workforce</h4>
+                </div>
+                <p>Staff working from home, client sites, or on the road. You need to secure devices you can't physically control.</p>
+                <p>Business Premium is essential. The combination of Conditional Access, Intune, and Defender means you can enforce security regardless of location.</p>
+                <span class="usecase-recommendation">Business Premium</span>
+            </div>
+
+            <div class="usecase-card">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-city"></i></div>
+                    <h4>Enterprise (50+ staff)</h4>
+                </div>
+                <p>Larger organisation with dedicated IT. You need advanced compliance, analytics, and threat protection.</p>
+                <p>Move to E3 for unlimited archive and better compliance tools. Add E5 Security for organisations with higher threat profiles or regulatory requirements.</p>
+                <span class="usecase-recommendation">E3 or E5</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <h2 class="section-title">Key Features Comparison</h2>
+        <p class="section-lead">What you get at each tier for the features that matter most.</p>
+
+        <div style="overflow-x: auto;">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Basic</th>
+                        <th>Standard</th>
+                        <th>Premium</th>
+                        <th>E3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Desktop Office Apps</td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Email Storage</td>
+                        <td>50GB</td>
+                        <td>50GB</td>
+                        <td>50GB</td>
+                        <td>100GB + Unlimited Archive</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">OneDrive Storage</td>
+                        <td>1TB</td>
+                        <td>1TB</td>
+                        <td>1TB</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Multi-Factor Authentication</td>
+                        <td><i class="fas fa-check check"></i> Basic</td>
+                        <td><i class="fas fa-check check"></i> Basic</td>
+                        <td><i class="fas fa-check check"></i> Advanced</td>
+                        <td><i class="fas fa-check check"></i> Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Conditional Access</td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Device Management (Intune)</td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Endpoint Protection (Defender)</td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                        <td><i class="fas fa-check check"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Data Loss Prevention</td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td>Basic</td>
+                        <td><i class="fas fa-check check"></i> Full</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">eDiscovery</td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td><i class="fas fa-times cross"></i></td>
+                        <td>Basic</td>
+                        <td><i class="fas fa-check check"></i> Standard</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <h2 class="section-title">Common Add-Ons Worth Considering</h2>
+        <p class="section-lead">These add-ons can extend your Microsoft 365 capabilities where needed.</p>
+
+        <div class="addon-grid">
+            <div class="addon-card">
+                <h5>Microsoft Copilot</h5>
+                <p>AI assistant integrated across Office apps. Helps with writing, analysis, and productivity.</p>
+                <div class="addon-price">~$45/user/month</div>
+            </div>
+
+            <div class="addon-card">
+                <h5>Defender for Office 365 P1</h5>
+                <p>Advanced email protection with Safe Links, Safe Attachments, and anti-phishing. Essential add-on for Business Standard.</p>
+                <div class="addon-price">~$3/user/month</div>
+            </div>
+
+            <div class="addon-card">
+                <h5>Azure AD P2</h5>
+                <p>Identity protection, privileged identity management, and access reviews. For higher security requirements.</p>
+                <div class="addon-price">~$13.50/user/month</div>
+            </div>
+
+            <div class="addon-card">
+                <h5>Phone System</h5>
+                <p>Cloud PBX for Teams. Replace your phone system with Teams calling.</p>
+                <div class="addon-price">~$12/user/month + calling plan</div>
+            </div>
+
+            <div class="addon-card">
+                <h5>Power Automate</h5>
+                <p>Workflow automation across Microsoft and third-party apps. Included basic in most plans, per-user license for advanced.</p>
+                <div class="addon-price">~$22.50/user/month for premium</div>
+            </div>
+
+            <div class="addon-card">
+                <h5>Compliance Manager</h5>
+                <p>Track compliance across frameworks. Included in E3/E5, add-on for Business plans.</p>
+                <div class="addon-price">Varies by compliance needs</div>
+            </div>
+        </div>
+
+        <div class="highlight-box warning" style="max-width: 750px; margin-top: 2rem;">
+            <p><strong>Add-on trap:</strong> It's easy to spend more on add-ons than the price difference to the next tier. Before adding Defender for Office 365 and Intune separately to Business Standard, just upgrade to Premium—you'll get more for less.</p>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <h2 class="section-title">Our Recommendations</h2>
+
+        <div class="prose-block">
+            <h3>For Most Businesses: Business Premium</h3>
+            <p>The security features in Business Premium (Defender, Intune, Conditional Access) aren't nice-to-haves—they're essential in today's threat environment. The $15/user/month difference from Standard pays for itself the first time you block a phishing attack or remotely wipe a lost laptop.</p>
+
+            <h3>Mix Licenses Where Appropriate</h3>
+            <p>Not everyone needs the same license. Your CEO might need Premium or E3, but your warehouse staff might only need Business Basic for email. We often see organisations with a mix: Premium for knowledge workers, Basic for operational staff, and E3 for executives and IT.</p>
+
+            <h3>Don't Forget Configuration</h3>
+            <p>The license is just the start. Business Premium includes powerful security tools, but they need to be configured correctly. Conditional Access policies, Defender settings, and Intune device profiles all require expertise to implement properly. A misconfigured Premium license provides less protection than a well-configured Standard one.</p>
+
+            <h3>Review Annually</h3>
+            <p>Microsoft frequently updates licensing and moves features between tiers. What made sense last year might not be optimal now. We recommend reviewing your Microsoft 365 licensing annually to ensure you're getting value and not paying for features you don't use—or missing features you need.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Need help choosing?</h3>
+            <p>We'll review your current setup, understand your requirements, and recommend the right Microsoft 365 configuration for your business—including a licensing strategy that balances security, productivity, and cost.</p>
+            <div class="cta-buttons">
+                <a href="microsoft365.html" class="btn btn-primary">Our M365 Services</a>
+                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <h2 class="section-title">Related Resources</h2>
+        <div class="usecase-grid" style="max-width: 900px;">
+            <a href="m365-security-checklist.html" class="usecase-card" style="text-decoration: none;">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>M365 Security Checklist</h4>
+                </div>
+                <p>Essential security settings every Microsoft 365 tenant should have configured.</p>
+            </a>
+
+            <a href="licensing.html" class="usecase-card" style="text-decoration: none;">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-file-contract"></i></div>
+                    <h4>Licensing Services</h4>
+                </div>
+                <p>How we help businesses optimise their Microsoft licensing and reduce costs.</p>
+            </a>
+
+            <a href="identity.html" class="usecase-card" style="text-decoration: none;">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><i class="fas fa-user-shield"></i></div>
+                    <h4>Identity & Access</h4>
+                </div>
+                <p>Secure your Microsoft 365 environment with proper identity management.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

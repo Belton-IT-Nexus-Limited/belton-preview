@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional security assessment for Australian businesses. Identify vulnerabilities, understand risks, and get actionable recommendations from Belton IT Nexus.">
+    <title>Security Assessment | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/security-assessment.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .prose-block {
+            max-width: 700px;
+        }
+
+        .prose-block p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .two-col-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+        }
+
+        .review-prose h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .review-prose p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 700px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box strong {
+            color: var(--text);
+        }
+
+        .process-prose {
+            max-width: 700px;
+        }
+
+        .process-prose p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .deliverables-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+            max-width: 900px;
+            align-items: start;
+        }
+
+        .deliverables-prose p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .deliverables-list {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .deliverables-list h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .deliverables-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .deliverables-list li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .deliverables-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .request-box {
+            background: rgba(230, 57, 70, 0.05);
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin-top: 2.5rem;
+        }
+
+        .request-box h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .request-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-col-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .deliverables-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link active">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="#">Resources</a> / Security Assessment</p>
+        <h1 class="page-title">Know where you stand</h1>
+        <p class="page-subtitle">A thorough review of your security posture. Honest findings. Practical recommendations.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-block">
+            <p>Most businesses know they should care about security. Few know exactly where their vulnerabilities lie. Generic advice only goes so far. You need someone to look at your specific environment, your actual configurations, your real risks.</p>
+            <p>Our security assessment does exactly that. We examine your systems, review your policies, test your defences. You receive a clear picture of your current state and a prioritised list of improvements. No jargon. No unnecessary alarm. Just honest findings and practical recommendations.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">What We Review</div>
+        <h2 class="section-title">A comprehensive examination</h2>
+        <p class="section-sub">We look at the areas that matter most. Technical controls, human factors, and business processes.</p>
+
+        <div class="two-col-content" style="margin-top: 2.5rem;">
+            <div class="review-prose">
+                <h3>Identity and access</h3>
+                <p>Who has access to what? How are accounts created and removed? We verify password policies, MFA coverage, and privileged access controls. Access should be appropriately restricted and properly managed.</p>
+
+                <h3>Email security</h3>
+                <p>Your most likely attack vector. We review spam filtering, phishing protection, and impersonation defences. We check SPF, DKIM, and DMARC configuration. We test whether malicious content can reach your users.</p>
+
+                <h3>Endpoint protection</h3>
+                <p>Are your devices adequately protected? We examine antivirus coverage, EDR deployment, and patch status. We verify that security tools are configured correctly and actually working.</p>
+
+                <h3>Cloud environments</h3>
+                <p>Microsoft 365, Azure, AWS - your cloud configurations need scrutiny. We review access controls and security settings against best practices and common misconfigurations that attackers exploit.</p>
+            </div>
+
+            <div class="review-prose">
+                <h3>Network security</h3>
+                <p>Firewall rules, network segmentation, VPN configuration. We look at how traffic flows, what is exposed externally, and whether your network architecture would limit the impact of a breach.</p>
+
+                <h3>Data protection</h3>
+                <p>Where is your sensitive data? Who can access it? How is it protected in transit and at rest? We assess backup procedures, data classification, and your ability to recover from an incident.</p>
+
+                <h3>Security awareness</h3>
+                <p>Technology alone cannot protect you. We assess your security policies, training programs, and incident response procedures. Human factors often determine whether attacks succeed or fail.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-tag">The Process</div>
+        <h2 class="section-title">How the assessment works</h2>
+
+        <div class="process-prose">
+            <p>We start with a scoping conversation to understand your business, your concerns, and your environment. This shapes the assessment focus and ensures we examine what matters most to you. From there, we collect documentation, configuration exports, and system information - most of this happens remotely with temporary read-only access to your systems.</p>
+
+            <p>Our team then reviews your configurations, tests your controls, and identifies vulnerabilities. We examine each area systematically against established security frameworks. Nothing is assumed; everything is verified.</p>
+
+            <p>Once analysis is complete, we document our findings, assess risk levels, and develop recommendations. Each finding includes context, evidence, and practical remediation steps. We then walk you through the results, answer your questions, and discuss priorities. You leave with a clear understanding of your risks and a roadmap for improvement.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">Deliverables</div>
+        <h2 class="section-title">What you receive</h2>
+
+        <div class="deliverables-content" style="margin-top: 2rem;">
+            <div class="deliverables-prose">
+                <p>The assessment produces tangible outputs you can act on. An executive summary gives leadership a high-level overview with key findings, risk ratings, and recommended priorities. The technical report provides detailed findings with evidence, risk assessments, and specific remediation guidance for each issue identified.</p>
+
+                <p>We also provide a prioritised roadmap - a recommended sequence of improvements based on risk, cost, and operational impact. Finally, we conduct an interactive presentation session with your team, walking through findings, answering questions, and providing context.</p>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <p><strong>No obligation to engage further.</strong> The assessment stands on its own. You can implement recommendations yourself, engage another provider, or ask us to help. The report is yours regardless.</p>
+                </div>
+            </div>
+
+            <div class="deliverables-list">
+                <h4>Included in every assessment</h4>
+                <ul>
+                    <li>Executive summary for leadership</li>
+                    <li>Technical report with evidence</li>
+                    <li>Risk ratings and prioritisation</li>
+                    <li>Specific remediation guidance</li>
+                    <li>Prioritised improvement roadmap</li>
+                    <li>Interactive presentation session</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-block">
+            <p>Security assessments reveal uncomfortable truths. That is the point. Better to discover vulnerabilities through a controlled assessment than through a breach. Better to know your risks than to hope for the best.</p>
+            <p>We have conducted assessments for organisations across Australia. Manufacturing firms, professional services, healthcare providers, technology companies. Each environment is different. The rigour we apply is consistent.</p>
+        </div>
+
+        <div class="request-box">
+            <h3>Request a security assessment</h3>
+            <p>Tell us about your organisation and what prompted your interest. We will respond within one business day to discuss scope and timing.</p>
+            <a href="contact.html" class="btn btn-primary">Start the Conversation</a>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Questions about security assessments?</h2>
+            <p>Call us directly. We are happy to discuss whether an assessment is right for your situation.</p>
+            <div class="cta-actions">
+                <a href="tel:+61280069191" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> 02 8006 9191
+                </a>
+                <a href="contact.html" class="btn btn-outline">Send a Message</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

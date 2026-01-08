@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Managed IT and cybersecurity for NZ businesses. We pick up the phone. We fix problems properly. Microsoft Partner since 2004.">
+    <title>Belton IT Nexus | Managed IT for NZ Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #050506;
+            --bg-elevated: #0a0a0c;
+            --surface: rgba(255,255,255,0.03);
+            --surface-2: rgba(255,255,255,0.06);
+            --text: rgba(255,255,255,0.92);
+            --text-secondary: rgba(255,255,255,0.60);
+            --text-muted: rgba(255,255,255,0.35);
+            --brand-red: #CF1D1E;
+            --accent: #E63946;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+
+            --orb-size: 40vmax;
+            --orb-1: 207, 29, 30;
+            --orb-2: 230, 57, 70;
+            --orb-3: 180, 20, 20;
+            --orb-4: 255, 100, 100;
+            --orb-5: 255, 255, 255;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0) 100%);
+        }
+
+        .logo img { height: 28px; width: auto; }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .header-nav a:hover { color: var(--text); }
+
+        .header-cta {
+            padding: 0.625rem 1.25rem;
+            background: var(--brand-red);
+            color: white !important;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .header-cta:hover { background: #b81a1a; }
+
+        /* Hero with Orb Background */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0a0c 0%, #050506 50%, #0d0808 100%);
+        }
+
+        /* Orb Container */
+        .orb-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            filter: blur(80px);
+            opacity: 0.7;
+        }
+
+        /* Individual Orbs - Pure CSS Animation */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: hard-light;
+            will-change: transform;
+        }
+
+        .orb-1 {
+            width: var(--orb-size);
+            height: var(--orb-size);
+            background: radial-gradient(circle at 30% 30%,
+                rgba(var(--orb-1), 0.9) 0%,
+                rgba(var(--orb-1), 0.4) 50%,
+                transparent 70%);
+            top: -10%;
+            right: -5%;
+            animation: float-1 25s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: calc(var(--orb-size) * 0.8);
+            height: calc(var(--orb-size) * 0.8);
+            background: radial-gradient(circle at 70% 30%,
+                rgba(var(--orb-2), 0.8) 0%,
+                rgba(var(--orb-2), 0.3) 50%,
+                transparent 70%);
+            top: 50%;
+            right: 10%;
+            mix-blend-mode: screen;
+            animation: float-2 30s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            width: calc(var(--orb-size) * 0.6);
+            height: calc(var(--orb-size) * 0.6);
+            background: radial-gradient(circle at 50% 50%,
+                rgba(var(--orb-3), 0.7) 0%,
+                rgba(var(--orb-3), 0.2) 50%,
+                transparent 70%);
+            bottom: 10%;
+            right: 30%;
+            mix-blend-mode: overlay;
+            animation: float-3 35s ease-in-out infinite;
+        }
+
+        .orb-4 {
+            width: calc(var(--orb-size) * 0.5);
+            height: calc(var(--orb-size) * 0.5);
+            background: radial-gradient(circle at 40% 60%,
+                rgba(var(--orb-4), 0.6) 0%,
+                rgba(var(--orb-4), 0.2) 50%,
+                transparent 70%);
+            top: 30%;
+            left: 40%;
+            mix-blend-mode: color-dodge;
+            animation: float-4 40s ease-in-out infinite;
+        }
+
+        .orb-5 {
+            width: calc(var(--orb-size) * 0.3);
+            height: calc(var(--orb-size) * 0.3);
+            background: radial-gradient(circle at 50% 50%,
+                rgba(var(--orb-5), 0.4) 0%,
+                rgba(var(--orb-5), 0.1) 50%,
+                transparent 70%);
+            top: 20%;
+            right: 25%;
+            mix-blend-mode: overlay;
+            animation: float-5 20s ease-in-out infinite;
+        }
+
+        /* Mouse-following orb */
+        .orb-mouse {
+            width: calc(var(--orb-size) * 0.4);
+            height: calc(var(--orb-size) * 0.4);
+            background: radial-gradient(circle at 50% 50%,
+                rgba(var(--orb-2), 0.5) 0%,
+                rgba(var(--orb-1), 0.2) 50%,
+                transparent 70%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Keyframe Animations */
+        @keyframes float-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-15%, 20%) scale(1.1); }
+            50% { transform: translate(-5%, 10%) scale(0.95); }
+            75% { transform: translate(10%, -10%) scale(1.05); }
+        }
+
+        @keyframes float-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20%, -15%) scale(1.15); }
+            66% { transform: translate(10%, 20%) scale(0.9); }
+        }
+
+        @keyframes float-3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            20% { transform: translate(25%, -10%) scale(1.1); }
+            40% { transform: translate(15%, -25%) scale(0.95); }
+            60% { transform: translate(-10%, -15%) scale(1.05); }
+            80% { transform: translate(-5%, 10%) scale(1); }
+        }
+
+        @keyframes float-4 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-30%, 20%) scale(1.2); }
+            50% { transform: translate(-20%, -10%) scale(0.9); }
+            75% { transform: translate(15%, 15%) scale(1.1); }
+        }
+
+        @keyframes float-5 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(-50%, 30%) scale(1.3) rotate(180deg); }
+        }
+
+        /* Subtle grain overlay */
+        .grain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-headline {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .accent { color: var(--accent); }
+        .hero-headline .thin { font-weight: 200; color: var(--text-secondary); }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 1rem 1.75rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--brand-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b81a1a;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: rgba(0,0,0,0.5);
+            color: var(--text);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-secondary);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator .mouse {
+            width: 20px;
+            height: 32px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: scroll-bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(8px); opacity: 0.3; }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 200;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number span { color: var(--accent); }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 5%;
+            background: var(--bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            background: var(--surface-2);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card a {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .service-card a:hover { color: var(--accent); }
+
+        /* CTA */
+        .cta-section {
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(207, 29, 30, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section h2 .accent { color: var(--accent); }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .cta-phone i { color: var(--accent); }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 5% 2rem;
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand img {
+            height: 28px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+
+        .footer-column a {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover { color: var(--text); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-copy {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-legal a:hover { color: var(--text); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            :root { --orb-size: 50vmax; }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 1rem 1.5rem; }
+            .header-nav { display: none; }
+            .hero-content { padding: 0 1.5rem; max-width: 100%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .scroll-indicator { display: none; }
+            :root { --orb-size: 60vmax; }
+            .orb-container { filter: blur(60px); }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
+            .cta-actions { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .orb { animation: none; }
+            .orb-mouse { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">
+            <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+        </a>
+        <nav class="header-nav">
+            <a href="../services.html">Services</a>
+            <a href="../how-we-work.html">How We Work</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html" class="header-cta">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <!-- Pure CSS Orb Background -->
+        <div class="orb-container">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+            <div class="orb orb-5"></div>
+            <div class="orb orb-mouse" id="orb-mouse"></div>
+        </div>
+        <div class="grain"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Microsoft Partner since 2004
+            </div>
+            <h1 class="hero-headline">
+                Secure IT<br>
+                <span class="thin">for growing</span><br>
+                <span class="accent">NZ business</span>
+            </h1>
+            <p class="hero-sub">
+                We partner with organisations to build IT foundations that scale.
+                Secure systems, reliable support, and a roadmap aligned with your goals.
+            </p>
+            <div class="hero-actions">
+                <a href="../contact.html" class="btn btn-primary">
+                    Start a Conversation <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="tel:+6499742379" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">350<span>+</span></div>
+                <div class="stat-label">Organisations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20<span>+</span></div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24<span>/</span>7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9<span>%</span></div>
+                <div class="stat-label">Uptime SLA</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Complete IT Management</h2>
+            <p class="section-sub">One team. One monthly fee. No surprises. We handle everything so you can focus on your business.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                <h3>Managed IT</h3>
+                <p>We become your IT department. Devices, users, problems — handled efficiently.</p>
+                <a href="../managed-it.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Security Operations</h3>
+                <p>24/7 monitoring and threat response. Real protection, not just compliance theatre.</p>
+                <a href="../security.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Microsoft 365</h3>
+                <p>Not just licensed — configured, secured, and actively managed for your team.</p>
+                <a href="../microsoft365.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-database"></i></div>
+                <h3>Cloud & Backup</h3>
+                <p>Your data protected, your systems available. Azure, AWS, or hybrid solutions.</p>
+                <a href="../cloud.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's build <span class="accent">something</span> together</h2>
+            <p>Tell us where your business is headed. We'll show you how IT can help you get there.</p>
+            <div class="cta-actions">
+                <a href="../contact.html" class="btn btn-primary">Start a Conversation</a>
+                <a href="tel:+6499742379" class="cta-phone">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p>Technology for NZ business. Managed IT, security, and cloud solutions from an Auckland team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../managed-it.html">Managed IT</a></li>
+                    <li><a href="../security.html">Security</a></li>
+                    <li><a href="../microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="../cloud.html">Cloud</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../how-we-work.html">How We Work</a></li>
+                    <li><a href="../client-success.html">Success Stories</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="../privacy.html">Privacy</a>
+                <a href="../terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JS for mouse-following orb only -->
+    <script>
+    (function() {
+        const orbMouse = document.getElementById('orb-mouse');
+        const hero = document.querySelector('.hero');
+        let mouseX = 0, mouseY = 0;
+        let orbX = 0, orbY = 0;
+        let isVisible = true;
+        let animationId = null;
+
+        function animate() {
+            if (!isVisible) {
+                animationId = requestAnimationFrame(animate);
+                return;
+            }
+
+            orbX += (mouseX - orbX) * 0.05;
+            orbY += (mouseY - orbY) * 0.05;
+
+            orbMouse.style.transform = `translate(${orbX - orbMouse.offsetWidth / 2}px, ${orbY - orbMouse.offsetHeight / 2}px)`;
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            mouseX = hero.offsetWidth * 0.6;
+            mouseY = hero.offsetHeight * 0.4;
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            isVisible = !document.hidden;
+        });
+
+        mouseX = hero.offsetWidth * 0.6;
+        mouseY = hero.offsetHeight * 0.4;
+        animate();
+    })();
+    </script>
+</body>
+</html>

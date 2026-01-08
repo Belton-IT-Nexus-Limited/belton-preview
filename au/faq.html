@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently asked questions about Belton IT services, support, pricing, and how we work with Australian businesses.">
+    <title>FAQ | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/faq.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .faq-section { margin-bottom: 3rem; }
+        .faq-section:last-child { margin-bottom: 0; }
+
+        .faq-category {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-list {
+            max-width: 750px;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.2s ease;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            color: var(--accent);
+        }
+
+        .faq-item summary:hover {
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            padding: 0 0 1.5rem 0;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .faq-answer a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .faq-answer a:hover {
+            color: var(--text);
+        }
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> +61 2 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link active">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / FAQ</p>
+        <h1 class="page-title">Frequently asked questions</h1>
+        <p class="page-subtitle">Straightforward answers to common questions about working with us.</p>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="faq-section">
+            <div class="faq-category">Getting Started</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do we get started with Belton?</summary>
+                    <div class="faq-answer">
+                        We start with a conversation. No sales pitch, just an honest discussion about your current setup, what's working, and what isn't. From there, we'll propose a plan that makes sense for your business size and goals. Most clients are up and running within two to four weeks.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What size businesses do you work with?</summary>
+                    <div class="faq-answer">
+                        We work primarily with organisations between 20 and 500 people. Small enough that you want a responsive partner who knows your name, large enough that you need proper IT infrastructure and security. Professional services, manufacturing, not-for-profits, and growing companies tend to be our sweet spot.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>We already have an IT person. Can you still help?</summary>
+                    <div class="faq-answer">
+                        Absolutely. Many of our clients have internal IT staff. We work alongside them, providing specialised expertise in areas like security, cloud infrastructure, and Microsoft 365. We're not here to replace good people. We're here to augment their capabilities and give them backup when needed.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt grid-texture">
+        <div class="faq-section">
+            <div class="faq-category">Services & Support</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What does "managed IT" actually include?</summary>
+                    <div class="faq-answer">
+                        Everything your business needs to run reliably. Device management, user support, security monitoring, backups, Microsoft 365 administration, and ongoing maintenance. One monthly fee, no surprises. When something breaks, we fix it. When something could be better, we tell you.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How quickly do you respond to issues?</summary>
+                    <div class="faq-answer">
+                        Critical issues affecting your whole business get immediate attention. We target 15 minutes for urgent problems. Standard requests typically get a response within an hour during business hours. After hours support is available for clients who need it.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do you provide after-hours support?</summary>
+                    <div class="faq-answer">
+                        Yes. Our security operations run 24/7, and we offer after-hours support for managed service clients who need it. You're not talking to an overseas call centre. You're reaching our actual team members who know your systems.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can you help with one-off projects?</summary>
+                    <div class="faq-answer">
+                        We do. Office relocations, cloud migrations, security assessments, infrastructure upgrades. Some clients start with a project and move to ongoing managed services. Others just need project help. Either way works for us.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="faq-section">
+            <div class="faq-category">Pricing & Contracts</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How does pricing work?</summary>
+                    <div class="faq-answer">
+                        For managed services, you pay a fixed monthly fee per user or per device, depending on the service. That fee covers everything included in your plan. No hidden charges for support calls, no surprise invoices. We'll quote you a number and that's what you pay.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do you require long-term contracts?</summary>
+                    <div class="faq-answer">
+                        No. We don't believe in locking clients in. Our standard terms are month-to-month with 30 days notice. If we're not delivering value, you should be free to leave. We'd rather earn your business every month than hold you hostage with paperwork.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What's included versus what costs extra?</summary>
+                    <div class="faq-answer">
+                        Your monthly fee covers all day-to-day support, monitoring, maintenance, and the services in your plan. Projects like office moves, major upgrades, or new system implementations are quoted separately. We're upfront about what's included before you sign anything.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt grid-texture">
+        <div class="faq-section">
+            <div class="faq-category">Security & Compliance</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do you handle security?</summary>
+                    <div class="faq-answer">
+                        Security isn't an add-on. It's built into everything we do. All managed service plans include endpoint protection, email security, and security monitoring. For organisations with higher requirements, we offer dedicated security operations with 24/7 threat detection and response.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can you help with compliance requirements?</summary>
+                    <div class="faq-answer">
+                        Yes. We work with clients across healthcare, legal, financial services, and other regulated industries. Whether you need to meet Privacy Act requirements, industry frameworks like the Essential Eight, or insurance mandates, we can help you build and maintain compliant systems.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What happens if we get breached?</summary>
+                    <div class="faq-answer">
+                        Our monitoring is designed to catch threats before they cause damage. But if something does get through, we have incident response procedures ready. We'll contain the threat, assess the damage, help with recovery, and support any compliance reporting you need to do.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section dot-texture">
+        <div class="faq-section">
+            <div class="faq-category">Technology</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Do you only work with Microsoft?</summary>
+                    <div class="faq-answer">
+                        We're a Microsoft Partner and most of our clients use Microsoft 365 and Azure. But we're not religious about it. We work with whatever makes sense for your business. Some clients have Linux servers, some use Google Workspace, some have legacy systems that need to keep running. We handle all of it.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can you help us move to the cloud?</summary>
+                    <div class="faq-answer">
+                        We've helped hundreds of organisations migrate to cloud infrastructure. Whether that's moving email to Microsoft 365, shifting servers to Azure, or building a hybrid approach, we know how to do it without disrupting your business. Most migrations happen over a few weeks with minimal user impact.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What about AI and Copilot?</summary>
+                    <div class="faq-answer">
+                        We're helping clients adopt Microsoft Copilot and other AI tools thoughtfully. That means making sure your data governance is right, training your people properly, and implementing AI where it actually adds value. We're pragmatic about it. AI isn't magic, but used well, it's genuinely useful.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Still have questions?</h2>
+            <p>We're happy to chat. No pressure, no sales pitch.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                <a href="tel:+61280069191" class="btn btn-outline">02 8006 9191</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

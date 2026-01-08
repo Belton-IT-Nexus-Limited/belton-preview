@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="End-to-end hardware procurement for New Zealand businesses. Apple, Lenovo, HP, Microsoft, Fortinet authorised partner. Proper configuration, warranty management, ongoing support.">
+    <title>Hardware Procurement | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1000px;
+        }
+
+        .col-prose h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .col-prose p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-with-sidebar {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+            align-items: start;
+            max-width: 900px;
+        }
+
+        .sidebar-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .sidebar-panel h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .sidebar-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-panel li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-panel li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .warranty-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .warranty-prose { max-width: 500px; }
+        .warranty-prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+
+        .warranty-list {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .warranty-list h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .warranty-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .warranty-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .warranty-item strong {
+            color: var(--text);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .warranty-item span {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .two-col-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .content-with-sidebar {
+                grid-template-columns: 1fr;
+            }
+            .warranty-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Procurement</p>
+        <h1 class="page-title">End-to-end hardware, done right</h1>
+        <p class="page-subtitle">From specification to installation - we handle procurement so you get the right equipment, properly configured.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>Hardware procurement isn't about finding the cheapest price online. It's about understanding what your business actually needs, choosing equipment that will last, and making sure it arrives configured and ready to use.</p>
+
+            <p>We're not a box-shifter. We don't make our money selling you hardware you don't need. We're your IT partner, and procurement is simply part of the service. When you need new equipment, we specify it properly, source it through authorised channels, configure it to your standards, and support it for its entire lifecycle.</p>
+
+            <p>Our vendor partnerships mean competitive pricing, genuine warranties, and access to business-grade equipment. More importantly, they mean we can actually get support when something goes wrong - not a call centre reading from a script.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">Authorised Partnerships</div>
+        <h2 class="section-title">Direct vendor relationships</h2>
+
+        <div class="prose" style="margin-top: 2rem;">
+            <p>We work directly with manufacturers to source business-grade equipment through proper channels. As an authorised partner for Apple, Lenovo, HP, Microsoft, and Fortinet, we have access to business pricing, extended warranty options, and actual technical support when you need it.</p>
+
+            <p>For endpoints, we supply ThinkPad and EliteBook laptops, Surface devices, MacBooks and iMacs - all enrolled in Apple Business Manager or your MDM of choice before they reach your team. iPhones and iPads arrive ready for your users, not blank slates that need hours of setup.</p>
+
+            <p>On the infrastructure side, we source Fortinet firewalls and switches, ProLiant and ThinkSystem servers, APC power protection, and Veeam and Datto backup appliances. Everything from a single laptop replacement to a full office fit-out.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="content-with-sidebar">
+            <div>
+                <div class="section-tag">What We Supply</div>
+                <h2 class="section-title">Everything your business needs</h2>
+                <p class="section-sub" style="margin-bottom: 1.5rem;">From laptops to servers, mobile devices to network infrastructure.</p>
+
+                <div class="col-prose">
+                    <h3>Endpoints and workstations</h3>
+                    <p>Laptops, desktops, and workstations from Lenovo, HP, Microsoft Surface, and Apple. Every device is configured to your security standards before deployment - domain joined, policies applied, software installed.</p>
+
+                    <h3>Mobile and collaboration</h3>
+                    <p>iPhones, iPads, and Android devices enrolled in mobile device management. Meeting room displays, webcams, headsets, and the peripherals that keep your team productive whether they're in the office or working remotely.</p>
+
+                    <h3>Infrastructure</h3>
+                    <p>On-premises servers, storage systems, and network equipment. Firewalls, managed switches, and wireless access points from Fortinet. UPS systems and power distribution to keep everything running through outages.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-panel">
+                <h4>Hardware categories</h4>
+                <ul>
+                    <li>Laptops and desktops</li>
+                    <li>Workstations</li>
+                    <li>Mobile devices</li>
+                    <li>Servers and storage</li>
+                    <li>Networking equipment</li>
+                    <li>Monitors and displays</li>
+                    <li>Docking stations</li>
+                    <li>Meeting room equipment</li>
+                    <li>Power and UPS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose">
+            <div class="section-tag">Our Process</div>
+            <h2 class="section-title">From requirement to deployment</h2>
+
+            <p>Every hardware purchase follows the same structured approach. It starts with specification - understanding what you need the equipment to do, who will use it, and what constraints matter (budget, timeline, compatibility). We then provide a detailed quotation with options where appropriate.</p>
+
+            <p>Once approved, we order through authorised channels and begin configuration. Devices don't ship directly to you from a warehouse. They come to us first, where we image them, apply your policies, install your software, and test everything. When equipment arrives at your door - or your user's home office - it's ready to work.</p>
+
+            <p>Installation and deployment can be on-site or remote, depending on what makes sense. We handle user handover, answer questions, and document everything in your asset register. From there, ongoing support is part of the package - warranty management, lifecycle tracking, and the knowledge that if something fails, we're the ones dealing with the vendor.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="warranty-content">
+            <div class="warranty-prose">
+                <div class="section-tag">Warranty Management</div>
+                <h2 class="section-title">We handle the paperwork</h2>
+                <p>Nothing worse than a hardware failure and then finding out your warranty expired last month. We track every device, every warranty, every service contract.</p>
+
+                <p>When something fails, we handle the warranty claim. We deal with the vendor, arrange the replacement or repair, and get you back up and running. You don't need to dig through old invoices or sit on hold with a manufacturer.</p>
+
+                <p>We also proactively notify you before warranties expire, so you can make informed decisions about extended coverage or replacement planning.</p>
+            </div>
+
+            <div class="warranty-list">
+                <h3>What We Track</h3>
+                <div class="warranty-item">
+                    <strong>Asset registry</strong>
+                    <span>Every device documented with specs and location</span>
+                </div>
+                <div class="warranty-item">
+                    <strong>Warranty dates</strong>
+                    <span>Expiry tracking with advance notifications</span>
+                </div>
+                <div class="warranty-item">
+                    <strong>Service contracts</strong>
+                    <span>Support agreements and SLA coverage</span>
+                </div>
+                <div class="warranty-item">
+                    <strong>Lifecycle planning</strong>
+                    <span>Replacement scheduling before failures occur</span>
+                </div>
+                <div class="warranty-item">
+                    <strong>Claim handling</strong>
+                    <span>We manage the entire warranty process</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Need a quote?</h2>
+            <p>Tell us what you're looking for and we'll put together a proper specification and quote.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+                <a href="tel:+6499742379" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 09 974 2379
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

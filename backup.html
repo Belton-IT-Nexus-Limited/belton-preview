@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Business backup and disaster recovery for NZ organisations. Data protection with tested restores. Fast recovery when it matters most.">
+    <title>Backup & Recovery | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Backup & Recovery</p>
+        <div class="page-title">Your data protected. Recovery assured.</div>
+        <p class="page-subtitle">Business continuity starts with knowing your critical data is safe and recoverable when you need it.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-content">
+            <p class="section-intro">
+                Every business assumes their data is backed up until something goes wrong. A ransomware attack encrypts your servers. A hardware failure takes down your database. Someone accidentally deletes the wrong folder. When it happens, the question isn't whether you have backups. It's whether those backups can actually get you back to work.
+            </p>
+            <p class="section-intro">
+                We've seen both outcomes. Businesses that lost years of work because their backup hadn't run properly in months. And businesses that were back online within hours because someone had done the job right. The difference isn't luck. It's having systems designed for recovery, not just backup.
+            </p>
+            <p class="section-intro">
+                <strong style="color: var(--text);">Good backup isn't complicated, but it requires attention.</strong> The right systems protecting the right data, monitored daily, and tested regularly to prove they actually work. When you need to recover, you shouldn't be crossing your fingers.
+            </p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">What We Protect</div>
+        <h2 class="section-title">Everything important, wherever it lives</h2>
+
+        <div class="content-with-sidebar">
+            <div class="content-main">
+                <p>From cloud services to on-premise servers, we match the right backup solution to each workload. Microsoft 365 needs dedicated protection because Microsoft doesn't back up your data for you, despite what most people assume. Servers need image-based backups that can restore entire systems or spin them up in the cloud. Workstations need protection that follows staff wherever they work.</p>
+                <p>The goal isn't just having backups. It's having backups that actually work when you need them, with recovery times that match your business requirements.</p>
+            </div>
+            <div class="content-sidebar">
+                <h4>We protect</h4>
+                <ul class="simple-list">
+                    <li>Microsoft 365 (email, SharePoint, Teams)</li>
+                    <li>Physical and virtual servers</li>
+                    <li>Workstations and laptops</li>
+                    <li>SQL databases and applications</li>
+                    <li>Cloud workloads (Azure, AWS)</li>
+                    <li>SaaS applications (Xero, Salesforce)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-tag">Recovery Focus</div>
+        <h2 class="section-title">Designed for recovery, not just backup</h2>
+
+        <div class="prose-content" style="margin-top: 1.5rem;">
+            <p class="section-intro">
+                Ransomware, hardware failure, accidental deletion, or natural disaster. Whatever happens, you need to get back to business. The quality of your recovery determines whether that takes hours or weeks.
+            </p>
+            <p class="section-intro">
+                We design backup systems with recovery in mind. Not just "can we get data back" but "how quickly can we get you operational again?" For critical systems, that might mean spinning up virtual machines in the cloud while we rebuild on-premise infrastructure.
+            </p>
+            <p class="section-intro">
+                <strong style="color: var(--text);">Recovery Time Objective (RTO)</strong> defines how quickly you need systems back online. <strong style="color: var(--text);">Recovery Point Objective (RPO)</strong> defines how much data loss is acceptable. We design backup architecture around your actual tolerance for both, whether that's hours or minutes.
+            </p>
+            <p class="section-intro">
+                A backup that hasn't been tested is a backup you're hoping works. We run regular restore tests and provide proof your data is actually recoverable.
+            </p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">Our Solutions</div>
+        <h2 class="section-title">The right tool for each job</h2>
+
+        <div class="prose-content" style="margin-top: 1.5rem;">
+            <p class="section-intro">
+                We don't believe in one-size-fits-all backup. Different workloads have different requirements, and we match solutions accordingly. Here's what we deploy:
+            </p>
+        </div>
+
+        <div class="solutions-prose">
+            <div class="solution-block" id="belton-secure">
+                <h3>Belton Secure Online Backup</h3>
+                <p class="solution-meta">Powered by Cove Data Protection</p>
+                <p>Our primary backup solution for workstations and servers. Files are encrypted and backed up continuously to secure cloud storage. Works on any network, including home WiFi for remote workers. Includes bare metal recovery for full system restores and LocalSpeedVault for fast local recovery when you need it.</p>
+                <p>For servers, we provide full image and file-level backup with application-aware protection for SQL Server and Exchange. Virtual disaster recovery can spin up standby images in the cloud within minutes.</p>
+            </div>
+
+            <div class="solution-block" id="veeam">
+                <h3>Veeam Backup Solutions</h3>
+                <p class="solution-meta">Hosted or on-premise deployment</p>
+                <p>For organisations with more complex requirements, we offer Veeam in two flavours. <strong style="color: var(--text);">Hosted Veeam</strong> gives you enterprise backup capabilities without the infrastructure overhead. We manage the Veeam environment in our data centre, with immutable repositories and offsite replication included.</p>
+                <p><strong style="color: var(--text);">Local Veeam</strong> deployments make sense when you need backup infrastructure on-site. We design, deploy, and manage Veeam environments tailored to your storage and retention requirements, with SureBackup automated recovery testing to prove your backups actually work.</p>
+            </div>
+
+            <div class="solution-block" id="datto">
+                <h3>Datto BCDR Appliances</h3>
+                <p class="solution-meta">Business continuity and disaster recovery</p>
+                <p>All-in-one backup appliances for organisations where downtime isn't an option. Datto combines local backup with cloud replication and instant virtualisation. If your server dies, you can boot from the backup appliance and keep working while we sort out the hardware.</p>
+                <p>Screenshot verification of every backup proves your systems are recoverable. Ransomware detection alerts us to suspicious changes before they spread. When disaster strikes, cloud failover gets you running in minutes, not days.</p>
+            </div>
+
+            <div class="solution-block" id="cloud-backup">
+                <h3>Cloud Application Backup</h3>
+                <p class="solution-meta">Microsoft 365 and SaaS protection</p>
+                <p>Microsoft's retention policies aren't backup. When someone deletes a mailbox, corrupts a SharePoint site, or encrypts OneDrive files with ransomware, you need independent recovery. We back up Exchange, SharePoint, OneDrive, and Teams with point-in-time recovery and granular restore options.</p>
+                <p>Beyond Microsoft 365, we protect other SaaS applications your business depends on. Google Workspace, Salesforce, Xero, MYOB, and cloud storage services. If your business data lives in the cloud, we can protect it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-tag">Protection</div>
+        <h2 class="section-title">Immutable backups for ransomware defence</h2>
+
+        <div class="prose-content" style="margin-top: 1.5rem;">
+            <p class="section-intro">
+                Modern ransomware doesn't just encrypt your live data. It specifically targets backups, deleting or encrypting them to ensure you have no recovery option except paying the ransom. Standard backup won't save you.
+            </p>
+            <p class="section-intro">
+                Immutable backups are copies that cannot be modified or deleted, even by an attacker with admin credentials. When ransomware strikes, you have a clean recovery point that the attackers couldn't touch. No ransom negotiations. No paying criminals. Just restore and move on.
+            </p>
+            <p class="section-intro">
+                Combined with off-site replication to secure New Zealand data centres, your data survives both cyber attacks and physical disasters. AES-256 encryption protects data in transit and at rest.
+            </p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-tag">Business Continuity</div>
+        <h2 class="section-title">Beyond backup</h2>
+
+        <div class="prose-content" style="margin-top: 1.5rem;">
+            <p class="section-intro">
+                Backup is one part of business continuity. The broader question is: if something major went wrong, how would your business keep operating? Do you know which systems are truly critical? How long can you survive without them?
+            </p>
+            <p class="section-intro">
+                We help you think through these questions before they become urgent. Business impact analysis identifies what really matters and what downtime actually costs. Recovery objectives define how quickly you need to recover and how much data loss is acceptable.
+            </p>
+            <p class="section-intro">
+                Then we document the plan. Clear procedures, communication protocols, and step-by-step runbooks mean recovery happens smoothly when it matters. We also run tabletop exercises where your team walks through scenarios and identifies gaps before they matter.
+            </p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>How protected are you right now?</h2>
+            <p>Most businesses have some form of backup running. The question is whether it's actually protecting what matters.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Request a Backup Review</a>
+                <a href="how-we-work.html" class="btn btn-outline">See How We Work</a>
+            </div>
+            <p class="cta-reassurance">No obligation. If your backup is already solid, we'll tell you and leave you alone.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .prose-content {
+            max-width: 700px;
+        }
+
+        /* Content with sidebar layout */
+        .content-with-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 3rem;
+            margin-top: 1.5rem;
+            max-width: 900px;
+        }
+
+        .content-main p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .content-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            height: fit-content;
+        }
+
+        .content-sidebar h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin: 0 0 1rem 0;
+        }
+
+        .simple-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .simple-list li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .simple-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Solutions prose blocks */
+        .solutions-prose {
+            margin-top: 2rem;
+            max-width: 800px;
+        }
+
+        .solution-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .solution-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .solution-block h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .solution-meta {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .solution-block p:not(.solution-meta) {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .solution-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .content-with-sidebar {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .content-sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</body>
+</html>

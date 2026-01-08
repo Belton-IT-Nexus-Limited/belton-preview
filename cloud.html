@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cloud solutions for New Zealand businesses. Azure, AWS, hybrid infrastructure, virtual desktops, and migration services.">
+    <title>Cloud Solutions | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .prose-block {
+            max-width: 720px;
+        }
+
+        .prose-block p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            margin-bottom: 1.75rem;
+        }
+
+        .prose-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .prose-block strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .service-list {
+            max-width: 720px;
+        }
+
+        .service-list-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service-list-item:first-child {
+            padding-top: 0;
+        }
+
+        .service-list-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .service-list-item h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-list-item p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+        }
+
+        .column-block h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .column-block p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .column-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link active">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Cloud Solutions</p>
+        <h1 class="page-title">Infrastructure that scales with you</h1>
+        <p class="page-subtitle">Your systems in world-class data centres. Accessible from anywhere. Ready when you are.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose-block">
+            <p>The server room used to be the heart of every business. Now it's often just a liability. Hardware ages, capacity runs out, and one bad weekend can mean days of recovery. Cloud changes that equation entirely.</p>
+
+            <p>We help NZ businesses move their infrastructure to Azure, AWS, or hybrid environments that match how they actually work. Not a wholesale rip-and-replace, but a considered approach that puts the right workloads in the right places. Some things belong in the cloud. Some things work better on-site. The trick is knowing which is which.</p>
+
+            <p><strong>Whether you're running a single file server or a complex multi-site operation, we design cloud solutions that fit your business today and scale for where you're headed.</strong></p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="section-header">
+            <h2>What we deliver</h2>
+            <p>Cloud means different things to different organisations. Here's what we actually do.</p>
+        </div>
+
+        <div class="service-list">
+            <div class="service-list-item">
+                <h3>Azure and AWS infrastructure</h3>
+                <p>Servers, storage, and applications running in Microsoft or Amazon data centres. Pay for what you use, scale when you need to, and let someone else worry about hardware failures.</p>
+            </div>
+            <div class="service-list-item">
+                <h3>Hybrid environments</h3>
+                <p>Sometimes you need both. Local servers talking to cloud services, with secure connections between them. We design setups where on-premise and cloud work together seamlessly.</p>
+            </div>
+            <div class="service-list-item">
+                <h3>Virtual desktops</h3>
+                <p>Full Windows desktops running in the cloud. Your team logs in from any device and gets their familiar environment with all their applications. Perfect for remote teams or BYOD policies.</p>
+            </div>
+            <div class="service-list-item">
+                <h3>Cloud migrations</h3>
+                <p>Moving from physical servers or outdated infrastructure to cloud platforms. We handle the planning, the migration, and the cleanup. Most of our migrations happen with zero user downtime.</p>
+            </div>
+            <div class="service-list-item">
+                <h3>Ongoing management</h3>
+                <p>Cloud environments need attention. We monitor, optimise, patch, and respond to issues. Active cost management means you're not paying for resources you don't need.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-header">
+            <h2>Azure or AWS?</h2>
+            <p>Both are excellent. The right choice depends on your situation.</p>
+        </div>
+
+        <div class="two-column">
+            <div class="column-block">
+                <h3>Microsoft Azure</h3>
+                <p>If you're already using Microsoft 365, Azure is the natural extension. Deep integration with Entra ID, seamless authentication, and a familiar management experience.</p>
+                <p>Azure makes particular sense for organisations standardised on Microsoft technologies, those needing hybrid identity with on-premise Active Directory, or teams already comfortable with the Microsoft ecosystem.</p>
+            </div>
+            <div class="column-block">
+                <h3>Amazon Web Services</h3>
+                <p>AWS has the broadest range of services and often wins on raw compute economics. If you're running Linux workloads, containerised applications, or need specific capabilities, AWS might be the better fit.</p>
+                <p>We work with both platforms and can help you choose based on your actual requirements rather than marketing. Sometimes the answer is a mix of both.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose-block">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Our approach to migrations</h2>
+
+            <p>Every migration starts with understanding what you have and where you want to be. We audit your current environment, map dependencies, and identify what should move, what should stay, and what should be retired entirely.</p>
+
+            <p>We plan migrations in phases, minimising risk and disruption. Critical systems get extra attention. We run parallel environments when needed, so you always have a fallback. And we don't declare victory until everything is running smoothly and your team is comfortable.</p>
+
+            <p>Post-migration, we stick around. Cloud environments need ongoing optimisation. We monitor performance, right-size resources, and actively manage costs so you're not surprised by your monthly bill.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to talk cloud?</h2>
+            <p>Tell us about your infrastructure. We'll give you an honest assessment of what makes sense for your situation.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
+                <a href="how-we-work.html" class="btn btn-outline">See How We Work</a>
+            </div>
+            <p class="cta-reassurance">No obligation. Not everything needs to move to the cloud. We'll tell you what actually makes sense.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

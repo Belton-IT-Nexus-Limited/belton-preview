@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Belton is a professional services firm that happens to do IT. Deep Microsoft expertise, structured processes, and long-term vendor relationships that create real outcomes.">
+    <title>About Belton | Belton IT Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; position: relative; z-index: 1; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .quote { border-left: 3px solid var(--accent); padding-left: 28px; margin: 48px 0; }
+        .quote p { font-size: 1.25rem; font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 0.75rem; }
+        .quote cite { font-size: 0.9375rem; color: var(--text-secondary); font-style: normal; }
+
+        /* Capability grid */
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .capability-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+        }
+        .capability-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .capability-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Leadership minimal */
+        .leadership-section {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+        .leader {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .leader img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .leader-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .leader-info span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Track record */
+        .track-record {
+            display: flex;
+            gap: 64px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .track-item {
+            text-align: left;
+        }
+        .track-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .track-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .principle {
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .principle h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .principle p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* CTA */
+        .cta-about {
+            text-align: center;
+            padding: 80px 5%;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+        .cta-about h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .cta-about .cta-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .cta-about .cta-reassurance {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .capability-grid { grid-template-columns: 1fr; }
+            .leadership-section { flex-direction: column; gap: 24px; }
+            .track-record { flex-wrap: wrap; gap: 32px; }
+            .principles-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+6499742379" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 09 974 2379
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="au/home.html" class="header-top-link header-top-region">
+                Australia site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link active">About</a>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / About</p>
+        <h1 class="page-title">A different kind of IT company</h1>
+        <p class="page-subtitle">We operate like a professional services firm. Structured processes, deep expertise, and long-term relationships that deliver real outcomes.</p>
+    </section>
+
+    <section class="page-section">
+        <div class="prose">
+            <div class="section-tag">Who we are</div>
+            <h2 class="section-title">Technology consulting with accountability</h2>
+            <p>Belton exists because too many organisations get poor advice from their IT providers. Recommendations driven by vendor incentives rather than client outcomes. Environments that grow complex because no one takes ownership of the whole picture. Support that's reactive rather than strategic.</p>
+
+            <p>We built something different. A firm where every recommendation is backed by experience across hundreds of environments. Where security, governance, and long-term thinking are built into how we operate. Where you get honest advice, even when it's not what you expected to hear.</p>
+
+            <p>This approach takes more effort. It requires deeper expertise, better processes, and people who care about outcomes rather than ticket volume. But it's the only way to build technology infrastructure that actually supports an organisation over time.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt">
+        <div class="prose">
+            <div class="section-tag">What makes us different</div>
+            <h2 class="section-title">How we work</h2>
+            <p>Most IT providers focus on keeping things running. We focus on making sure the right things are running in the right way. That difference shapes everything we do.</p>
+        </div>
+
+        <div class="capability-grid">
+            <div class="capability-card">
+                <h3>Deep Microsoft expertise</h3>
+                <p>We design within the Microsoft ecosystem as a unified platform. Identity, security, collaboration, and device management working together. Not a collection of tools, but an integrated approach that reduces complexity over time.</p>
+            </div>
+            <div class="capability-card">
+                <h3>Vendor relationships that matter</h3>
+                <p>Our partnerships with Microsoft and other strategic vendors allow us to influence outcomes, escalate effectively, and design solutions aligned with roadmap reality. Not just today's features, but where the platform is heading.</p>
+            </div>
+            <div class="capability-card">
+                <h3>Structured team, consistent delivery</h3>
+                <p>Our team is structured, trained, and accountable. Specialists work alongside generalists. Experience is shared rather than siloed. We invest heavily in process because consistency matters more than heroics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="prose">
+            <div class="section-tag">Our approach</div>
+            <h2 class="section-title">Principles that guide us</h2>
+            <p>We've been doing this long enough to know what works. These principles aren't marketing statements. They're how we make decisions every day.</p>
+        </div>
+
+        <div class="principles-grid">
+            <div class="principle">
+                <h4>Outcomes over activity</h4>
+                <p>We measure success by what improves, not by how busy we are. Results matter more than ticket counts.</p>
+            </div>
+            <div class="principle">
+                <h4>Honest advice</h4>
+                <p>We tell you what you need to hear, not what you want to hear. If something isn't right for your situation, we'll say so.</p>
+            </div>
+            <div class="principle">
+                <h4>Long-term thinking</h4>
+                <p>Technology decisions should age well. We build with that in mind, reducing complexity over time rather than adding to it.</p>
+            </div>
+            <div class="principle">
+                <h4>Security as standard</h4>
+                <p>Protection is built into everything we do. Not bolted on afterwards, not sold as an extra. It's part of how we think.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt">
+        <div class="prose">
+            <div class="section-tag">Leadership</div>
+            <h2 class="section-title">Founded and led by practitioners</h2>
+            <p>Belton was founded by people who did the work. Technical expertise combined with operational discipline. That foundation shapes how we hire, how we train, and how we approach every engagement.</p>
+
+            <div class="leadership-section">
+                <div class="leader">
+                    <img src="assets/images/jason-agnew.webp" alt="Jason Agnew">
+                    <div class="leader-info">
+                        <h4>Jason Agnew</h4>
+                        <span>CEO & Founder</span>
+                    </div>
+                </div>
+                <div class="leader">
+                    <img src="assets/images/amy-agnew.webp" alt="Amy Agnew">
+                    <div class="leader-info">
+                        <h4>Amy Agnew</h4>
+                        <span>Founder & Director</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote">
+                <p>"We've worked with businesses at every stage. The technology challenges differ, but our approach doesn't: understand the business first, then apply the right solution. That's how you build trust that lasts."</p>
+                <cite>Jason Agnew</cite>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="prose">
+            <div class="section-tag">Track record</div>
+            <h2 class="section-title">Experience you can rely on</h2>
+            <p>We've guided organisations through cloud migrations, security transformations, and complex IT challenges. From 10-person companies to 500-seat enterprises. The scope varies, but the standard of work doesn't.</p>
+
+            <div class="track-record">
+                <div class="track-item">
+                    <div class="track-value">350+</div>
+                    <div class="track-label">Organisations supported</div>
+                </div>
+                <div class="track-item">
+                    <div class="track-value">20</div>
+                    <div class="track-label">Years operating</div>
+                </div>
+                <div class="track-item">
+                    <div class="track-value">95.4%</div>
+                    <div class="track-label">Client satisfaction</div>
+                </div>
+                <div class="track-item">
+                    <div class="track-value">10+</div>
+                    <div class="track-label">Years average tenure</div>
+                </div>
+            </div>
+
+            <p style="margin-top: 32px;">Many clients have been with us for over a decade. That kind of continuity is rare in this industry, and it reflects something important: when the relationship works, organisations don't want to leave.</p>
+        </div>
+    </section>
+
+    <section class="cta-about">
+        <h2>Ready to talk?</h2>
+        <p class="cta-sub">We'll have an honest conversation about your situation. If we're not the right fit, we'll tell you and point you in the right direction.</p>
+        <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
+            <a href="how-we-work.html" class="btn btn-outline">See How We Work</a>
+        </div>
+        <p class="cta-reassurance">No obligation. No sales pitch. Just a straightforward discussion.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">A professional services firm that happens to do IT.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+6499742379">+64 9 974 2379</a></li>
+                    <li><a href="mailto:support@belton.co.nz">support@belton.co.nz</a></li>
+                    <li>Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Limited</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

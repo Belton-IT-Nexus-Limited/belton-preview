@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Software licensing management for Australian businesses. Microsoft 365, FortiGate, and security software. Never miss a renewal again.">
+    <title>Software Licensing | Belton IT Nexus</title>
+    <link rel="canonical" href="https://belton.com.au/licensing.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <style>
+        .prose { max-width: 750px; }
+        .prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .col-prose { max-width: 500px; }
+        .col-prose p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+
+        .service-list {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .service-list h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .service-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .service-item strong {
+            color: var(--text);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .service-item span {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .license-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+        }
+
+        .license-table th,
+        .license-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .license-table th {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .license-table td {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .license-table td:first-child {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .license-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 900px;
+        }
+
+        .content-block {
+            max-width: 700px;
+        }
+
+        .content-block h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+            margin-top: 40px;
+        }
+
+        .content-block h3:first-child {
+            margin-top: 0;
+        }
+
+        .vendors-inline {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .vendors-inline strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .two-col-grid { grid-template-columns: 1fr; gap: 32px; }
+            .license-table { font-size: 0.875rem; }
+            .license-table th, .license-table td { padding: 12px 10px; }
+        }
+
+        /* Header top bar */
+        .header-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: #000;
+            padding: 0.5rem 0;
+        }
+        .header-top-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .header-top-promo {
+            font-size: 0.875rem;
+            color: #fff;
+            transition: opacity 0.2s ease;
+        }
+        .header-top-promo:hover {
+            opacity: 0.8;
+        }
+        .header-top-promo strong {
+            color: var(--accent);
+        }
+        .header-top-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+        .header-top-link:hover {
+            color: #fff;
+        }
+        .header-top-link i {
+            color: var(--accent);
+        }
+        .header-top-phone {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+        .header-top-region {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+        /* Adjust header position for top bar */
+        .header {
+            top: 37px !important;
+        }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            .header {
+                top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-top-content">
+            <a href="security.html" class="header-top-promo">Global Cyber Security Bundle <strong>$29/user/month</strong></a>
+            <a href="tel:+61280069191" class="header-top-link header-top-phone">
+                <i class="fas fa-phone"></i> 02 8006 9191
+            </a>
+            <a href="remote-support.html" class="header-top-link">
+                <i class="fas fa-headset"></i> Remote Support
+            </a>
+            <a href="../home.html" class="header-top-link header-top-region">
+                New Zealand site <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="home.html" class="logo">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+            </a>
+            <span class="logo-divider"></span>
+            <img src="assets/images/microsoft-partner-logo.png" alt="Microsoft Partner" class="partner-logo">
+        </div>
+        <nav class="nav">
+            <a href="how-we-work.html" class="nav-link">How We Work</a>
+            <div class="nav-item">
+                <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4>Foundation</h4>
+                            <a href="managed-it.html">Managed IT</a>
+                            <a href="endpoints.html">Managed Devices</a>
+                            <a href="security.html">Security Operations</a>
+                            <a href="network-security.html">Network Security</a>
+                            <a href="remote-support.html">Remote Support</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Productivity</h4>
+                            <a href="microsoft365.html">Microsoft 365</a>
+                            <a href="cloud.html">Cloud Solutions</a>
+                            <a href="connectivity.html">Connectivity</a>
+                            <a href="voice.html">Business VoIP</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Protection</h4>
+                            <a href="identity.html">Identity & Access</a>
+                            <a href="email-security.html">Email Security</a>
+                            <a href="backup.html">Backup & Recovery</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4>Strategy</h4>
+                            <a href="compliance.html">Compliance</a>
+                            <a href="it-advisory.html">IT Advisory</a>
+                            <a href="ai.html">AI & Copilot</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="blueprint.html">Blueprint</a>
+                            <a href="licensing.html">Licensing</a>
+                            <a href="procurement.html">Procurement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Clients <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="who-we-work-with.html">Who We Help</a>
+                    <a href="client-success.html">Success Stories</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html">Company</a>
+                    <a href="our-story.html">Our Story</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="diy-cybersecurity.html">DIY Cybersecurity</a>
+                    <a href="essential-eight.html">Essential Eight</a>
+                    <a href="m365-security-checklist.html">M365 Security Checklist</a>
+                    <a href="cyber-insurance-readiness.html">Cyber Insurance Readiness</a>
+                    <a href="cyber-standards-guide.html">Cyber Standards Guide</a>
+                    <a href="m365-guide.html">M365 Selection Guide</a>
+                    <a href="security-assessment.html">Security Assessment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <a href="get-started.html" class="nav-link">Get Started</a>
+            <a href="contact.html" class="btn-header">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-opening">
+        <p class="page-lead"><a href="home.html">Home</a> / <a href="services.html">Services</a> / Licensing</p>
+        <h1 class="page-title">Never miss a renewal again</h1>
+        <p class="page-subtitle">Software licensing management that saves you money and keeps your business compliant.</p>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <p>Software licensing has become unnecessarily complicated. Between Microsoft's constant plan changes, security vendor bundles, and the endless stream of SaaS subscriptions, most businesses have no clear picture of what they're actually paying for.</p>
+
+            <p>We've seen organisations paying for licenses assigned to people who left years ago. Subscriptions that auto-renewed at higher prices without anyone noticing. Security tools that expired, leaving gaps nobody knew about until something went wrong.</p>
+
+            <p>Our approach is simple: we bring transparency to your software spend. We track every license, monitor every renewal date, and make sure you're paying for what you actually use. When renewals approach, we review your usage, get competitive quotes, and present options with enough time for you to make informed decisions.</p>
+
+            <p>The result is straightforward pricing with no surprises, automated alerts well before anything expires, right-sized licenses that match actual usage, and one consolidated invoice instead of dozens scattered across different vendors.</p>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="two-col-grid">
+            <div class="col-prose">
+                <div class="section-tag">Microsoft 365</div>
+                <h2 class="section-title">M365 licensing that makes sense</h2>
+                <p>Microsoft 365 licensing is complicated. With dozens of plans, add-ons, and bundles, it's easy to overpay for features you'll never use or miss out on capabilities that could transform how your team works.</p>
+
+                <p>We've been managing Microsoft licenses since the days of Office 365 subscriptions. We know which plans actually deliver value, which add-ons are worth the money, and how to structure licensing to save you thousands over time.</p>
+
+                <p>More importantly, we stay on top of Microsoft's constant changes. New features, retired products, price adjustments, we track it all so you don't have to.</p>
+            </div>
+
+            <div class="service-list">
+                <h3>What We Handle</h3>
+                <div class="service-item">
+                    <strong>License assessment</strong>
+                    <span>Audit current usage and recommend right-sized plans</span>
+                </div>
+                <div class="service-item">
+                    <strong>Cost optimisation</strong>
+                    <span>Identify savings through better license allocation</span>
+                </div>
+                <div class="service-item">
+                    <strong>New user provisioning</strong>
+                    <span>Quick setup with the right licenses from day one</span>
+                </div>
+                <div class="service-item">
+                    <strong>Offboarding</strong>
+                    <span>Reclaim and reallocate licenses when staff leave</span>
+                </div>
+                <div class="service-item">
+                    <strong>Renewal management</strong>
+                    <span>Annual reviews and competitive quotes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="section-tag">Plan Comparison</div>
+        <h2 class="section-title">Microsoft 365 plans explained</h2>
+        <p class="section-sub">Choosing the right plan depends on how your team works and what security you need.</p>
+
+        <div class="table-container">
+            <table class="license-table">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Best For</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Business Basic</td>
+                        <td>Frontline workers, light users</td>
+                        <td>Web apps, email, Teams, 1TB OneDrive</td>
+                    </tr>
+                    <tr>
+                        <td>Business Standard</td>
+                        <td>Most office workers</td>
+                        <td>Desktop apps plus all Basic features</td>
+                    </tr>
+                    <tr>
+                        <td>Business Premium</td>
+                        <td>Security-conscious SMBs</td>
+                        <td>Advanced security, device management, compliance</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise E3</td>
+                        <td>Larger organisations</td>
+                        <td>Unlimited archive, eDiscovery, advanced compliance</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise E5</td>
+                        <td>Full security requirements</td>
+                        <td>Complete security suite, Power BI Pro, analytics</td>
+                    </tr>
+                    <tr>
+                        <td>Frontline F1/F3</td>
+                        <td>Shift and field workers</td>
+                        <td>Essential tools at lower cost</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="content-block">
+            <div class="section-tag">Network Security</div>
+            <h2 class="section-title">FortiGate and security licensing</h2>
+
+            <p>Your firewall is only as good as its subscriptions. FortiGate devices need active licenses for threat intelligence updates, web filtering, application control, and support. When these lapse, your protection degrades quietly, often without anyone realising until it's too late.</p>
+
+            <h3>What we manage</h3>
+
+            <p>We handle FortiCare support contracts that cover hardware replacement, firmware updates, and technical support. FortiGuard services provide the threat intelligence, web filtering, and application control updates that keep your protection current. For organisations needing comprehensive coverage, we manage UTM and Enterprise bundles that combine all protection features into a single subscription.</p>
+
+            <h3>Bundle selection</h3>
+
+            <p>The UTM bundle covers most SMB needs with application control, intrusion prevention, web filtering, and antivirus. Enterprise bundles add advanced malware protection and sandbox analysis for organisations handling sensitive data. The 360 Protection bundle provides maximum coverage including FortiCloud Premium and 24/7 support for businesses that can't afford any gaps.</p>
+
+            <p>We also handle FortiCloud subscriptions for central management, logging, and analytics, plus hardware lifecycle planning so you know when devices are approaching end-of-life and need replacement.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="two-col-grid">
+            <div class="col-prose">
+                <div class="section-tag">Software Asset Management</div>
+                <h2 class="section-title">Complete software visibility</h2>
+                <p>Do you know exactly what software your business is paying for? Most organisations have licenses they've forgotten about, subscriptions that auto-renewed at higher prices, and seats assigned to people who left years ago.</p>
+
+                <p>We bring order to the chaos. A complete inventory of your software assets, clear visibility into what's being used, and proactive management to prevent waste and compliance issues.</p>
+
+                <p>For vendor audits, something many businesses dread, we maintain documentation that proves compliance. No scrambling to find purchase records or count installations when Microsoft or Adobe come calling.</p>
+            </div>
+
+            <div class="service-list">
+                <h3>Asset Management Services</h3>
+                <div class="service-item">
+                    <strong>Software inventory</strong>
+                    <span>Complete catalogue of all licensed software</span>
+                </div>
+                <div class="service-item">
+                    <strong>Usage analysis</strong>
+                    <span>Identify underused and unused licenses</span>
+                </div>
+                <div class="service-item">
+                    <strong>Renewal calendar</strong>
+                    <span>Track all renewal dates in one place</span>
+                </div>
+                <div class="service-item">
+                    <strong>Compliance tracking</strong>
+                    <span>Ensure you're properly licensed</span>
+                </div>
+                <div class="service-item">
+                    <strong>Cost allocation</strong>
+                    <span>Track software spend by department</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section page-section--alt dot-texture">
+        <div class="prose">
+            <div class="section-tag">Proactive Management</div>
+            <h2 class="section-title">How we handle renewals</h2>
+
+            <p>Missed renewals cause disruptions. Last-minute renewals cost more. The solution is proactive management that keeps you informed and prepared well before any deadline.</p>
+
+            <p>We track every renewal date across your software portfolio. Ninety days out, we start the renewal process: reviewing usage, getting competitive quotes, and presenting options. You make informed decisions with time to spare, not rushed choices under pressure.</p>
+
+            <p>For multi-year agreements, we analyse the total cost of ownership and help you decide whether locking in rates makes financial sense for your business. Sometimes it does, sometimes it doesn't, and we'll tell you honestly which applies to your situation.</p>
+
+            <p>When renewals complete, you get one consolidated invoice covering all your software. Simpler accounting, easier budget tracking, and a clear record of exactly what you're paying for.</p>
+        </div>
+    </section>
+
+    <section class="page-section grid-texture">
+        <div class="prose">
+            <div class="section-tag">Vendor Partnerships</div>
+            <h2 class="section-title">Direct relationships, better pricing</h2>
+
+            <p class="vendors-inline">We maintain direct partnerships with the vendors that matter for your business: <strong>Microsoft</strong> for productivity and cloud, <strong>Fortinet</strong> for network security, <strong>SentinelOne</strong> and <strong>Huntress</strong> for endpoint protection, and <strong>Veeam</strong> for backup. These relationships give you access to competitive pricing, priority support, and early access to new features.</p>
+
+            <p>When you work with us, you get the buying power of all our clients combined. Volume discounts that would be impossible to negotiate on your own. Direct escalation paths when something needs urgent attention. And a partner who understands the full picture of your technology stack, not just individual products in isolation.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to take control of your licensing?</h2>
+            <p>Let's review your current software spend and find opportunities to save.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Request a License Audit</a>
+                <a href="tel:+61280069191" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 02 8006 9191
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/belton-logo-white-red.png" alt="Belton IT Nexus">
+                <p class="footer-tagline">Technology for Australian business. Managed IT, security, and cloud solutions from a Sydney team who actually pick up the phone.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="managed-it.html">Managed IT</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="microsoft365.html">Microsoft 365</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="backup.html">Backup</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-we-work.html">How We Work</a></li>
+                    <li><a href="client-success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+61280069191">+61 2 8006 9191</a></li>
+                    <li><a href="mailto:support@belton.com.au">support@belton.com.au</a></li>
+                    <li>Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belton IT Nexus Pty Ltd</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="legal.html">Legal</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
