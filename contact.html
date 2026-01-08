@@ -508,7 +508,10 @@
             </div>
 
             <div class="contact-form-wrapper">
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="64c15151-8b61-4a9e-b92d-8ad9cb574933">
+                    <input type="hidden" name="subject" value="New Contact Form Submission - NZ">
+                    <input type="hidden" name="from_name" value="Belton Website">
                     <div class="topic-group">
                         <label class="topic-label">What can we help with?</label>
                         <div class="topic-options">
@@ -622,23 +625,39 @@
     </footer>
 
     <script>
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    document.querySelector('.contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
-        const btn = this.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
+        const form = this;
+        const btn = form.querySelector('button[type="submit"]');
+        const formWrapper = form.parentElement;
 
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         btn.disabled = true;
 
-        setTimeout(() => {
-            this.innerHTML = `
-                <div style="text-align: center; padding: 2rem;">
-                    <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem;">Thank you!</h3>
-                    <p style="color: var(--text-secondary);">Our team will be in touch shortly.<br>If you need urgent assistance, please call <a href="tel:+6499742379">09 974 2379</a></p>
-                </div>
-            `;
-        }, 1000);
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                formWrapper.innerHTML = `
+                    <div style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem; display: block;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">Thank you!</h3>
+                        <p style="color: var(--text-secondary);">Our team will be in touch shortly.<br>If you need urgent assistance, please call <a href="tel:+6499742379">09 974 2379</a></p>
+                    </div>
+                `;
+            } else {
+                throw new Error(result.message || 'Something went wrong');
+            }
+        } catch (error) {
+            btn.innerHTML = 'Send Message <i class="fas fa-arrow-right"></i>';
+            btn.disabled = false;
+            alert('Sorry, there was an error sending your message. Please try again or call us directly.');
+        }
     });
     </script>
 </body>
