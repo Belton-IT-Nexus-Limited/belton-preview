@@ -770,6 +770,17 @@
     <script src="assets/js/main.js"></script>
     <script>
     // Mobile menu toggle
+        // Dropdown toggle for mobile
+        document.querySelectorAll(".nav-item > .nav-link").forEach(function(link) {
+            if (link.querySelector("i")) {
+                link.addEventListener("click", function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle("open");
+                    }
+                });
+            }
+        });
     document.addEventListener("DOMContentLoaded", function() {
         const toggle = document.getElementById("mobileToggle");
         const nav = document.getElementById("nav");
