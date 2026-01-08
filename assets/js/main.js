@@ -2,6 +2,44 @@
    BELTON IT NEXUS - MAIN JAVASCRIPT
    ============================================ */
 
+// Mobile Menu - iOS Safe
+(function() {
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.getElementById("mobileToggle");
+        const nav = document.getElementById("nav");
+
+        function toggleMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (nav) {
+                nav.classList.toggle("nav-open");
+                if (toggle) toggle.classList.toggle("active");
+                document.body.classList.toggle("nav-open");
+            }
+        }
+
+        if (toggle && nav) {
+            toggle.addEventListener("click", toggleMenu);
+            toggle.addEventListener("touchend", toggleMenu);
+        }
+
+        // Dropdown toggle for mobile
+        document.querySelectorAll(".nav-item > .nav-link").forEach(function(link) {
+            if (link.querySelector("i")) {
+                function toggleDropdown(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        link.parentElement.classList.toggle("open");
+                    }
+                }
+                link.addEventListener("click", toggleDropdown);
+                link.addEventListener("touchend", toggleDropdown);
+            }
+        });
+    });
+})();
+
 // Resource descriptions for lead modal
 const resourceInfo = {
     'ai-policy': {
