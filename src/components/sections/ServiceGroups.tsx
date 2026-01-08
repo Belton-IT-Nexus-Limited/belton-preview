@@ -1,11 +1,19 @@
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
-import { getServicesByCategory } from '@/lib/data/services'
 import { StyledLink } from '../ui/Link'
 import { Container } from '../ui/Container'
 import { SectionTitle } from './SectionTitle'
-import { cn } from '@/lib/utils'
+
+interface ServiceGroupItem {
+  key: string
+  href: string
+}
+
+interface ServiceGroup {
+  key: string
+  title: string
+  items: ServiceGroupItem[]
+}
 
 export function ServiceGroups(): JSX.Element {
   const { t } = useTranslation('pages/home')
@@ -13,23 +21,36 @@ export function ServiceGroups(): JSX.Element {
 
   const basePath = isAU ? '/au' : ''
 
-  const groups = [
+  const groups: ServiceGroup[] = [
     {
       key: 'run',
       title: t('whatWeDo.groups.run.title'),
-      services: getServicesByCategory('foundation').slice(0, 4).concat(
-        getServicesByCategory('productivity').slice(0, 1)
-      )
+      items: [
+        { key: 'managedIT', href: '/managed-it' },
+        { key: 'deviceManagement', href: '/endpoints' },
+        { key: 'microsoft365', href: '/microsoft365' },
+        { key: 'cloudInfrastructure', href: '/cloud' }
+      ]
     },
     {
       key: 'protect',
       title: t('whatWeDo.groups.protect.title'),
-      services: getServicesByCategory('protection')
+      items: [
+        { key: 'securityOperations', href: '/security' },
+        { key: 'identityAccess', href: '/identity' },
+        { key: 'emailSecurity', href: '/email-security' },
+        { key: 'backupRecovery', href: '/backup' }
+      ]
     },
     {
       key: 'improve',
       title: t('whatWeDo.groups.improve.title'),
-      services: getServicesByCategory('strategy').slice(0, 4)
+      items: [
+        { key: 'itAdvisory', href: '/it-advisory' },
+        { key: 'complianceGovernance', href: '/compliance' },
+        { key: 'projectsMigrations', href: '/projects' },
+        { key: 'aiReadiness', href: '/ai' }
+      ]
     }
   ]
 
@@ -48,20 +69,17 @@ export function ServiceGroups(): JSX.Element {
                 {group.title}
               </h3>
               <ul className="list-none p-0 m-0">
-                {group.services.map((service) => {
-                  const serviceKey = service.id.replace(/-/g, '')
-                  return (
-                    <li key={service.id} className="mb-3">
-                      <StyledLink
-                        to={`${basePath}${service.href}`}
-                        showArrow
-                        className="text-[0.9375rem] text-text-secondary group"
-                      >
-                        {t(`whatWeDo.groups.${group.key}.items.${serviceKey}`)}
-                      </StyledLink>
-                    </li>
-                  )
-                })}
+                {group.items.map((item) => (
+                  <li key={item.key} className="mb-3">
+                    <StyledLink
+                      to={`${basePath}${item.href}`}
+                      showArrow
+                      className="text-[0.9375rem] text-text-secondary group"
+                    >
+                      {t(`whatWeDo.groups.${group.key}.items.${item.key}`)}
+                    </StyledLink>
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
