@@ -18,6 +18,8 @@ interface ButtonProps extends BaseButtonProps, ButtonHTMLAttributes<HTMLButtonEl
 
 interface ButtonLinkProps extends BaseButtonProps, Omit<LinkProps, 'className'> {
   as: 'link'
+  external?: boolean
+  href?: string
 }
 
 type ButtonComponentProps = ButtonProps | ButtonLinkProps
@@ -47,9 +49,25 @@ export function Button(props: ButtonComponentProps): JSX.Element {
   )
 
   if (props.as === 'link') {
-    const { as, ...linkProps } = props
+    const { as, external, href, to, ...linkProps } = props
+    const linkHref = href || to
+
+    if (external || (typeof linkHref === 'string' && linkHref.startsWith('http'))) {
+      return (
+        <a
+          href={typeof linkHref === 'string' ? linkHref : '#'}
+          className={classes}
+          target="_blank"
+          rel="noopener noreferrer"
+          {...(linkProps as Record<string, unknown>)}
+        >
+          {children}
+        </a>
+      )
+    }
+
     return (
-      <Link className={classes} {...linkProps}>
+      <Link className={classes} to={to || '/'} {...linkProps}>
         {children}
       </Link>
     )
