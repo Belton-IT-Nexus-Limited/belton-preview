@@ -5,7 +5,9 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID = 'G-WLYH298P2J'
+import { env } from './env'
+
+export const GA_MEASUREMENT_ID = env.gaMeasurementId
 
 export interface GAEventParams {
   event_category?: string

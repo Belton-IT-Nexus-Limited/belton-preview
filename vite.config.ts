@@ -82,13 +82,13 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false,
+    sourcemap: process.env.VITE_APP_ENV === 'production' ? 'hidden' : false,
     copyPublicDir: true,
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true,
-        drop_debugger: true
+        drop_console: process.env.VITE_APP_ENV === 'production',
+        drop_debugger: process.env.VITE_APP_ENV === 'production'
       }
     },
     rollupOptions: {

@@ -1,0 +1,402 @@
+[
+  {
+    "from": "/index.html",
+    "to": "/",
+    "status": 301
+  },
+  {
+    "from": "/home.html",
+    "to": "/",
+    "status": 301
+  },
+  {
+    "from": "/services.html",
+    "to": "/services",
+    "status": 301
+  },
+  {
+    "from": "/contact.html",
+    "to": "/contact",
+    "status": 301
+  },
+  {
+    "from": "/about.html",
+    "to": "/about",
+    "status": 301
+  },
+  {
+    "from": "/how-we-work.html",
+    "to": "/how-we-work",
+    "status": 301
+  },
+  {
+    "from": "/managed-it.html",
+    "to": "/managed-it",
+    "status": 301
+  },
+  {
+    "from": "/security.html",
+    "to": "/security",
+    "status": 301
+  },
+  {
+    "from": "/microsoft365.html",
+    "to": "/microsoft365",
+    "status": 301
+  },
+  {
+    "from": "/cloud.html",
+    "to": "/cloud",
+    "status": 301
+  },
+  {
+    "from": "/backup.html",
+    "to": "/backup",
+    "status": 301
+  },
+  {
+    "from": "/identity.html",
+    "to": "/identity",
+    "status": 301
+  },
+  {
+    "from": "/email-security.html",
+    "to": "/email-security",
+    "status": 301
+  },
+  {
+    "from": "/endpoints.html",
+    "to": "/endpoints",
+    "status": 301
+  },
+  {
+    "from": "/network-security.html",
+    "to": "/network-security",
+    "status": 301
+  },
+  {
+    "from": "/connectivity.html",
+    "to": "/connectivity",
+    "status": 301
+  },
+  {
+    "from": "/voice.html",
+    "to": "/voice",
+    "status": 301
+  },
+  {
+    "from": "/compliance.html",
+    "to": "/compliance",
+    "status": 301
+  },
+  {
+    "from": "/it-advisory.html",
+    "to": "/it-advisory",
+    "status": 301
+  },
+  {
+    "from": "/ai.html",
+    "to": "/ai",
+    "status": 301
+  },
+  {
+    "from": "/projects.html",
+    "to": "/projects",
+    "status": 301
+  },
+  {
+    "from": "/blueprint.html",
+    "to": "/blueprint",
+    "status": 301
+  },
+  {
+    "from": "/licensing.html",
+    "to": "/licensing",
+    "status": 301
+  },
+  {
+    "from": "/procurement.html",
+    "to": "/procurement",
+    "status": 301
+  },
+  {
+    "from": "/remote-support.html",
+    "to": "/remote-support",
+    "status": 301
+  },
+  {
+    "from": "/client-success.html",
+    "to": "/client-success",
+    "status": 301
+  },
+  {
+    "from": "/who-we-work-with.html",
+    "to": "/who-we-work-with",
+    "status": 301
+  },
+  {
+    "from": "/faq.html",
+    "to": "/faq",
+    "status": 301
+  },
+  {
+    "from": "/diy-cybersecurity.html",
+    "to": "/diy-cybersecurity",
+    "status": 301
+  },
+  {
+    "from": "/essential-eight.html",
+    "to": "/essential-eight",
+    "status": 301
+  },
+  {
+    "from": "/security-assessment.html",
+    "to": "/security-assessment",
+    "status": 301
+  },
+  {
+    "from": "/cyber-insurance-readiness.html",
+    "to": "/cyber-insurance-readiness",
+    "status": 301
+  },
+  {
+    "from": "/m365-security-checklist.html",
+    "to": "/m365-security-checklist",
+    "status": 301
+  },
+  {
+    "from": "/cyber-package.html",
+    "to": "/security",
+    "status": 301
+  },
+  {
+    "from": "/privacy.html",
+    "to": "/privacy",
+    "status": 301
+  },
+  {
+    "from": "/terms.html",
+    "to": "/terms",
+    "status": 301
+  },
+  {
+    "from": "/legal.html",
+    "to": "/legal",
+    "status": 301
+  },
+  {
+    "from": "/get-started.html",
+    "to": "/get-started",
+    "status": 301
+  },
+  {
+    "from": "/our-story.html",
+    "to": "/about",
+    "status": 301
+  },
+  {
+    "from": "/m365-guide.html",
+    "to": "/m365-guide",
+    "status": 301
+  },
+  {
+    "from": "/cyber-standards-guide.html",
+    "to": "/cyber-standards-guide",
+    "status": 301
+  },
+  {
+    "from": "/au/index.html",
+    "to": "/au",
+    "status": 301
+  },
+  {
+    "from": "/au/home.html",
+    "to": "/au",
+    "status": 301
+  },
+  {
+    "from": "/au/services.html",
+    "to": "/au/services",
+    "status": 301
+  },
+  {
+    "from": "/au/contact.html",
+    "to": "/au/contact",
+    "status": 301
+  },
+  {
+    "from": "/au/about.html",
+    "to": "/au/about",
+    "status": 301
+  },
+  {
+    "from": "/au/how-we-work.html",
+    "to": "/au/how-we-work",
+    "status": 301
+  },
+  {
+    "from": "/au/managed-it.html",
+    "to": "/au/managed-it",
+    "status": 301
+  },
+  {
+    "from": "/au/security.html",
+    "to": "/au/security",
+    "status": 301
+  },
+  {
+    "from": "/au/microsoft365.html",
+    "to": "/au/microsoft365",
+    "status": 301
+  },
+  {
+    "from": "/au/cloud.html",
+    "to": "/au/cloud",
+    "status": 301
+  },
+  {
+    "from": "/au/backup.html",
+    "to": "/au/backup",
+    "status": 301
+  },
+  {
+    "from": "/au/identity.html",
+    "to": "/au/identity",
+    "status": 301
+  },
+  {
+    "from": "/au/email-security.html",
+    "to": "/au/email-security",
+    "status": 301
+  },
+  {
+    "from": "/au/endpoints.html",
+    "to": "/au/endpoints",
+    "status": 301
+  },
+  {
+    "from": "/au/network-security.html",
+    "to": "/au/network-security",
+    "status": 301
+  },
+  {
+    "from": "/au/connectivity.html",
+    "to": "/au/connectivity",
+    "status": 301
+  },
+  {
+    "from": "/au/voice.html",
+    "to": "/au/voice",
+    "status": 301
+  },
+  {
+    "from": "/au/compliance.html",
+    "to": "/au/compliance",
+    "status": 301
+  },
+  {
+    "from": "/au/it-advisory.html",
+    "to": "/au/it-advisory",
+    "status": 301
+  },
+  {
+    "from": "/au/ai.html",
+    "to": "/au/ai",
+    "status": 301
+  },
+  {
+    "from": "/au/projects.html",
+    "to": "/au/projects",
+    "status": 301
+  },
+  {
+    "from": "/au/blueprint.html",
+    "to": "/au/blueprint",
+    "status": 301
+  },
+  {
+    "from": "/au/licensing.html",
+    "to": "/au/licensing",
+    "status": 301
+  },
+  {
+    "from": "/au/procurement.html",
+    "to": "/au/procurement",
+    "status": 301
+  },
+  {
+    "from": "/au/remote-support.html",
+    "to": "/au/remote-support",
+    "status": 301
+  },
+  {
+    "from": "/au/client-success.html",
+    "to": "/au/client-success",
+    "status": 301
+  },
+  {
+    "from": "/au/who-we-work-with.html",
+    "to": "/au/who-we-work-with",
+    "status": 301
+  },
+  {
+    "from": "/au/faq.html",
+    "to": "/au/faq",
+    "status": 301
+  },
+  {
+    "from": "/au/diy-cybersecurity.html",
+    "to": "/au/diy-cybersecurity",
+    "status": 301
+  },
+  {
+    "from": "/au/essential-eight.html",
+    "to": "/au/essential-eight",
+    "status": 301
+  },
+  {
+    "from": "/au/security-assessment.html",
+    "to": "/au/security-assessment",
+    "status": 301
+  },
+  {
+    "from": "/au/cyber-insurance-readiness.html",
+    "to": "/au/cyber-insurance-readiness",
+    "status": 301
+  },
+  {
+    "from": "/au/m365-security-checklist.html",
+    "to": "/au/m365-security-checklist",
+    "status": 301
+  },
+  {
+    "from": "/au/cyber-package.html",
+    "to": "/au/security",
+    "status": 301
+  },
+  {
+    "from": "/au/privacy.html",
+    "to": "/au/privacy",
+    "status": 301
+  },
+  {
+    "from": "/au/terms.html",
+    "to": "/au/terms",
+    "status": 301
+  },
+  {
+    "from": "/au/legal.html",
+    "to": "/au/legal",
+    "status": 301
+  },
+  {
+    "from": "/au/get-started.html",
+    "to": "/au/get-started",
+    "status": 301
+  },
+  {
+    "from": "/au/our-story.html",
+    "to": "/au/about",
+    "status": 301
+  }
+]

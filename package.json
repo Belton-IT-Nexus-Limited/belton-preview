@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "generate-sitemap": "tsx scripts/generate-sitemap.ts",
+    "generate-redirects": "tsx scripts/generate-redirects.ts",
     "analyze": "ANALYZE=true pnpm build && node scripts/analyze-bundle.js",
     "test:seo": "tsx scripts/test-seo.ts",
     "test:performance": "pnpm build && tsx scripts/test-performance.ts",

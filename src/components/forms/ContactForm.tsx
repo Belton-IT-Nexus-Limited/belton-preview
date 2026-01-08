@@ -2,15 +2,13 @@ import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
 import { trackFormSubmission } from '@/lib/analytics'
+import { env } from '@/lib/env'
 import { Input } from './Input'
 import { Textarea } from './Textarea'
 import { CheckboxGroup } from './CheckboxGroup'
 import { Button } from '../ui/Button'
 import { LiveRegion } from '../ui/LiveRegion'
 import { cn } from '@/lib/utils'
-
-const WEB3FORMS_ACCESS_KEY = '64c15151-8b61-4a9e-b92d-8ad9cb574933'
-const WEB3FORMS_API_URL = 'https://api.web3forms.com/submit'
 
 interface FormData {
   firstName: string
@@ -61,7 +59,7 @@ export function ContactForm({ className }: ContactFormProps): JSX.Element {
 
     try {
       const formDataToSend = new FormData()
-      formDataToSend.append('access_key', WEB3FORMS_ACCESS_KEY)
+      formDataToSend.append('access_key', env.web3formsAccessKey)
       formDataToSend.append('subject', `New Contact Form Submission - ${isAU ? 'AU' : 'NZ'}`)
       formDataToSend.append('from_name', 'Belton Website')
       formDataToSend.append('first-name', formData.firstName)
@@ -74,7 +72,7 @@ export function ContactForm({ className }: ContactFormProps): JSX.Element {
         formDataToSend.append('topic', topic)
       })
 
-      const response = await fetch(WEB3FORMS_API_URL, {
+      const response = await fetch(env.web3formsApiUrl, {
         method: 'POST',
         body: formDataToSend
       })
