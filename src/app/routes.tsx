@@ -5,6 +5,7 @@ import { useRegion } from '@/hooks/useRegion'
 import { Layout } from '@/components/layout'
 import { HomePage } from '@/pages/Home/HomePage'
 import { ServicesPage } from '@/pages/Services/ServicesPage'
+import { ContactPage } from '@/pages/Contact/ContactPage'
 
 interface RouteWrapperProps {
   children: React.ReactNode
@@ -30,8 +31,10 @@ export function AppRoutes(): JSX.Element {
     <Routes>
       <Route path="/" element={<RouteWrapper><HomePage /></RouteWrapper>} />
       <Route path="/services" element={<RouteWrapper><ServicesPage /></RouteWrapper>} />
+      <Route path="/contact" element={<RouteWrapper><ContactPage /></RouteWrapper>} />
       <Route path="/au" element={<RouteWrapper><HomePage /></RouteWrapper>} />
       <Route path="/au/services" element={<RouteWrapper><ServicesPage /></RouteWrapper>} />
+      <Route path="/au/contact" element={<RouteWrapper><ContactPage /></RouteWrapper>} />
       <Route path="/au/*" element={<RouteWrapper><HomePage /></RouteWrapper>} />
     </Routes>
   )

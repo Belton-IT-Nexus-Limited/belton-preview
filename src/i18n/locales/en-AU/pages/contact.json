@@ -1,0 +1,48 @@
+{
+  "title": "Get in touch",
+  "subtitle": "We're here to help. Whether you need support, want to discuss a project, or just have a question.",
+  "info": {
+    "title": "Contact us",
+    "description": "We're based in Sydney and work with clients across Australia. Most conversations start with a phone call or email.",
+    "phone": {
+      "title": "Phone"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "address": {
+      "title": "Location"
+    },
+    "hours": {
+      "title": "Business hours",
+      "content": "Monday to Friday, 8:00 AM - 6:00 PM AEST"
+    },
+    "responseNote": "We typically respond within 2 hours during business hours."
+  },
+  "form": {
+    "topics": {
+      "label": "What can we help with?",
+      "newClient": "New client enquiry",
+      "support": "IT support issue",
+      "quote": "Quote request",
+      "security": "Security concern",
+      "microsoft365": "Microsoft 365",
+      "general": "General question"
+    },
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "companyPlaceholder": "Your company",
+    "message": "How can we help?",
+    "messagePlaceholder": "Tell us about your project or question...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": {
+      "title": "Thank you!",
+      "message": "Our team will be in touch shortly.",
+      "urgent": "If you need urgent assistance, please call"
+    }
+  }
+}

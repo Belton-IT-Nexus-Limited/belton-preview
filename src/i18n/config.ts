@@ -5,23 +5,27 @@ import enNZCommon from './locales/en-NZ/common.json'
 import enNZNavigation from './locales/en-NZ/navigation.json'
 import enNZHome from './locales/en-NZ/pages/home.json'
 import enNZServices from './locales/en-NZ/pages/services.json'
+import enNZContact from './locales/en-NZ/pages/contact.json'
 import enAUCommon from './locales/en-AU/common.json'
 import enAUNavigation from './locales/en-AU/navigation.json'
 import enAUHome from './locales/en-AU/pages/home.json'
 import enAUServices from './locales/en-AU/pages/services.json'
+import enAUContact from './locales/en-AU/pages/contact.json'
 
 const resources = {
   'en-NZ': {
     common: enNZCommon,
     navigation: enNZNavigation,
     'pages/home': enNZHome,
-    'pages/services': enNZServices
+    'pages/services': enNZServices,
+    'pages/contact': enNZContact
   },
   'en-AU': {
     common: enAUCommon,
     navigation: enAUNavigation,
     'pages/home': enAUHome,
-    'pages/services': enAUServices
+    'pages/services': enAUServices,
+    'pages/contact': enAUContact
   }
 }
 
@@ -32,7 +36,7 @@ i18n
     resources,
     fallbackLng: 'en-NZ',
     defaultNS: 'common',
-          ns: ['common', 'navigation', 'pages/home', 'pages/services'],
+          ns: ['common', 'navigation', 'pages/home', 'pages/services', 'pages/contact'],
     interpolation: {
       escapeValue: false
     },
