@@ -30,7 +30,7 @@ export function Card(props: CardComponentProps): JSX.Element {
   const classes = cn(baseStyles, hoverStyles, className)
 
   if (props.as === 'link') {
-    const { as, ...linkProps } = props
+    const { as: _as, ...linkProps } = props
     return (
       <Link className={classes} {...linkProps}>
         {children}

@@ -9,7 +9,6 @@ interface PerformanceIssue {
 }
 
 const issues: PerformanceIssue[] = []
-const maxBundleSize = 500 * 1024
 const maxChunkSize = 300 * 1024
 
 function checkBundleSizes(): void {

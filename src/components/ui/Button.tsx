@@ -50,7 +50,7 @@ export function Button(props: ButtonComponentProps): JSX.Element {
   )
 
   if (props.as === 'link') {
-    const { as, external, href, to, children: linkChildren, ...linkProps } = props
+    const { external, href, to, children: linkChildren, ...linkProps } = props
     const linkHref = href || to
 
     if (external || (typeof linkHref === 'string' && (linkHref.startsWith('http') || linkHref.startsWith('tel:') || linkHref.startsWith('mailto:')))) {
