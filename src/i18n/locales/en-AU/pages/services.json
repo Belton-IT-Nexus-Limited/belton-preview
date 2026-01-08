@@ -1,0 +1,30 @@
+{
+  "title": "Everything your business technology needs",
+  "subtitle": "Pick what you need. Or let us handle all of it.",
+  "intro": "Most businesses need a mix of technology services working together. We handle everything from the devices your team uses daily to the security that keeps your data safe. Some clients hand us the keys to their entire IT environment. Others bring us in for specific projects. Either way works.",
+  "categories": {
+    "foundation": "Foundation",
+    "productivity": "Productivity",
+    "protection": "Protection",
+    "strategy": "Strategy"
+  },
+  "options": {
+    "complete": {
+      "label": "Complete IT",
+      "title": "Fully Managed",
+      "description": "We become your IT department. Devices, security, cloud, backup, and support. One monthly fee."
+    },
+    "projects": {
+      "label": "Project Work",
+      "title": "One-off Projects",
+      "description": "Migrations, upgrades, audits, implementations. Fixed scope, quoted per project."
+    }
+  },
+  "cta": {
+    "title": "Not sure where to start?",
+    "subtitle": "That's fine. Most conversations begin with \"we're not sure what we need\" and end with clarity.",
+    "primary": "Start a Conversation",
+    "secondary": "See How We Work",
+    "reassurance": "No obligation. No sales pitch. Just a straightforward discussion about your situation."
+  }
+}

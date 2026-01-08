@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useRegion } from '@/hooks/useRegion'
 import { Layout } from '@/components/layout'
 import { HomePage } from '@/pages/Home/HomePage'
+import { ServicesPage } from '@/pages/Services/ServicesPage'
 
 interface RouteWrapperProps {
   children: React.ReactNode
@@ -28,7 +29,9 @@ export function AppRoutes(): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<RouteWrapper><HomePage /></RouteWrapper>} />
+      <Route path="/services" element={<RouteWrapper><ServicesPage /></RouteWrapper>} />
       <Route path="/au" element={<RouteWrapper><HomePage /></RouteWrapper>} />
+      <Route path="/au/services" element={<RouteWrapper><ServicesPage /></RouteWrapper>} />
       <Route path="/au/*" element={<RouteWrapper><HomePage /></RouteWrapper>} />
     </Routes>
   )
